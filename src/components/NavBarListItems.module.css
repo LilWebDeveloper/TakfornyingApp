@@ -1,4 +1,10 @@
-.a{
+.noActive{
   text-decoration: none;
   color: var(--color-primary-400);
+}
+.a :hover,
+.a :active {
+  text-decoration: none;
+  color: var(--color-primary-400);
+  font-weight: 700;
 }

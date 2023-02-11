@@ -9,7 +9,7 @@ interface AppBarProps extends MuiAppBarProps {
   open?: boolean;
 }
 
-export const AppBar = styled(MuiAppBar, {
+export const NavBar = styled(MuiAppBar, {
   shouldForwardProp: (prop) => prop !== "open",
 })<AppBarProps>(({ theme, open }) => ({
   zIndex: theme.zIndex.drawer + 1,

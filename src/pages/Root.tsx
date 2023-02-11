@@ -21,7 +21,7 @@ import { mainListItems } from "../components/NavBarListItems";
 
 const mdTheme = createTheme();
 
-function RootLoyoutContent() {
+function RootLayoutContent() {
   const [open, setOpen] = React.useState(false);
   const toggleDrawer = () => {
     setOpen(!open);
@@ -105,6 +105,6 @@ function RootLoyoutContent() {
   );
 }
 
-export default function RootLoyout() {
-  return <RootLoyoutContent />;
+export default function RootLayout() {
+  return <RootLayoutContent />;
 }

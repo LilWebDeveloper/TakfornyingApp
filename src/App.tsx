@@ -1,12 +1,12 @@
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 
 import './App.css';
-import RootLoyout from "./pages/Root";
+import RootLayout from "./pages/Root";
 
 const router = createBrowserRouter([
   {
     path: '/',
-    element: <RootLoyout />,
+    element: <RootLayout />,
     children: [
 
     ],

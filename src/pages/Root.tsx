@@ -16,6 +16,7 @@ import LogoutTwoToneIcon from "@mui/icons-material/LogoutTwoTone";
 
 import { NavBar, Drawer } from "../components/NavBar";
 import { Copyright } from "../components/Copyright";
+import { mainListItems } from "../components/NavBarListItems";
 
 
 const mdTheme = createTheme();

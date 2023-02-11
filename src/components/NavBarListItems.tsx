@@ -12,7 +12,7 @@ import StoreIcon from '@mui/icons-material/Store';
 import AddBusinessIcon from '@mui/icons-material/AddBusiness';
 import MapIcon from '@mui/icons-material/Map';
 
-import classes from './style.module.css'
+import classes from './NavBarListItems.module.css'
 
 
 export const mainListItems = (

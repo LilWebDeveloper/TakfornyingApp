@@ -5,11 +5,6 @@
   color: white;
 }
 
-.order img {
-  width: 30rem;
-  border-radius: 4px;
-}
-
 .actions {
   display: flex;
   gap: 1rem;
@@ -18,16 +13,9 @@
   padding: 0;
 }
 
-.actions a,
 .actions Button {
   padding: 0.25rem 1rem;
   text-decoration: none;
   font: inherit;
   cursor: pointer;
-}
-
-.actions button {
-  background-color: transparent;
-  border: none;
-  color: var(--color-primary-800);
 }

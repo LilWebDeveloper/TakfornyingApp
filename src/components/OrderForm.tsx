@@ -18,32 +18,33 @@ const theme = createTheme({
   },
 });
 
-const currencies = [
-  {
-    value: "English red",
-    label: "English red",
-  },
-  {
-    value: "Black Mat",
-    label: "Black Mat",
-  },
-  {
-    value: "Black Shiny",
-    label: "Black Shiny",
-  },
-  {
-    value: "Red Mat",
-    label: "Red Mat",
-  },
-];
-
 function OrderForm() {
+  const currencies = [
+    {
+      value: "English red",
+      label: "English red",
+    },
+    {
+      value: "Black Mat",
+      label: "Black Mat",
+    },
+    {
+      value: "Black Shiny",
+      label: "Black Shiny",
+    },
+    {
+      value: "Red Mat",
+      label: "Red Mat",
+    },
+  ];
+
   return (
-    <div className={classes.OrderForm}>
+    <div>
       <ThemeProvider theme={theme}>
-        <Form>
+        <Form className={classes.order_form}>
           <TextField
-            className={classes.inputSize}
+            sx={{ m: 1 }}
+            className={classes.input_size}
             id="address"
             type="text"
             label="Address"
@@ -51,9 +52,11 @@ function OrderForm() {
           />
           <br />
           <TextField
-            className={classes.inputSize}
+            sx={{ m: 1 }}
+            className={classes.input_size}
             id="roofPaint"
             select
+            defaultValue=""
             label="Roof Paint"
           >
             {currencies.map((option: any) => (
@@ -64,7 +67,8 @@ function OrderForm() {
           </TextField>
           <br />
           <TextField
-            className={classes.inputSize}
+            sx={{ m: 1 }}
+            className={classes.input_size}
             id="roofSize"
             type="number"
             label="Roof Size"
@@ -72,7 +76,8 @@ function OrderForm() {
           />
           <br />
           <TextField
-            className={classes.inputSize}
+            sx={{ m: 1 }}
+            className={classes.input_size}
             id="roofAngle"
             type="number"
             label="Roof Angle"
@@ -80,7 +85,8 @@ function OrderForm() {
           />
           <br />
           <TextField
-            className={classes.inputSize}
+            sx={{ m: 1 }}
+            className={classes.input_size}
             id="description"
             type="text"
             label="Description"

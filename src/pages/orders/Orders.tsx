@@ -5,10 +5,6 @@ import OrdersList from "../../components/OrdersList";
 function OrdersPage() {
   const orders: any = useLoaderData();
 
-  if (orders.isError) {
-    return <p>{orders.message}</p>;
-  }
-
   return <OrdersList orders={orders} />;
 }
 
@@ -20,7 +16,7 @@ export async function loader() {
   );
 
   if (!response.ok) {
-    return { isError: true, message: "Could not fetch orders." };
+   
   } else {
     const resData = await response.json();
 

@@ -11,13 +11,11 @@ interface Orders {
 
 const OrdersList = ({ orders }: Orders) => {
   return (
-    <div className={classes.events}>
+    <div className={classes.orders}>
       <h1>All Orders</h1>
-      <ul className={classes.list}>
         {orders.map((order: any) => (
-          <Grid item xs={12}>
-            <Paper className={classes.paper} sx={{ p: 2, display: "flex", flexDirection: "column" }}>
-              
+          <Grid key={order.id} item xs={12} >
+            <Paper className={classes.paper} sx={{m: 2, p: 2, display: "flex", flexDirection: "column" }}>
                 <Link to={`/orders/${order.id}`}>
                   <div className={classes.content}>
                     <h2>Address: {order.address}</h2>
@@ -30,7 +28,7 @@ const OrdersList = ({ orders }: Orders) => {
             </Paper>
           </Grid>
         ))}
-      </ul>
+     
     </div>
   );
 };

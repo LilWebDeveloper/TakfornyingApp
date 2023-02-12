@@ -1,8 +1,7 @@
-.OrderForm {
+.order_form {
     font-family: sans-serif;
     text-align: center;
   }
-.inputSize{
-    width: 200px;
-    margin: 5px;
+.input_size{
+    width: 30em;
 }

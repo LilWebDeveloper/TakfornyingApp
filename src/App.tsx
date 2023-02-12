@@ -3,10 +3,9 @@ import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import AddressesMapPage from "./pages/AddressesMap";
 import EditOrderPage from "./pages/orders/EditOrder";
 import NewOrderPage from "./pages/orders/NewOrder";
-import OrderDetailPage from "./pages/orders/OrderDetail";
-import OrdersPage, { loader as OrdersLoader} from "./pages/orders/Orders";
+import OrderDetailPage, { loader as OrderLoader} from "./pages/orders/OrderDetail";
+import OrdersPage, { loader as OrdersLoader } from "./pages/orders/Orders";
 import RootLayout from "./pages/Root";
-
 
 import "./App.css";
 
@@ -21,8 +20,12 @@ const router = createBrowserRouter([
         element: <OrdersPage />,
         loader: OrdersLoader,
       },
-      { path: "orders/:orderId", element: <OrderDetailPage /> },
-      { path: "orders/new", element: <NewOrderPage /> },
+      {
+        path: "orders/:orderId",
+        element: <OrderDetailPage />,
+        loader: OrderLoader,
+      },
+      { path: "orders/new", element: <NewOrderPage />, loader: OrdersLoader },
       { path: "orders/:orderId/edit", element: <EditOrderPage /> },
       { path: "addresses", element: <AddressesMapPage /> },
     ],

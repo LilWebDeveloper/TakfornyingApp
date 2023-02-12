@@ -1,5 +1,13 @@
+import { useRouteLoaderData } from "react-router-dom";
+import OrderForm from "../../components/OrderForm";
+
 function EditOrderPage() {
-    return <h1>Edit order</h1>;
+  const order: any = useRouteLoaderData('order-detail');
+
+    return <>
+      <h1>Edit order</h1>
+      <OrderForm order={order}/>
+    </>
   }
   
   export default EditOrderPage;

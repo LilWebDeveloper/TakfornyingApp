@@ -1,8 +1,8 @@
-import { useLoaderData } from "react-router-dom";
+import { useRouteLoaderData } from "react-router-dom";
 import OrderItem from "../../components/OrderItem";
 
 function OrderDetailPage() {
- const order: any = useLoaderData();
+ const order: any = useRouteLoaderData('order-detail');
 
   return <OrderItem order={order} />;
 }

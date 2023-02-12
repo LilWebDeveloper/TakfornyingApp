@@ -30,21 +30,3 @@ const OrdersList = ({ orders }: Orders) => {
 };
 
 export default OrdersList;
-
-
-{/* <div className={classes.content}>
-            <h3>Address</h3>
-            <p>{order.address}</p>
-            <h3>Roof Paint</h3>
-            <p>{order.roofPaint}</p>
-            <h3></h3>
-            <p></p>
-            <h3></h3>
-            <p></p>
-            <h3></h3>
-            <p></p>
-            <h3>Roof paint: {order.roofPaint}</h3>
-            <h3>Roof size: {order.roofSize} square meters</h3>
-            <h3>Roof angle: {order.roofAngle} degrees</h3>
-            <h3>Description: {order.description}</h3>
-          </div> */}

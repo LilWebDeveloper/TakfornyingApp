@@ -18,7 +18,9 @@ const theme = createTheme({
   },
 });
 
-function OrderForm() {
+
+
+function OrderForm({order}: any) {
   const currencies = [
     {
       value: "English red",
@@ -49,6 +51,7 @@ function OrderForm() {
             type="text"
             label="Address"
             variant="outlined"
+            defaultValue={order ? order.address : ''}
           />
           <br />
           <TextField
@@ -56,8 +59,8 @@ function OrderForm() {
             className={classes.input_size}
             id="roofPaint"
             select
-            defaultValue=""
             label="Roof Paint"
+            defaultValue={order ? order.roofPaint : ''}
           >
             {currencies.map((option: any) => (
               <MenuItem key={option.value} value={option.value}>
@@ -73,6 +76,7 @@ function OrderForm() {
             type="number"
             label="Roof Size"
             variant="outlined"
+            defaultValue={order ? order.roofSize : ''}
           />
           <br />
           <TextField
@@ -82,6 +86,7 @@ function OrderForm() {
             type="number"
             label="Roof Angle"
             variant="outlined"
+            defaultValue={order ? order.roofAngle : ''}
           />
           <br />
           <TextField
@@ -91,9 +96,10 @@ function OrderForm() {
             type="text"
             label="Description"
             variant="outlined"
+            defaultValue={order ? order.description : ''}
           />
           <br />
-          <Button sx={{ mt: 1 }} variant="contained" color="primary">
+          <Button sx={{ m: 1 }} variant="contained" color="primary">
             save
           </Button>
         </Form>

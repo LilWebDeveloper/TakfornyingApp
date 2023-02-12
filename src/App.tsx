@@ -5,6 +5,7 @@ import EditOrderPage from "./pages/orders/EditOrder";
 import NewOrderPage, {action as newOrderAction} from "./pages/orders/NewOrder";
 import OrderDetailPage, {
   loader as OrderLoader,
+  action as DeleteOrderAction
 } from "./pages/orders/OrderDetail";
 import OrdersPage, { loader as OrdersLoader } from "./pages/orders/Orders";
 import RootLayout from "./pages/Root";
@@ -30,7 +31,8 @@ const router = createBrowserRouter([
           {
             index: true,
             element: <OrderDetailPage />,
-            loader: OrdersLoader
+            loader: OrdersLoader,
+            action: DeleteOrderAction
           },
           {
             path: "edit",

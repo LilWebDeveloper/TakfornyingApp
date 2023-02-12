@@ -11,7 +11,7 @@ import classes from "../style/OrderItem.module.css";
 
 import { Button, createTheme, ThemeProvider } from "@mui/material";
 
-import { Link } from "react-router-dom";
+import { Link, useSubmit } from "react-router-dom";
 
 const theme = createTheme({
   palette: {
@@ -26,21 +26,37 @@ interface Order {
 }
 
 function OrderItem({ order }: Order) {
+  const submit = useSubmit();
+
   function DeleteHandler() {
-    // ...
+    const proceed = window.confirm("Are you sure?");
+
+    if (proceed) {
+      submit(null, { method: "delete" });
+    }
   }
 
   return (
     <ThemeProvider theme={theme}>
       <TableContainer component={Paper} className={classes.order}>
         <Table sx={{ minWidth: 650 }} aria-label="simple table">
-          <TableHead sx={{bgcolor: "primary.main"}}>
-            <TableRow className={classes.tableCell} sx={{fontWeight: 400}}>
-              <TableCell sx={{color: 'white'}} align="center">ADDRESS</TableCell>
-              <TableCell sx={{color: 'white'}} align="center">ROOF PAINT</TableCell>
-              <TableCell sx={{color: 'white'}} align="center">ROOF SIZE</TableCell>
-              <TableCell sx={{color: 'white'}} align="center">ROOF ANGLE</TableCell>
-              <TableCell sx={{color: 'white'}} align="center">DESCRIPTION</TableCell>
+          <TableHead sx={{ bgcolor: "primary.main" }}>
+            <TableRow className={classes.tableCell} sx={{ fontWeight: 400 }}>
+              <TableCell sx={{ color: "white" }} align="center">
+                ADDRESS
+              </TableCell>
+              <TableCell sx={{ color: "white" }} align="center">
+                ROOF PAINT
+              </TableCell>
+              <TableCell sx={{ color: "white" }} align="center">
+                ROOF SIZE
+              </TableCell>
+              <TableCell sx={{ color: "white" }} align="center">
+                ROOF ANGLE
+              </TableCell>
+              <TableCell sx={{ color: "white" }} align="center">
+                DESCRIPTION
+              </TableCell>
             </TableRow>
           </TableHead>
           <TableBody>

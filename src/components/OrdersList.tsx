@@ -9,7 +9,7 @@ interface Orders {
   orders: any;
 }
 
-const EventsList = ({ orders }: Orders) => {
+const OrdersList = ({ orders }: Orders) => {
   return (
     <div className={classes.events}>
       <h1>All Orders</h1>
@@ -27,7 +27,6 @@ const EventsList = ({ orders }: Orders) => {
                     <h3>Description: {order.description}</h3>
                   </div>
                 </Link>
-              
             </Paper>
           </Grid>
         ))}
@@ -36,4 +35,4 @@ const EventsList = ({ orders }: Orders) => {
   );
 };
 
-export default EventsList;
+export default OrdersList;

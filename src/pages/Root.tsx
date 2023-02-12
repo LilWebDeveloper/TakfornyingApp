@@ -9,7 +9,7 @@ import List from "@mui/material/List";
 import Typography from "@mui/material/Typography";
 import Divider from "@mui/material/Divider";
 import IconButton from "@mui/material/IconButton";
-import Button from '@mui/material/Button';
+import Button from "@mui/material/Button";
 import MenuIcon from "@mui/icons-material/Menu";
 import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
 import LogoutTwoToneIcon from "@mui/icons-material/LogoutTwoTone";
@@ -17,7 +17,6 @@ import LogoutTwoToneIcon from "@mui/icons-material/LogoutTwoTone";
 import { NavBar, Drawer } from "../components/NavBar";
 import { Copyright } from "../components/Copyright";
 import { mainListItems } from "../components/NavBarListItems";
-
 
 const mdTheme = createTheme();
 
@@ -61,8 +60,9 @@ function RootLayoutContent() {
             >
               Takfornying
             </Typography>
-            <Button variant="contained" color="error" sx={{color: 'white'}}>
-              <LogoutTwoToneIcon />Logout
+            <Button variant="contained" color="error" sx={{ color: "white" }}>
+              <LogoutTwoToneIcon />
+              Logout
             </Button>
           </Toolbar>
         </NavBar>
@@ -80,9 +80,7 @@ function RootLayoutContent() {
             </IconButton>
           </Toolbar>
           <Divider />
-          <List component="nav">
-            {mainListItems}
-          </List>
+          <List component="nav">{mainListItems}</List>
         </Drawer>
         <Box
           component="main"
@@ -97,7 +95,7 @@ function RootLayoutContent() {
           }}
         >
           <Toolbar />
-            <Outlet />
+          <Outlet />
           <Copyright />
         </Box>
       </Box>

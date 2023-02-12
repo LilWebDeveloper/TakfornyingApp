@@ -5,6 +5,10 @@
   color: white;
 }
 
+.tableCell{
+  font-weight: bold;
+}
+
 .actions {
   display: flex;
   gap: 1rem;

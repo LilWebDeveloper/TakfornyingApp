@@ -1,9 +1,15 @@
+import * as React from "react";
+import Table from "@mui/material/Table";
+import TableBody from "@mui/material/TableBody";
+import TableCell from "@mui/material/TableCell";
+import TableContainer from "@mui/material/TableContainer";
+import TableHead from "@mui/material/TableHead";
+import TableRow from "@mui/material/TableRow";
+import Paper from "@mui/material/Paper";
+
 import classes from "../style/OrderItem.module.css";
 
 import { Button, createTheme, ThemeProvider } from "@mui/material";
-
-import Grid from "@mui/material/Grid";
-import Paper from "@mui/material/Paper";
 
 import { Link } from "react-router-dom";
 
@@ -26,21 +32,33 @@ function OrderItem({ order }: Order) {
 
   return (
     <ThemeProvider theme={theme}>
-      <h1>Order Details</h1>
-      <Grid className={classes.order} item xs={12}>
-        <Paper
-          className={classes.paper}
-          sx={{ m: 2, p: 2, display: "flex", flexDirection: "column" }}
-        >
-          <div className={classes.content}>
-            <h2>Address: {order.address}</h2>
-            <h3>Roof paint: {order.roofPaint}</h3>
-            <h3>Roof size: {order.roofSize} square meters</h3>
-            <h3>Roof angle: {order.roofAngle} degrees</h3>
-            <h3>Description: {order.description}</h3>
-          </div>
-        </Paper>
-      </Grid>
+      <TableContainer component={Paper} className={classes.order}>
+        <Table sx={{ minWidth: 650 }} aria-label="simple table">
+          <TableHead sx={{bgcolor: "primary.main"}}>
+            <TableRow className={classes.tableCell} sx={{fontWeight: 400}}>
+              <TableCell sx={{color: 'white'}} align="center">ADDRESS</TableCell>
+              <TableCell sx={{color: 'white'}} align="center">ROOF PAINT</TableCell>
+              <TableCell sx={{color: 'white'}} align="center">ROOF SIZE</TableCell>
+              <TableCell sx={{color: 'white'}} align="center">ROOF ANGLE</TableCell>
+              <TableCell sx={{color: 'white'}} align="center">DESCRIPTION</TableCell>
+            </TableRow>
+          </TableHead>
+          <TableBody>
+            <TableRow
+              key={order.id}
+              sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
+            >
+              <TableCell align="center" component="th" scope="row">
+                {order.address}
+              </TableCell>
+              <TableCell align="center">{order.roofPaint}</TableCell>
+              <TableCell align="center">{order.roofSize} &#13217;</TableCell>
+              <TableCell align="center">{order.roofAngle}&#176;</TableCell>
+              <TableCell align="center">{order.description}</TableCell>
+            </TableRow>
+          </TableBody>
+        </Table>
+      </TableContainer>
       <menu className={classes.actions}>
         <Button variant="contained" color="primary">
           <Link to="edit">Edit</Link>

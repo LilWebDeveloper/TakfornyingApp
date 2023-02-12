@@ -18,49 +18,50 @@ const theme = createTheme({
   },
 });
 
+const currencies = [
+  {
+    value: "English red",
+    label: "English red",
+  },
+  {
+    value: "Black Mat",
+    label: "Black Mat",
+  },
+  {
+    value: "Black Shiny",
+    label: "Black Shiny",
+  },
+  {
+    value: "Red Mat",
+    label: "Red Mat",
+  },
+];
 
-
-function OrderForm({order}: any) {
-  const currencies = [
-    {
-      value: "English red",
-      label: "English red",
-    },
-    {
-      value: "Black Mat",
-      label: "Black Mat",
-    },
-    {
-      value: "Black Shiny",
-      label: "Black Shiny",
-    },
-    {
-      value: "Red Mat",
-      label: "Red Mat",
-    },
-  ];
+function OrderForm({ method, order }: any) {
 
   return (
     <div>
       <ThemeProvider theme={theme}>
-        <Form className={classes.order_form}>
+        <Form method="post" className={classes.order_form}>
           <TextField
             sx={{ m: 1 }}
             className={classes.input_size}
             id="address"
+            name="address"
             type="text"
             label="Address"
             variant="outlined"
-            defaultValue={order ? order.address : ''}
+            defaultValue={order ? order.address : ""}
           />
           <br />
           <TextField
             sx={{ m: 1 }}
             className={classes.input_size}
             id="roofPaint"
+            name="roofPaint"
             select
             label="Roof Paint"
-            defaultValue={order ? order.roofPaint : ''}
+            defaultValue={order ? order.roofPaint : ""}
           >
             {currencies.map((option: any) => (
               <MenuItem key={option.value} value={option.value}>
@@ -73,33 +74,36 @@ function OrderForm({order}: any) {
             sx={{ m: 1 }}
             className={classes.input_size}
             id="roofSize"
+            name="roofSize"
             type="number"
             label="Roof Size"
             variant="outlined"
-            defaultValue={order ? order.roofSize : ''}
+            defaultValue={order ? order.roofSize : ""}
           />
           <br />
           <TextField
             sx={{ m: 1 }}
             className={classes.input_size}
             id="roofAngle"
+            name="roofAngle"
             type="number"
             label="Roof Angle"
             variant="outlined"
-            defaultValue={order ? order.roofAngle : ''}
+            defaultValue={order ? order.roofAngle : ""}
           />
           <br />
           <TextField
             sx={{ m: 1 }}
             className={classes.input_size}
             id="description"
+            name="description"
             type="text"
             label="Description"
             variant="outlined"
-            defaultValue={order ? order.description : ''}
+            defaultValue={order ? order.description : ""}
           />
           <br />
-          <Button sx={{ m: 1 }} variant="contained" color="primary">
+          <Button type="submit" sx={{ m: 1 }} variant="contained" color="primary">
             save
           </Button>
         </Form>

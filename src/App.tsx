@@ -2,7 +2,7 @@ import { RouterProvider, createBrowserRouter } from "react-router-dom";
 
 import AddressesMapPage from "./pages/AddressesMap";
 import EditOrderPage from "./pages/orders/EditOrder";
-import NewOrderPage from "./pages/orders/NewOrder";
+import NewOrderPage, {action as newOrderAction} from "./pages/orders/NewOrder";
 import OrderDetailPage, {
   loader as OrderLoader,
 } from "./pages/orders/OrderDetail";
@@ -30,6 +30,7 @@ const router = createBrowserRouter([
           {
             index: true,
             element: <OrderDetailPage />,
+            loader: OrdersLoader
           },
           {
             path: "edit",
@@ -37,7 +38,7 @@ const router = createBrowserRouter([
           },
         ],
       },
-      { path: "orders/new", element: <NewOrderPage />, loader: OrdersLoader },
+      { path: "orders/new", element: <NewOrderPage />, action: newOrderAction },
       { path: "addresses", element: <AddressesMapPage /> },
     ],
   },

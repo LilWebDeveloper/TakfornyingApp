@@ -18,11 +18,7 @@ const OrdersList = ({ orders }: Orders) => {
             <Paper className={classes.paper} sx={{m: 2, p: 2, display: "flex", flexDirection: "column" }}>
                 <Link to={`/orders/${order.id}`}>
                   <div className={classes.content}>
-                    <h2>Address: {order.address}</h2>
-                    <h3>Roof paint: {order.roofPaint}</h3>
-                    <h3>Roof size: {order.roofSize} square meters</h3>
-                    <h3>Roof angle: {order.roofAngle} degrees</h3>
-                    <h3>Description: {order.description}</h3>
+                    <h2>{order.address}</h2>
                   </div>
                 </Link>
             </Paper>

@@ -85,14 +85,14 @@ function EmployeeForm({ method, employee }: any) {
             type="string"
             label="D-Number / Person Number"
             variant="outlined"
-            defaultValue={employee ? employee.personNumber : ""}
+            defaultValue={employee ? employee.dNumber : ""}
           />
           <br />
           <TextField
             sx={{ m: 1 }}
             className={classes.input_size}
-            id="login"
-            name="login"
+            id="userLogin"
+            name="userLogin"
             type="text"
             label="Login for employee"
             variant="outlined"

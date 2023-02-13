@@ -63,7 +63,7 @@ function EmployeeItem({ employee }: any) {
               </TableCell>
               <TableCell align="center">{employee.secondName}</TableCell>
               <TableCell align="center">{employee.jobPosition}</TableCell>
-              <TableCell align="center">{employee.personNumber}</TableCell>
+              <TableCell align="center">{employee.dNumber}</TableCell>
             </TableRow>
           </TableBody>
         </Table>

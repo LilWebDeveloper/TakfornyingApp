@@ -26,7 +26,7 @@ export async function action({ request, params }: any) {
     secondName: data.get("secondName"),
     jobPosition: data.get("jobPosition"),
     dNumber: data.get("dNumber"),
-    login: data.get("firstNumber"),
+    login: data.get("userLogin"),
     password: data.get('password')
   };
 

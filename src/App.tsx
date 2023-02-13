@@ -5,6 +5,7 @@ import AddressesMapPage from "./pages/AddressesMap";
 import NewEmployeePage, { action as NewEmployeeAction} from "./pages/employees/NewEmployee";
 import EmployeesPage, { loader as EmployeesLoader} from "./pages/employees/Employees";
 import EmployeeDetailPage, {loader as EmployeeLoader,action as DeleteEmployeeAction} from "./pages/employees/EmployeeDetail";
+import EditEmployeePage from "./pages/employees/EditEmployee";
 
 
 import EditOrderPage from "./pages/orders/EditOrder";
@@ -45,7 +46,7 @@ const router = createBrowserRouter([
           },
           {
             path: "edit",
-            element: <EditOrderPage />,
+            element: <EditEmployeePage />,
           },
         ]
       },

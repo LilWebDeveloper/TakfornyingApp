@@ -105,7 +105,7 @@ function OrderForm({ method, employee }: any) {
             id="password"
             name="password"
             type="text"
-            label="Password for employee"
+            label="Temporary password for employee"
             variant="outlined"
             defaultValue={employee ? employee.password : ""}
           />

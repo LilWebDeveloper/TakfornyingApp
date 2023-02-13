@@ -4,6 +4,8 @@ import AddressesMapPage from "./pages/AddressesMap";
 
 import NewEmployeePage, { action as NewEmployeeAction} from "./pages/employees/NewEmployee";
 import EmployeesPage, { loader as EmployeesLoader} from "./pages/employees/Employees";
+import EmployeeDetailPage, {loader as EmployeeLoader,action as DeleteEmployeeAction} from "./pages/employees/EmployeeDetail";
+
 
 import EditOrderPage from "./pages/orders/EditOrder";
 import NewOrderPage, {action as NewOrderAction} from "./pages/orders/NewOrder";
@@ -29,6 +31,23 @@ const router = createBrowserRouter([
         path: 'employees',
         element: <EmployeesPage />,
         loader: EmployeesLoader
+      },
+      {
+        path: 'employees/:employeeId',
+        id: 'employee-detail',
+        loader: EmployeeLoader,
+        children: [
+          {
+            index: true,
+            element: <EmployeeDetailPage />,
+            loader: EmployeesLoader,
+            action: DeleteEmployeeAction
+          },
+          {
+            path: "edit",
+            element: <EditOrderPage />,
+          },
+        ]
       },
       {
         path: 'employees/new',

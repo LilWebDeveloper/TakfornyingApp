@@ -33,7 +33,7 @@ const currencies = [
   }
 ];
 
-function OrderForm({ method, employee }: any) {
+function EmployeeForm({ method, employee }: any) {
 
   return (
     <div>
@@ -119,4 +119,4 @@ function OrderForm({ method, employee }: any) {
   );
 }
 
-export default OrderForm;
+export default EmployeeForm;

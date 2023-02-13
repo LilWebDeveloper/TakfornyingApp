@@ -13,7 +13,7 @@ const EmployeesList = ({ employees }: any) => {
         {employees.map((employee: any) => (
           <Grid key={employee.id} item xs={12} >
             <Paper className={classes.paper} sx={{m: 2, p: 2, display: "flex", flexDirection: "column" }}>
-                <Link to={employee.id}>
+                <Link to={`/employees/${employee.id}`}>
                   <div className={classes.content}>
                     <h2>{employee.firstName} {employee.secondName}</h2>
                     <h3>{employee.jobPosition}</h3>

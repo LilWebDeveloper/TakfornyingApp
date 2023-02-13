@@ -16,7 +16,7 @@ const OrdersList = ({ orders }: Orders) => {
         {orders.map((order: any) => (
           <Grid key={order.id} item xs={12} >
             <Paper className={classes.paper} sx={{m: 2, p: 2, display: "flex", flexDirection: "column" }}>
-                <Link to={order.id}>
+                <Link to={`/orders/${order.id}`}>
                   <div className={classes.content}>
                     <h2>{order.address}</h2>
                   </div>

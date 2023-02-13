@@ -18,7 +18,7 @@ const theme = createTheme({
   },
 });
 
-const currencies = [
+const roofPaint = [
   {
     value: "English red",
     label: "English red",
@@ -62,7 +62,7 @@ function OrderForm({ method, order }: any) {
             label="Roof Paint"
             defaultValue={order ? order.roofPaint : ""}
           >
-            {currencies.map((option: any) => (
+            {roofPaint.map((option: any) => (
               <MenuItem key={option.value} value={option.value}>
                 {option.label}
               </MenuItem>
@@ -102,6 +102,22 @@ function OrderForm({ method, order }: any) {
             defaultValue={order ? order.description : ""}
           />
           <br />
+          <TextField
+            sx={{ m: 1 }}
+            className={classes.input_size}
+            id="worker"
+            name="worker"
+            select
+            label="Select Worker"
+            defaultValue={order ? order.worker : ""}
+          >
+            {roofPaint.map((option: any) => (
+              <MenuItem key={option.value} value={option.value}>
+                {option.label}
+              </MenuItem>
+            ))}
+          </TextField>
+          <br />
           <Button
             type="submit"
             sx={{ m: 1 }}
@@ -129,6 +145,7 @@ export async function action({ request, params }: any) {
     roofSize: data.get("roofSize"),
     roofAngle: data.get("roofAngle"),
     description: data.get("description"),
+    worker: data.get('worker')
   };
 
   let url =

@@ -1,6 +1,6 @@
 import Grid from "@mui/material/Grid";
 import Paper from "@mui/material/Paper";
-import EmployeeForm from "../../components/employees/EmployeeForm";
+import EmployeeForm from "../../components/employees/Form";
 import { redirect } from "react-router-dom";
 
 function NewEmployeePage() {

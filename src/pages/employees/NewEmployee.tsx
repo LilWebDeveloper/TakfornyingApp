@@ -27,6 +27,7 @@ export async function action({ request, params }: any) {
     jobPosition: data.get("jobPosition"),
     dNumber: data.get("dNumber"),
     login: data.get("firstNumber"),
+    password: data.get('password')
   };
 
   const response = await fetch(

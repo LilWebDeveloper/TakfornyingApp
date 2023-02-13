@@ -5,11 +5,8 @@ import Paper from "@mui/material/Paper";
 
 import classes from "../../style/List.module.css";
 
-interface Orders {
-  orders: any;
-}
 
-const OrdersList = ({ employees }: Orders) => {
+const EmployeesList = ({ employees }: any) => {
   return (
     <div className={classes.orders}>
       <h1>All Employees</h1>
@@ -29,4 +26,4 @@ const OrdersList = ({ employees }: Orders) => {
   );
 };
 
-export default OrdersList;
+export default EmployeesList;

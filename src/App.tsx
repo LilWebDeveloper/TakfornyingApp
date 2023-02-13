@@ -3,6 +3,7 @@ import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import AddressesMapPage from "./pages/AddressesMap";
 
 import NewEmployeePage, { action as NewEmployeeAction} from "./pages/employees/NewEmployee";
+import EmployeesPage, { loader as EmployeesLoader} from "./pages/employees/Employees";
 
 import EditOrderPage from "./pages/orders/EditOrder";
 import NewOrderPage, {action as NewOrderAction} from "./pages/orders/NewOrder";
@@ -22,11 +23,20 @@ const router = createBrowserRouter([
     element: <RootLayout />,
     children: [
       { index: true, element: <AddressesMapPage /> },
+
+      // EMPLOYEES
+      {
+        path: 'employees',
+        element: <EmployeesPage />,
+        loader: EmployeesLoader
+      },
       {
         path: 'employees/new',
         element: <NewEmployeePage />,
         action: NewEmployeeAction,
       },
+
+      // ORDERS
       {
         path: "orders",
         element: <OrdersPage />,
@@ -50,6 +60,8 @@ const router = createBrowserRouter([
         ],
       },
       { path: "orders/new", element: <NewOrderPage />, action: NewOrderAction },
+
+      // API MAP ADDRESSES
       { path: "addresses", element: <AddressesMapPage /> },
     ],
   },

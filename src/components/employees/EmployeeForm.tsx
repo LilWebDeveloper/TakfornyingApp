@@ -55,9 +55,20 @@ function OrderForm({ method, employee }: any) {
             className={classes.input_size}
             id="secondName"
             name="secondName"
-            select
+            type="text"
             label="Second Name"
-            defaultValue={employee ? employee.secondName : ""}
+            variant="outlined"
+            defaultValue={employee ? employee.firstName : ""}
+          />
+          <br />
+          <TextField
+            sx={{ m: 1 }}
+            className={classes.input_size}
+            id="jobPosition"
+            name="jobPosition"
+            select
+            label="Job Position"
+            defaultValue={employee ? employee.jobPosition : ""}
           >
             {currencies.map((option: any) => (
               <MenuItem key={option.value} value={option.value}>
@@ -74,7 +85,7 @@ function OrderForm({ method, employee }: any) {
             type="string"
             label="D-Number / Person Number"
             variant="outlined"
-            defaultValue={employee ? employee.roofSize : ""}
+            defaultValue={employee ? employee.personNumber : ""}
           />
           <br />
           <TextField

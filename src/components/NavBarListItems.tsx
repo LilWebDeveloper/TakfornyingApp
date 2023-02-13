@@ -21,7 +21,7 @@ export const NavBarListItems = (
     </ListSubheader>
 
     <NavLink
-      to="/employee"
+      to="/employees"
       className={({ isActive }) => (isActive ? classes.active : classes.noActive)} 
       end
     >
@@ -34,7 +34,7 @@ export const NavBarListItems = (
     </NavLink>
 
     <NavLink
-      to="/employee/new"
+      to="/employees/new"
       className={({ isActive }) => (isActive ? classes.active : classes.noActive)} 
       end
     >

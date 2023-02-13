@@ -6,7 +6,7 @@ function EditEmployeePage() {
 
     return <>
       <h1>Edit employee</h1>
-      <EmployeeForm employee={employee}/>
+      <EmployeeForm method='patch' employee={employee}/>
     </>
   }
   

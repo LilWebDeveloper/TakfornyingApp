@@ -6,7 +6,7 @@ import {
   ThemeProvider,
 } from "@mui/material";
 
-import { Form } from "react-router-dom";
+import { Form, redirect } from "react-router-dom";
 
 import classes from "../../style/From.module.css";
 
@@ -30,15 +30,14 @@ const currencies = [
   {
     value: "Employee",
     label: "Employee",
-  }
+  },
 ];
 
 function EmployeeForm({ method, employee }: any) {
-
   return (
     <div>
       <ThemeProvider theme={theme}>
-        <Form method="post" className={classes.order_form}>
+        <Form method={method} className={classes.order_form}>
           <TextField
             sx={{ m: 1 }}
             className={classes.input_size}
@@ -110,7 +109,12 @@ function EmployeeForm({ method, employee }: any) {
             defaultValue={employee ? employee.password : ""}
           />
           <br />
-          <Button type="submit" sx={{ m: 1 }} variant="contained" color="primary">
+          <Button
+            type="submit"
+            sx={{ m: 1 }}
+            variant="contained"
+            color="primary"
+          >
             save
           </Button>
         </Form>
@@ -120,3 +124,41 @@ function EmployeeForm({ method, employee }: any) {
 }
 
 export default EmployeeForm;
+
+export async function action({ request, params }: any) {
+  const method = request.method;
+
+  const data = await request.formData();
+
+  const employeeData = {
+    firstName: data.get("firstName"),
+    secondName: data.get("secondName"),
+    jobPosition: data.get("jobPosition"),
+    dNumber: data.get("dNumber"),
+    login: data.get("userLogin"),
+    password: data.get("password"),
+  };
+
+  let url = 'https://takfornyingmenagmentapp-default-rtdb.europe-west1.firebasedatabase.app/employees'
+
+  if(method === 'PATCH'){
+    const employeeId = params.employeeId
+    url = 'https://takfornyingmenagmentapp-default-rtdb.europe-west1.firebasedatabase.app/employees/' + employeeId + '.json'
+  }
+
+  const response = await fetch(url ,
+    {
+      method: method,
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(employeeData),
+    }
+  );
+
+  if (!response.ok) {
+    // error
+  }
+
+  return redirect("/employees");
+}

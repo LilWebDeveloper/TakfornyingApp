@@ -2,10 +2,11 @@ import { RouterProvider, createBrowserRouter } from "react-router-dom";
 
 import AddressesMapPage from "./pages/AddressesMap";
 
-import NewEmployeePage, { action as NewEmployeeAction} from "./pages/employees/NewEmployee";
+import NewEmployeePage from "./pages/employees/NewEmployee";
 import EmployeesPage, { loader as EmployeesLoader} from "./pages/employees/Employees";
 import EmployeeDetailPage, {loader as EmployeeLoader,action as DeleteEmployeeAction} from "./pages/employees/EmployeeDetail";
 import EditEmployeePage from "./pages/employees/EditEmployee";
+import { action as manipulateEmployeeAction } from './components/employees/EmployeeForm'
 
 
 import EditOrderPage from "./pages/orders/EditOrder";
@@ -47,13 +48,14 @@ const router = createBrowserRouter([
           {
             path: "edit",
             element: <EditEmployeePage />,
+            action: manipulateEmployeeAction
           },
         ]
       },
       {
         path: 'employees/new',
         element: <NewEmployeePage />,
-        action: NewEmployeeAction,
+        action: manipulateEmployeeAction
       },
 
       // ORDERS

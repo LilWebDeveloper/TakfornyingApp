@@ -15,7 +15,8 @@ const EmployeesList = ({ employees }: any) => {
             <Paper className={classes.paper} sx={{m: 2, p: 2, display: "flex", flexDirection: "column" }}>
                 <Link to={employee.id}>
                   <div className={classes.content}>
-                    <h2>{employee.firstName} {employee.secondName} {employee.jobPosition}</h2>
+                    <h2>{employee.firstName} {employee.secondName}</h2>
+                    <h3>{employee.jobPosition}</h3>
                   </div>
                 </Link>
             </Paper>

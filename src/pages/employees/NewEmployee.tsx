@@ -6,7 +6,7 @@ import { redirect } from "react-router-dom";
 function NewEmployeePage() {
   return (
     <>
-      <h1>Add new employee</h1>
+      <h1>Add New Employee</h1>
       <Grid item xs={12}>
         <Paper sx={{ p: 2, display: "flex", flexDirection: "column" }}>
           <EmployeeForm />

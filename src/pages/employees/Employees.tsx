@@ -27,6 +27,7 @@ export async function loader() {
         id: key,
         firstName: resData[key].firstName,
         secondName: resData[key].secondName,
+        jobPosition: resData[key].jobPosition,
         personNumber: resData[key].personNumber,
         login: resData[key].login,
         password: resData[key].password,

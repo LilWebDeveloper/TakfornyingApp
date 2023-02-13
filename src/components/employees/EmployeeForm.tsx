@@ -139,7 +139,7 @@ export async function action({ request, params }: any) {
     password: data.get("password"),
   };
 
-  let url = 'https://takfornyingmenagmentapp-default-rtdb.europe-west1.firebasedatabase.app/employees'
+  let url = 'https://takfornyingmenagmentapp-default-rtdb.europe-west1.firebasedatabase.app/employees.json'
 
   if(method === 'PATCH'){
     const employeeId = params.employeeId
@@ -157,7 +157,7 @@ export async function action({ request, params }: any) {
   );
 
   if (!response.ok) {
-    // error
+    console.log(employeeData);
   }
 
   return redirect("/employees");

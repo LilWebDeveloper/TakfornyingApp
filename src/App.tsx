@@ -10,12 +10,13 @@ import { action as manipulateEmployeeAction } from './components/employees/Emplo
 
 
 import EditOrderPage from "./pages/orders/EditOrder";
-import NewOrderPage, {action as NewOrderAction} from "./pages/orders/NewOrder";
+import NewOrderPage from "./pages/orders/NewOrder";
 import OrderDetailPage, {
   loader as OrderLoader,
   action as DeleteOrderAction
 } from "./pages/orders/OrderDetail";
 import OrdersPage, { loader as OrdersLoader } from "./pages/orders/Orders";
+import { action as manipulateOrderAction } from './components/orders/OrderForm'
 
 import RootLayout from "./pages/Root";
 
@@ -78,10 +79,11 @@ const router = createBrowserRouter([
           {
             path: "edit",
             element: <EditOrderPage />,
+            action: manipulateOrderAction
           },
         ],
       },
-      { path: "orders/new", element: <NewOrderPage />, action: NewOrderAction },
+      { path: "orders/new", element: <NewOrderPage />, action: manipulateOrderAction },
 
       // API MAP ADDRESSES
       { path: "addresses", element: <AddressesMapPage /> },

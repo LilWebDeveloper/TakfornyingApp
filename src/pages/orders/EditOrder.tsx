@@ -6,7 +6,7 @@ function EditOrderPage() {
 
     return <>
       <h1>Edit order</h1>
-      <OrderForm order={order}/>
+      <OrderForm method='patch' order={order}/>
     </>
   }
   

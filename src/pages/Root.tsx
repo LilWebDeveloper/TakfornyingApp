@@ -16,7 +16,7 @@ import LogoutTwoToneIcon from "@mui/icons-material/LogoutTwoTone";
 
 import { NavBar, Drawer } from "../components/NavBar";
 import { Copyright } from "../components/Copyright";
-import { mainListItems } from "../components/NavBarListItems";
+import { NavBarListItems } from "../components/NavBarListItems";
 
 const mdTheme = createTheme();
 
@@ -80,7 +80,7 @@ function RootLayoutContent() {
             </IconButton>
           </Toolbar>
           <Divider />
-          <List component="nav">{mainListItems}</List>
+          <List component="nav">{NavBarListItems}</List>
         </Drawer>
         <Box
           component="main"

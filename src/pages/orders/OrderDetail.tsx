@@ -1,6 +1,6 @@
 import { useRouteLoaderData, useLoaderData, json, redirect } from "react-router-dom";
-import OrderItem from "../../components/OrderItem";
-import OrdersList from "../../components/OrdersList";
+import OrderItem from "../../components/orders/OrderItem";
+import OrdersList from "../../components/orders/OrdersList";
 
 function OrderDetailPage() {
   const orders: any = useLoaderData();

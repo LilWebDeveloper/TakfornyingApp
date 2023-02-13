@@ -7,7 +7,7 @@ import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
 
-import classes from "../style/OrderItem.module.css";
+import classes from "../../style/OrderItem.module.css";
 
 import { Button, createTheme, ThemeProvider } from "@mui/material";
 

@@ -1,6 +1,6 @@
 import Grid from "@mui/material/Grid";
 import Paper from "@mui/material/Paper";
-import OrderForm from "../../components/OrderForm";
+import OrderForm from "../../components/orders/OrderForm";
 import { redirect } from "react-router-dom";
 
 function NewOrderPage() {

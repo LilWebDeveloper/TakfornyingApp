@@ -14,7 +14,7 @@ import MapIcon from "@mui/icons-material/Map";
 
 import classes from "../style/NavBarListItems.module.css";
 
-export const mainListItems = (
+export const NavBarListItems = (
   <React.Fragment>
     <ListSubheader component="div" inset>
       Owner Panel

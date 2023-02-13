@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import Grid from "@mui/material/Grid";
 import Paper from "@mui/material/Paper";
 
-import classes from "../style/OrdersList.module.css";
+import classes from "../../style/OrdersList.module.css";
 
 interface Orders {
   orders: any;

@@ -2,21 +2,12 @@ import {
   Button,
   TextField,
   MenuItem,
-  createTheme,
-  ThemeProvider,
 } from "@mui/material";
 
 import { Form, redirect } from "react-router-dom";
 
 import classes from "../../style/From.module.css";
 
-const theme = createTheme({
-  palette: {
-    primary: {
-      main: "#631200",
-    },
-  },
-});
 
 const currencies = [
   {
@@ -36,7 +27,6 @@ const currencies = [
 function EmployeeForm({ method, employee }: any) {
   return (
     <div>
-      <ThemeProvider theme={theme}>
         <Form method={method} className={classes.order_form}>
           <TextField
             sx={{ m: 1 }}
@@ -118,7 +108,6 @@ function EmployeeForm({ method, employee }: any) {
             save
           </Button>
         </Form>
-      </ThemeProvider>
     </div>
   );
 }

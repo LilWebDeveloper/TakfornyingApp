@@ -1,7 +1,7 @@
 import * as React from "react";
 import { Outlet } from "react-router-dom";
 
-import { createTheme, ThemeProvider } from "@mui/material/styles";
+import { ThemeProvider } from "@mui/material/styles";
 import CssBaseline from "@mui/material/CssBaseline";
 import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
@@ -14,11 +14,11 @@ import MenuIcon from "@mui/icons-material/Menu";
 import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
 import LogoutTwoToneIcon from "@mui/icons-material/LogoutTwoTone";
 
-import { NavBar, Drawer } from "../components/NavBar";
+import { NavBar, Drawer } from "../components/navBar/NavBar";
 import { Copyright } from "../components/Copyright";
-import { NavBarListItems } from "../components/NavBarListItems";
+import { NavBarListItems } from "../components/navBar/NavBarListItems";
 
-const mdTheme = createTheme();
+import { theme } from '../components/createTheme'
 
 function RootLayoutContent() {
   const [open, setOpen] = React.useState(false);
@@ -27,7 +27,7 @@ function RootLayoutContent() {
   };
 
   return (
-    <ThemeProvider theme={mdTheme}>
+    <ThemeProvider theme={theme}>
       <Box sx={{ display: "flex" }}>
         <CssBaseline />
         <NavBar position="absolute" open={open}>

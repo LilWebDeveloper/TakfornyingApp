@@ -1,4 +1,4 @@
-export const roofPaint = [
+export const RoofPaint = [
     {
       value: "English red",
       label: "English red",

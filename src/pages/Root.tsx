@@ -18,7 +18,7 @@ import { NavBar, Drawer } from "../components/navBar/NavBar";
 import { Copyright } from "../components/items/Copyright";
 import { NavBarListItems } from "../components/navBar/NavBarListItems";
 
-import { theme } from '../components/items/createTheme'
+import { Theme } from '../components/items/CreateTheme'
 
 function RootLayoutContent() {
   const [open, setOpen] = React.useState(false);
@@ -27,7 +27,7 @@ function RootLayoutContent() {
   };
 
   return (
-    <ThemeProvider theme={theme}>
+    <ThemeProvider theme={Theme}>
       <Box sx={{ display: "flex" }}>
         <CssBaseline />
         <NavBar position="absolute" open={open}>

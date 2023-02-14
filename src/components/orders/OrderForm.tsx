@@ -4,7 +4,7 @@ import {
   MenuItem,
 } from "@mui/material";
 
-import { roofPaint } from "../items/roofPaint";
+import { RoofPaint } from "../items/RoofPaint"
 
 import { Form, redirect } from "react-router-dom";
 
@@ -35,7 +35,7 @@ function OrderForm({ method, order }: any) {
             label="Roof Paint"
             defaultValue={order ? order.roofPaint : ""}
           >
-            {roofPaint.map((option: any) => (
+            {RoofPaint.map((option: any) => (
               <MenuItem key={option.value} value={option.value}>
                 {option.label}
               </MenuItem>
@@ -84,7 +84,7 @@ function OrderForm({ method, order }: any) {
             label="Select Worker"
             defaultValue={order ? order.worker : ""}
           >
-            {roofPaint.map((option: any) => (
+            {RoofPaint.map((option: any) => (
               <MenuItem key={option.value} value={option.value}>
                 {option.label}
               </MenuItem>

@@ -4,28 +4,12 @@ import {
   MenuItem,
 } from "@mui/material";
 
+import { roofPaint } from "../items/roofPaint";
+
 import { Form, redirect } from "react-router-dom";
 
 import classes from "../../style/From.module.css";
 
-const roofPaint = [
-  {
-    value: "English red",
-    label: "English red",
-  },
-  {
-    value: "Black Mat",
-    label: "Black Mat",
-  },
-  {
-    value: "Black Shiny",
-    label: "Black Shiny",
-  },
-  {
-    value: "Red Mat",
-    label: "Red Mat",
-  },
-];
 
 function OrderForm({ method, order }: any) {
   return (

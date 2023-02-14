@@ -15,10 +15,10 @@ import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
 import LogoutTwoToneIcon from "@mui/icons-material/LogoutTwoTone";
 
 import { NavBar, Drawer } from "../components/navBar/NavBar";
-import { Copyright } from "../components/Copyright";
+import { Copyright } from "../components/items/Copyright";
 import { NavBarListItems } from "../components/navBar/NavBarListItems";
 
-import { theme } from '../components/createTheme'
+import { theme } from '../components/items/createTheme'
 
 function RootLayoutContent() {
   const [open, setOpen] = React.useState(false);

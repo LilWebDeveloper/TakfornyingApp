@@ -1,24 +1,34 @@
+import RootLayout from "./pages/Root";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 
+// API MAP
 import AddressesMapPage from "./pages/AddressesMap";
 
+// EMPLOYEE
 import NewEmployeePage from "./pages/employees/NewEmployee";
-import EmployeesPage, { loader as EmployeesLoader} from "./pages/employees/Employees";
-import EmployeeDetailPage, {loader as EmployeeLoader,action as DeleteEmployeeAction} from "./pages/employees/EmployeeDetail";
+import EmployeesPage from "./pages/employees/Employees";
+import EmployeeDetailPage from "./pages/employees/EmployeeDetail";
 import EditEmployeePage from "./pages/employees/EditEmployee";
-import { action as manipulateEmployeeAction } from './components/employees/EmployeeForm'
 
+import EmployeeLoader from "./components/loaders/EmployeeLoader";
+import EmployeesLoader from "./components/loaders/EmployeesLoader";
 
+import ManipulateEmployeeAction from "./components/actions/ManipulateEmployeeAction";
+import DeleteEmployeeAction from "./components/actions/DeleteEmployeeAction";
+
+// ORDERS
 import EditOrderPage from "./pages/orders/EditOrder";
 import NewOrderPage from "./pages/orders/NewOrder";
-import OrderDetailPage, {
-  loader as OrderLoader,
-  action as DeleteOrderAction
-} from "./pages/orders/OrderDetail";
-import OrdersPage, { loader as OrdersLoader } from "./pages/orders/Orders";
-import { action as manipulateOrderAction } from './components/orders/OrderForm'
+import OrderDetailPage from "./pages/orders/OrderDetail";
+import OrdersPage from "./pages/orders/Orders";
 
-import RootLayout from "./pages/Root";
+import OrdersLoader from "./components/loaders/OrdersLoader";
+import OrderLoader from "./components/loaders/OrderLoader";
+
+import ManipulateOrderAction from "./components/actions/ManipulateOrderAction";
+import DeleteOrderAction from "./components/actions/DeleteOrderAction";
+
+
 
 import "./App.css";
 
@@ -49,14 +59,14 @@ const router = createBrowserRouter([
           {
             path: "edit",
             element: <EditEmployeePage />,
-            action: manipulateEmployeeAction
+            action: ManipulateEmployeeAction
           },
         ]
       },
       {
         path: 'employees/new',
         element: <NewEmployeePage />,
-        action: manipulateEmployeeAction
+        action: ManipulateEmployeeAction
       },
 
       // ORDERS
@@ -79,11 +89,11 @@ const router = createBrowserRouter([
           {
             path: "edit",
             element: <EditOrderPage />,
-            action: manipulateOrderAction
+            action: ManipulateOrderAction
           },
         ],
       },
-      { path: "orders/new", element: <NewOrderPage />, action: manipulateOrderAction },
+      { path: "orders/new", element: <NewOrderPage />, action: ManipulateOrderAction },
 
       // API MAP ADDRESSES
       { path: "addresses", element: <AddressesMapPage /> },

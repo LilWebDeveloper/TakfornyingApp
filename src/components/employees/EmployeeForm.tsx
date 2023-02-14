@@ -47,7 +47,7 @@ function EmployeeForm({ method, employee }: any) {
             type="text"
             label="Second Name"
             variant="outlined"
-            defaultValue={employee ? employee.firstName : ""}
+            defaultValue={employee ? employee.secondName : ""}
           />
           <br />
           <TextField

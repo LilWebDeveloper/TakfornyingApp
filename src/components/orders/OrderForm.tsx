@@ -1,14 +1,14 @@
 import { Button, TextField, MenuItem } from "@mui/material";
 
 import { RoofPaint } from "../items/RoofPaint";
-import { EmployeeSelectList } from "../items/EmployeeSelectList";
+// import { EmployeeSelectList } from "../items/EmployeeSelectList";
 
 import { Form } from "react-router-dom";
 
 import classes from "../../style/From.module.css";
 
-function OrderForm({ method, order }: any) {
-return (
+function OrderForm({ method, order, selectEmployees }: any) {
+  return (
     <div>
       <Form method={method} className={classes.order_form}>
         <TextField
@@ -80,7 +80,7 @@ return (
           label="Select Worker"
           defaultValue={order ? order.worker : ""}
         >
-          {EmployeeSelectList.map((option: any) => (
+          {selectEmployees.map((option: any) => (
             <MenuItem key={option.value} value={option.value}>
               {option.label}
             </MenuItem>

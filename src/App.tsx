@@ -28,9 +28,8 @@ import OrderLoader from "./components/loaders/OrderLoader";
 import ManipulateOrderAction from "./components/actions/ManipulateOrderAction";
 import DeleteOrderAction from "./components/actions/DeleteOrderAction";
 
-
-
 import "./App.css";
+import SelectEmployeesLoader from "./components/orders/SelectEmployeesLoader";
 
 const router = createBrowserRouter([
   {
@@ -41,32 +40,32 @@ const router = createBrowserRouter([
 
       // EMPLOYEES
       {
-        path: 'employees',
+        path: "employees",
         element: <EmployeesPage />,
-        loader: EmployeesLoader
+        loader: EmployeesLoader,
       },
       {
-        path: 'employees/:employeeId',
-        id: 'employee-detail',
+        path: "employees/:employeeId",
+        id: "employee-detail",
         loader: EmployeeLoader,
         children: [
           {
             index: true,
             element: <EmployeeDetailPage />,
             loader: EmployeesLoader,
-            action: DeleteEmployeeAction
+            action: DeleteEmployeeAction,
           },
           {
             path: "edit",
             element: <EditEmployeePage />,
-            action: ManipulateEmployeeAction
+            action: ManipulateEmployeeAction,
           },
-        ]
+        ],
       },
       {
-        path: 'employees/new',
+        path: "employees/new",
         element: <NewEmployeePage />,
-        action: ManipulateEmployeeAction
+        action: ManipulateEmployeeAction,
       },
 
       // ORDERS
@@ -84,16 +83,21 @@ const router = createBrowserRouter([
             index: true,
             element: <OrderDetailPage />,
             loader: OrdersLoader,
-            action: DeleteOrderAction
+            action: DeleteOrderAction,
           },
           {
             path: "edit",
             element: <EditOrderPage />,
-            action: ManipulateOrderAction
+            action: ManipulateOrderAction,
           },
         ],
       },
-      { path: "orders/new", element: <NewOrderPage />, action: ManipulateOrderAction },
+      {
+        path: "orders/new",
+        element: <NewOrderPage />,
+        action: ManipulateOrderAction,
+        loader: SelectEmployeesLoader,
+      },
 
       // API MAP ADDRESSES
       { path: "addresses", element: <AddressesMapPage /> },
@@ -102,7 +106,6 @@ const router = createBrowserRouter([
 ]);
 
 function App() {
-  console.log(EmployeesLoader())
   return <RouterProvider router={router} />;
 }
 

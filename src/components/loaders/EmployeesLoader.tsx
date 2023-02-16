@@ -16,7 +16,7 @@ export default async function EmployeesLoader() {
           firstName: resData[key].firstName,
           secondName: resData[key].secondName,
           jobPosition: resData[key].jobPosition,
-          personNumber: resData[key].personNumber,
+          personNumber: resData[key].dNumber,
           login: resData[key].login,
           password: resData[key].password,
         });

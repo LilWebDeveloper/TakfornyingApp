@@ -11,7 +11,7 @@ export function Copyright(props: any) {
       >
         {"Copyright © "}
         <Link color="inherit" href="https://github.com/LilWebDeveloper">
-          Website by Takfornying x Falecki
+          Website by Takfornying x Falęcki
         </Link>{" "}
         {new Date().getFullYear()}
         {"."}

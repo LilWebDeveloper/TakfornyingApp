@@ -30,10 +30,15 @@ import DeleteOrderAction from "./components/actions/DeleteOrderAction";
 
 import "./App.css";
 import SelectEmployeesLoader from "./components/orders/SelectEmployeesLoader";
+import LoginPage from "./pages/login/Login";
 
 const router = createBrowserRouter([
   {
-    path: "/",
+    path: '/',
+    element: <LoginPage />
+  },
+  {
+    path: "/dashboard",
     element: <RootLayout />,
     children: [
       { index: true, element: <AddressesMapPage /> },

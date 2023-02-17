@@ -82,7 +82,6 @@ const router = createBrowserRouter([
           {
             index: true,
             element: <OrderDetailPage />,
-            loader: OrdersLoader,
             action: DeleteOrderAction,
           },
           {

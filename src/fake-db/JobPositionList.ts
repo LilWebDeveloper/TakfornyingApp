@@ -1,9 +1,9 @@
-interface JobPositionType {
+export interface MenuItemType {
   value: string,
   label: string
 }
 
-export const JobPosition: JobPositionType[] = [
+export const JobPosition: MenuItemType[] = [
     {
       value: "Admin",
       label: "Admin",

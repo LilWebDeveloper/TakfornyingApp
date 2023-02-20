@@ -1,4 +1,6 @@
-export const RoofPaint = [
+import { MenuItemType } from "./JobPositionList";
+
+export const RoofPaint: MenuItemType[] = [
     {
       value: "English red",
       label: "English red",

@@ -48,6 +48,9 @@ function OrderItem({ order }: Order) {
                 ADDRESS
               </TableCell>
               <TableCell sx={{ color: "white" }} align="center">
+                WORKER
+              </TableCell>
+              <TableCell sx={{ color: "white" }} align="center">
                 ROOF PAINT
               </TableCell>
               <TableCell sx={{ color: "white" }} align="center">
@@ -69,6 +72,7 @@ function OrderItem({ order }: Order) {
               <TableCell align="center" component="th" scope="row">
                 {order.address}
               </TableCell>
+              <TableCell align="center">{order.worker}</TableCell>
               <TableCell align="center">{order.roofPaint}</TableCell>
               <TableCell align="center">{order.roofSize} &#13217;</TableCell>
               <TableCell align="center">{order.roofAngle}&#176;</TableCell>

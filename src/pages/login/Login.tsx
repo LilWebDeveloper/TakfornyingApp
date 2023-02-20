@@ -13,7 +13,7 @@ import { Form } from "react-router-dom";
 
 import { Theme } from "../../style/CreateTheme";
 
-import { Copyright } from "../../components/items/Copyright";
+import { Copyright } from "../../components/copyright/Copyright";
 
 import takfornyingImage from "../../assets/takfornying.jpg";
 import takfornyingLogo from "../../assets/logo2021takfornying.jpg";

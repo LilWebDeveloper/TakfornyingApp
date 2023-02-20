@@ -15,7 +15,7 @@ import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
 import LogoutTwoToneIcon from "@mui/icons-material/LogoutTwoTone";
 
 import { NavBar, Drawer } from "../components/navBar/NavBar";
-import { Copyright } from "../components/items/Copyright";
+import { Copyright } from "../components/copyright/Copyright";
 import { NavBarListItems } from "../components/navBar/NavBarListItems";
 
 import { Theme } from '../style/CreateTheme'

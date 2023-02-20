@@ -28,7 +28,6 @@ import OrderLoader from "./components/loaders/OrderLoader";
 import ManipulateOrderAction from "./components/actions/ManipulateOrderAction";
 import DeleteOrderAction from "./components/actions/DeleteOrderAction";
 
-import "./App.css";
 import SelectEmployeesLoader from "./components/orders/SelectEmployeesLoader";
 import LoginPage from "./pages/login/Login";
 

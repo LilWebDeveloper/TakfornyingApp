@@ -6,7 +6,7 @@ import {
 
 import { Form } from "react-router-dom";
 
-import classes from "../../style/From.module.css";
+import classes from "../../style/Froms.module.css";
 
 
 const currencies = [

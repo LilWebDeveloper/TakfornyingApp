@@ -28,13 +28,13 @@ import OrderLoader from "./services/loaders/OrderLoader";
 import ManipulateOrderAction from "./services/actions/ManipulateOrderAction";
 import DeleteOrderAction from "./services/actions/DeleteOrderAction";
 
-import SelectEmployeesLoader from "./components/orders/SelectEmployeesLoader";
+import SelectEmployeesLoader from "./services/loaders/SelectEmployeesLoader";
 import LoginPage from "./pages/login/Login";
 
 const router = createBrowserRouter([
   {
-    path: '/',
-    element: <LoginPage />
+    path: "/",
+    element: <LoginPage />,
   },
   {
     path: "dashboard",
@@ -90,9 +90,15 @@ const router = createBrowserRouter([
             action: DeleteOrderAction,
           },
           {
-            path: "edit",
-            element: <EditOrderPage />,
-            action: ManipulateOrderAction,
+            id: "select-employee-loader",
+            loader: SelectEmployeesLoader,
+            children: [
+              {
+                path: "edit",
+                element: <EditOrderPage />,
+                action: ManipulateOrderAction,
+              },
+            ],
           },
         ],
       },

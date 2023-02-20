@@ -20,7 +20,6 @@ function OrderForm({ method, order, selectEmployees }: any) {
           variant="outlined"
           defaultValue={order ? order.address : ""}
         />
-        <br />
         <TextField
           sx={{ m: 1 }}
           className={classes.input_size}
@@ -36,7 +35,6 @@ function OrderForm({ method, order, selectEmployees }: any) {
             </MenuItem>
           ))}
         </TextField>
-        <br />
         <TextField
           sx={{ m: 1 }}
           className={classes.input_size}
@@ -47,7 +45,6 @@ function OrderForm({ method, order, selectEmployees }: any) {
           variant="outlined"
           defaultValue={order ? order.roofSize : ""}
         />
-        <br />
         <TextField
           sx={{ m: 1 }}
           className={classes.input_size}
@@ -58,7 +55,6 @@ function OrderForm({ method, order, selectEmployees }: any) {
           variant="outlined"
           defaultValue={order ? order.roofAngle : ""}
         />
-        <br />
         <TextField
           sx={{ m: 1 }}
           className={classes.input_size}
@@ -69,7 +65,6 @@ function OrderForm({ method, order, selectEmployees }: any) {
           variant="outlined"
           defaultValue={order ? order.description : ""}
         />
-        <br />
         <TextField
           sx={{ m: 1 }}
           className={classes.input_size}
@@ -85,7 +80,6 @@ function OrderForm({ method, order, selectEmployees }: any) {
             </MenuItem>
           ))}
         </TextField>
-        <br />
         <Button type="submit" sx={{ m: 1 }} variant="contained" color="primary">
           save
         </Button>

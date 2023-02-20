@@ -35,6 +35,8 @@ const router = createBrowserRouter([
   {
     path: "/",
     element: <LoginPage />,
+    loader: EmployeesLoader,
+    
   },
   {
     path: "dashboard",

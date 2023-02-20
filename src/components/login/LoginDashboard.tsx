@@ -6,12 +6,10 @@ import {
   Typography,
   TextField,
   Button,
-  ThemeProvider,
 } from "@mui/material";
 
 import { Form } from "react-router-dom";
 
-import { Theme } from "../../style/CreateTheme";
 
 import { Copyright } from "../../components/copyright/Copyright";
 
@@ -30,7 +28,6 @@ function LoginDashboard() {
   };
 
   return (
-    <ThemeProvider theme={Theme}>
       <Grid container component="main" sx={{ height: "100vh" }}>
         <CssBaseline />
         <Grid
@@ -107,7 +104,6 @@ function LoginDashboard() {
           </Box>
         </Grid>
       </Grid>
-    </ThemeProvider>
   );
 }
 

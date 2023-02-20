@@ -5,3 +5,6 @@
 .input_size{
     width: 30em;
 }
+.input_size input{
+  text-align: center;
+}

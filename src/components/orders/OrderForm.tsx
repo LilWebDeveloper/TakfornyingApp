@@ -97,7 +97,7 @@ function OrderForm({ method, order, selectEmployees }: any) {
               variant="contained"
               color="primary"
             >
-              <AddCircleTwoToneIcon sx={{mr: 1}}/>
+              <AddCircleTwoToneIcon/>
               Add
             </Button>
           </Form>

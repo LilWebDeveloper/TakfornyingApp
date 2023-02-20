@@ -34,5 +34,5 @@ export default async function ManipulateOrderAction({ request, params }: any) {
       console.log(orderData);
     }
   
-    return redirect("/orders");
+    return redirect("/dashboard/orders");
   }

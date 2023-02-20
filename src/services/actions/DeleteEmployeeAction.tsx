@@ -17,6 +17,6 @@ export default async function DeleteEmployeeAction({ params, request }: any) {
       );
     }
   
-    return redirect('/employees')
+    return redirect('/dashboard/employees')
   }
 

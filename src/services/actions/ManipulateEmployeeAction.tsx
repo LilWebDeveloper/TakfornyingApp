@@ -35,5 +35,5 @@ export default async function ManipulateEmployeeAction({ request, params }: any)
       console.log(employeeData);
     }
   
-    return redirect("/employees");
+    return redirect("/dashboard/employees");
   }

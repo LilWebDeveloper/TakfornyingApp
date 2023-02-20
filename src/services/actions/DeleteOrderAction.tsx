@@ -17,5 +17,5 @@ export default async function DeleteOrderAction({ params, request }: any) {
       );
     }
   
-    return redirect('/orders')
+    return redirect('/dashboard/orders')
   }

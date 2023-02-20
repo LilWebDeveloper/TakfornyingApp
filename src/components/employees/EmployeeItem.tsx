@@ -11,6 +11,9 @@ import classes from "../../style/Item.module.css";
 
 import { Button, createTheme, ThemeProvider } from "@mui/material";
 
+import EditTwoToneIcon from '@mui/icons-material/EditTwoTone';
+import DeleteTwoToneIcon from '@mui/icons-material/DeleteTwoTone';
+
 import { Link, useSubmit } from "react-router-dom";
 
 const theme = createTheme({
@@ -70,9 +73,11 @@ function EmployeeItem({ employee }: any) {
       </TableContainer>
       <menu className={classes.actions}>
         <Button variant="contained" color="primary">
+          <EditTwoToneIcon sx={{mr: 1}}/>
           <Link to="edit">Edit</Link>
         </Button>
         <Button onClick={DeleteHandler} variant="contained" color="primary">
+          <DeleteTwoToneIcon sx={{mr: 1}}/>
           Delete
         </Button>
       </menu>

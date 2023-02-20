@@ -6,6 +6,8 @@ import TableContainer from "@mui/material/TableContainer";
 import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
+import EditTwoToneIcon from '@mui/icons-material/EditTwoTone';
+import DeleteTwoToneIcon from '@mui/icons-material/DeleteTwoTone';
 
 import classes from "../../style/Item.module.css";
 
@@ -77,9 +79,11 @@ function OrderItem({ order }: Order) {
       </TableContainer>
       <menu className={classes.actions}>
         <Button variant="contained" color="primary">
+          <EditTwoToneIcon sx={{mr: 1}}/>
           <Link to="edit">Edit</Link>
         </Button>
         <Button onClick={DeleteHandler} variant="contained" color="primary">
+          <DeleteTwoToneIcon sx={{mr: 1}}/>
           Delete
         </Button>
       </menu>

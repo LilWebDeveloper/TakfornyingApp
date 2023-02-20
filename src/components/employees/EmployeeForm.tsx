@@ -7,6 +7,8 @@ import { Form } from "react-router-dom";
 
 import { JobPosition } from "../../fake-db/JobPositionList";
 
+import PersonAddTwoToneIcon from '@mui/icons-material/PersonAddTwoTone';
+
 import classes from "../../style/Froms.module.css";
 
 function EmployeeForm({ method, employee }: any) {
@@ -86,7 +88,7 @@ function EmployeeForm({ method, employee }: any) {
               variant="contained"
               color="primary"
             >
-              save
+              <PersonAddTwoToneIcon />
             </Button>
           </Form>
         </Paper>

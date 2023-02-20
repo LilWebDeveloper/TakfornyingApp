@@ -6,26 +6,9 @@ import {
 
 import { Form } from "react-router-dom";
 
+import { JobPosition } from "../../fake-db/JobPositionList"
+
 import classes from "../../style/Froms.module.css";
-
-
-const currencies = [
-  {
-    value: "Admin",
-    label: "Admin",
-    token: "admin",
-  },
-  {
-    value: "Manager",
-    label: "Manager",
-    token: "manager",
-  },
-  {
-    value: "Employee",
-    label: "Employee",
-    token: "employee",
-  },
-];
 
 function EmployeeForm({ method, employee }: any) {
   return (
@@ -62,7 +45,7 @@ function EmployeeForm({ method, employee }: any) {
             label="Job Position"
             defaultValue={employee ? employee.jobPosition : ""}
           >
-            {currencies.map((option: any) => (
+            {JobPosition.map((option: any) => (
               <MenuItem key={option.value} value={option.value}>
                 {option.label}
               </MenuItem>

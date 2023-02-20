@@ -94,7 +94,8 @@ function EmployeeForm({ method, employee }: any) {
               variant="contained"
               color="primary"
             >
-              <PersonAddTwoToneIcon />
+              <PersonAddTwoToneIcon sx={{mr: 1}}/>
+              ADD
             </Button>
           </Form>
         </Paper>

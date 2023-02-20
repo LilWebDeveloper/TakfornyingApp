@@ -11,8 +11,8 @@ import classes from "../../style/Item.module.css";
 
 import { Button, createTheme, ThemeProvider } from "@mui/material";
 
-import EditTwoToneIcon from '@mui/icons-material/EditTwoTone';
-import DeleteTwoToneIcon from '@mui/icons-material/DeleteTwoTone';
+import EditTwoToneIcon from "@mui/icons-material/EditTwoTone";
+import DeleteTwoToneIcon from "@mui/icons-material/DeleteTwoTone";
 
 import { Link, useSubmit } from "react-router-dom";
 
@@ -23,7 +23,6 @@ const theme = createTheme({
     },
   },
 });
-
 
 function EmployeeItem({ employee }: any) {
   const submit = useSubmit();
@@ -72,12 +71,14 @@ function EmployeeItem({ employee }: any) {
         </Table>
       </TableContainer>
       <menu className={classes.actions}>
-        <Button variant="contained" color="primary">
-          <EditTwoToneIcon sx={{mr: 1}}/>
-          <Link to="edit">Edit</Link>
-        </Button>
+        <Link to="edit">
+          <Button variant="contained" color="primary">
+            <EditTwoToneIcon sx={{ mr: 1 }} />
+            Edit
+          </Button>
+        </Link>
         <Button onClick={DeleteHandler} variant="contained" color="primary">
-          <DeleteTwoToneIcon sx={{mr: 1}}/>
+          <DeleteTwoToneIcon sx={{ mr: 1 }} />
           Delete
         </Button>
       </menu>

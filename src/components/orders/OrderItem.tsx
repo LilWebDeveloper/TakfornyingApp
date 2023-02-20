@@ -74,10 +74,12 @@ function OrderItem({ order }: Order) {
         </Table>
       </TableContainer>
       <menu className={classes.actions}>
-        <Button variant="contained" color="primary">
-          <EditTwoToneIcon sx={{ mr: 1 }} />
-          <Link to="edit">Edit</Link>
-        </Button>
+        <Link to="edit">
+          <Button variant="contained" color="primary">
+            <EditTwoToneIcon sx={{ mr: 1 }} />
+            Edit
+          </Button>
+        </Link>
         <Button onClick={DeleteHandler} variant="contained" color="primary">
           <DeleteTwoToneIcon sx={{ mr: 1 }} />
           Delete

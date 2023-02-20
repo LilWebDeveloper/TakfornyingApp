@@ -32,10 +32,10 @@ import SelectEmployeesLoader from "./components/orders/SelectEmployeesLoader";
 import LoginPage from "./pages/login/Login";
 
 const router = createBrowserRouter([
-  // {
-  //   path: '/',
-  //   element: <LoginPage />
-  // },
+  {
+    path: '/',
+    element: <LoginPage />
+  },
   {
     path: "dashboard",
     element: <RootLayout />,
@@ -86,6 +86,7 @@ const router = createBrowserRouter([
           {
             index: true,
             element: <OrderDetailPage />,
+            loader: OrdersLoader,
             action: DeleteOrderAction,
           },
           {

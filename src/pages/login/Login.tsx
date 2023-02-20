@@ -11,7 +11,7 @@ import {
 
 import { Form } from "react-router-dom";
 
-import { Theme } from "../../components/items/CreateTheme";
+import { Theme } from "../../style/CreateTheme";
 
 import { Copyright } from "../../components/items/Copyright";
 

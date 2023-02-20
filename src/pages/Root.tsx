@@ -18,7 +18,7 @@ import { NavBar, Drawer } from "../components/navBar/NavBar";
 import { Copyright } from "../components/items/Copyright";
 import { NavBarListItems } from "../components/navBar/NavBarListItems";
 
-import { Theme } from '../components/items/CreateTheme'
+import { Theme } from '../style/CreateTheme'
 
 function RootLayoutContent() {
   const [open, setOpen] = React.useState(false);

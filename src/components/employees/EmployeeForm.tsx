@@ -9,7 +9,7 @@ import { JobPosition } from "../../fake-db/JobPositionList";
 
 import PersonAddTwoToneIcon from '@mui/icons-material/PersonAddTwoTone';
 
-import classes from "../../style/Froms.module.css";
+import classes from "../../style/Forms.module.css";
 
 function EmployeeForm({ method, employee }: any) {
   return (

@@ -7,7 +7,7 @@ import { RoofPaint } from "../../fake-db/RoofPaint";
 
 import { Form } from "react-router-dom";
 
-import classes from "../../style/Froms.module.css";
+import classes from "../../style/Forms.module.css";
 
 function OrderForm({ method, order, selectEmployees }: any) {
   return (

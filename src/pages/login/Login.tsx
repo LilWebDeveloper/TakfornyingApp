@@ -1,4 +1,4 @@
-import LoginDashboard from "../../components/login/LoginDashboard";
+import LoginDashboard from "../../components/login/Login";
 
 function LoginPage() {
   

@@ -10,8 +10,7 @@ import {
 
 import { Form } from "react-router-dom";
 
-
-import { Copyright } from "../../components/copyright/Copyright";
+import { Copyright } from "../copyright/Copyright";
 
 import takfornyingImage from "../../assets/takfornying.jpg";
 import takfornyingLogo from "../../assets/logo2021takfornying.jpg";
@@ -66,7 +65,6 @@ function LoginDashboard() {
               onSubmit={loginHandler}
               sx={{ mt: 1 }}
             >
-              <Form>
                 <TextField
                   margin="normal"
                   required
@@ -98,7 +96,6 @@ function LoginDashboard() {
                 >
                   Sign In
                 </Button>
-              </Form>
               <Copyright />
             </Box>
           </Box>

@@ -9,20 +9,12 @@ import Paper from "@mui/material/Paper";
 
 import classes from "../../style/Item.module.css";
 
-import { Button, createTheme, ThemeProvider } from "@mui/material";
+import Button from "@mui/material/Button";
 
 import EditTwoToneIcon from "@mui/icons-material/EditTwoTone";
 import DeleteTwoToneIcon from "@mui/icons-material/DeleteTwoTone";
 
 import { Link, useSubmit } from "react-router-dom";
-
-const theme = createTheme({
-  palette: {
-    primary: {
-      main: "#631200",
-    },
-  },
-});
 
 function EmployeeItem({ employee }: any) {
   const submit = useSubmit();

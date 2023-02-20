@@ -15,11 +15,7 @@ import { Button } from "@mui/material";
 
 import { Link, useSubmit } from "react-router-dom";
 
-interface Order {
-  order: any;
-}
-
-function OrderItem({ order }: Order) {
+function OrderItem({ order }: any) {
   const submit = useSubmit();
 
   function DeleteHandler() {

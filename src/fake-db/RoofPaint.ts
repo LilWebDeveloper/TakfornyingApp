@@ -1,4 +1,4 @@
-import { MenuItemType } from "./JobPositionList";
+import { MenuItemType } from "../interfaces/MenuItemType";
 
 export const RoofPaint: MenuItemType[] = [
     {

@@ -1,7 +1,4 @@
-export interface MenuItemType {
-  value: string,
-  label: string
-}
+import { MenuItemType } from "../interfaces/MenuItemType";
 
 export const JobPosition: MenuItemType[] = [
     {

@@ -7,11 +7,7 @@ import ListItemText from "@mui/material/ListItemText";
 
 import classes from "../../style/NavBarListItems.module.css";
 
-interface NavLinkType {
-  goTo: string;
-  title: string;
-  iconType: any
-}
+import { NavLinkType } from "../../interfaces/NavLinkType";
 
 export function CustomNavLink({ goTo, title, iconType}: NavLinkType) {
   return (

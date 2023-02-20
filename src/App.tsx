@@ -10,11 +10,11 @@ import EmployeesPage from "./pages/employees/Employees";
 import EmployeeDetailPage from "./pages/employees/EmployeeDetail";
 import EditEmployeePage from "./pages/employees/EditEmployee";
 
-import EmployeeLoader from "./components/loaders/EmployeeLoader";
-import EmployeesLoader from "./components/loaders/EmployeesLoader";
+import EmployeeLoader from "./services/loaders/EmployeeLoader";
+import EmployeesLoader from "./services/loaders/EmployeesLoader";
 
-import ManipulateEmployeeAction from "./components/actions/ManipulateEmployeeAction";
-import DeleteEmployeeAction from "./components/actions/DeleteEmployeeAction";
+import ManipulateEmployeeAction from "./services/actions/ManipulateEmployeeAction";
+import DeleteEmployeeAction from "./services/actions/DeleteEmployeeAction";
 
 // ORDERS
 import EditOrderPage from "./pages/orders/EditOrder";
@@ -22,22 +22,22 @@ import NewOrderPage from "./pages/orders/NewOrder";
 import OrderDetailPage from "./pages/orders/OrderDetail";
 import OrdersPage from "./pages/orders/Orders";
 
-import OrdersLoader from "./components/loaders/OrdersLoader";
-import OrderLoader from "./components/loaders/OrderLoader";
+import OrdersLoader from "./services/loaders/OrdersLoader";
+import OrderLoader from "./services/loaders/OrderLoader";
 
-import ManipulateOrderAction from "./components/actions/ManipulateOrderAction";
-import DeleteOrderAction from "./components/actions/DeleteOrderAction";
+import ManipulateOrderAction from "./services/actions/ManipulateOrderAction";
+import DeleteOrderAction from "./services/actions/DeleteOrderAction";
 
 import SelectEmployeesLoader from "./components/orders/SelectEmployeesLoader";
 import LoginPage from "./pages/login/Login";
 
 const router = createBrowserRouter([
+  // {
+  //   path: '/',
+  //   element: <LoginPage />
+  // },
   {
-    path: '/',
-    element: <LoginPage />
-  },
-  {
-    path: "/dashboard",
+    path: "dashboard",
     element: <RootLayout />,
     children: [
       { index: true, element: <AddressesMapPage /> },

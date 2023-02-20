@@ -12,7 +12,7 @@ import { CustomNavLink } from "./CustomNavLink";
 export const NavBarListItems = (
   <React.Fragment>
     <ListSubheader component="div" inset>
-      Owner Panel
+      Control Panel
     </ListSubheader>
 
   <CustomNavLink goTo='employees' title='Employees' iconType={<PersonIcon />}/>

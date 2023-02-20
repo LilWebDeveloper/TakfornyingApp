@@ -15,7 +15,7 @@ const OrdersList = ({ orders }: any) => {
             className={classes.paper}
             sx={{ m: 2, p: 2, display: "flex", flexDirection: "column" }}
           >
-            <Link to={`/orders/${data.id}`}>
+            <Link to={`/dashboard/orders/${data.id}`}>
               <div className={classes.content}>
                 <h2>{data.address}</h2>
               </div>

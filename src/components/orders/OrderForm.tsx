@@ -15,6 +15,7 @@ function OrderForm({ method, order, selectEmployees }: any) {
       <Grid item xs={12}>
         <Paper sx={{ p: 2, display: "flex", flexDirection: "column" }}>
           <Form method={method} className={classes.order_form}>
+            <div>
             <TextField
               sx={{ m: 1 }}
               className={classes.input_size}
@@ -40,6 +41,7 @@ function OrderForm({ method, order, selectEmployees }: any) {
                 </MenuItem>
               ))}
             </TextField>
+            </div><div>
             <TextField
               sx={{ m: 1 }}
               className={classes.input_size}
@@ -60,6 +62,7 @@ function OrderForm({ method, order, selectEmployees }: any) {
               variant="outlined"
               defaultValue={order ? order.roofAngle : ""}
             />
+            </div><div>
             <TextField
               sx={{ m: 1 }}
               className={classes.input_size}
@@ -85,6 +88,7 @@ function OrderForm({ method, order, selectEmployees }: any) {
                 </MenuItem>
               ))}
             </TextField>
+            </div>
             <Button
               type="submit"
               sx={{ m: 1 }}

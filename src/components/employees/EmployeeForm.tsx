@@ -17,6 +17,7 @@ function EmployeeForm({ method, employee }: any) {
       <Grid item xs={12}>
         <Paper sx={{ p: 2, display: "flex", flexDirection: "column" }}>
           <Form method={method} className={classes.order_form}>
+            <div>
             <TextField
               sx={{ m: 1 }}
               className={classes.input_size}
@@ -37,6 +38,8 @@ function EmployeeForm({ method, employee }: any) {
               variant="outlined"
               defaultValue={employee ? employee.secondName : ""}
             />
+            </div>
+            <div>
             <TextField
               sx={{ m: 1 }}
               className={classes.input_size}
@@ -62,6 +65,8 @@ function EmployeeForm({ method, employee }: any) {
               variant="outlined"
               defaultValue={employee ? employee.dNumber : ""}
             />
+            </div>
+            <div>
             <TextField
               sx={{ m: 1 }}
               className={classes.input_size}
@@ -82,6 +87,7 @@ function EmployeeForm({ method, employee }: any) {
               variant="outlined"
               defaultValue={employee ? employee.password : ""}
             />
+            </div> 
             <Button
               type="submit"
               sx={{ m: 1 }}

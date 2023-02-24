@@ -8,8 +8,6 @@ import {
   Button,
 } from "@mui/material";
 
-import { Form } from "react-router-dom";
-
 import { Copyright } from "../copyright/Copyright";
 
 import takfornyingImage from "../../assets/takfornying.jpg";

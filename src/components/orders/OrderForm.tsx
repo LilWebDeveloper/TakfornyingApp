@@ -85,8 +85,8 @@ function OrderForm({ method, order, selectEmployees }: any) {
                 defaultValue={order ? order.worker : ""}
               >
                 {selectEmployees.map((option: any) => (
-                  <MenuItem key={option.value} value={option.value}>
-                    {option.label}
+                  <MenuItem key={option._id} value={option._id}>
+                    {option.firstName + ' ' + option.secondName}
                   </MenuItem>
                 ))}
               </TextField>

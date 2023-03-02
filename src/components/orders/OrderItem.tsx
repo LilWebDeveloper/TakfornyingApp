@@ -54,7 +54,7 @@ function OrderItem({ order }: any) {
           </TableHead>
           <TableBody>
             <TableRow
-              key={order.id}
+              key={order._id}
               sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
             >
               <TableCell align="center" component="th" scope="row">

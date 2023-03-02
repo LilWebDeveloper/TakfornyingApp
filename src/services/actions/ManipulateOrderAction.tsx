@@ -15,11 +15,11 @@ export default async function ManipulateOrderAction({ request, params }: any) {
     };
   
     let url =
-      "https://takfornyingmenagmentapp-default-rtdb.europe-west1.firebasedatabase.app/orders.json";
+      "http://localhost:5050/orders/new";
   
       if(method === 'PATCH'){
         const orderId = params.orderId;
-        url = "https://takfornyingmenagmentapp-default-rtdb.europe-west1.firebasedatabase.app/orders/" + orderId + '.json'
+        url = "http://localhost:5050/orders/" + orderId + '/edit'
       }
   
     const response = await fetch(url, {

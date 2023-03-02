@@ -1,6 +1,6 @@
 export default async function OrdersLoader() {
     const response = await fetch(
-      "https://takfornyingmenagmentapp-default-rtdb.europe-west1.firebasedatabase.app/orders.json"
+      "http://localhost:5050/orders/"
     );
   
     if (!response.ok) {
@@ -21,6 +21,6 @@ export default async function OrdersLoader() {
         });
       }
   
-      return loadedOrders;
+      return resData.orders;
     }
   }

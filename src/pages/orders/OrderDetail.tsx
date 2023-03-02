@@ -6,7 +6,6 @@ function OrderDetailPage() {
   const orders: any = useLoaderData();
   const order: any = useRouteLoaderData("order-detail");
 
-
   return (
     <>
       <OrderItem order={order} />;

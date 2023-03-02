@@ -60,7 +60,9 @@ function OrderItem({ order }: any) {
               <TableCell align="center" component="th" scope="row">
                 {order.address}
               </TableCell>
-              <TableCell align="center">{order.worker}</TableCell>
+              <TableCell align="center">
+                {order.worker.firstName + " " + order.worker.secondName}
+              </TableCell>
               <TableCell align="center">{order.roofPaint}</TableCell>
               <TableCell align="center">{order.roofSize} &#13217;</TableCell>
               <TableCell align="center">{order.roofAngle}&#176;</TableCell>

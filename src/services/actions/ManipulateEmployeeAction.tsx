@@ -14,11 +14,11 @@ export default async function ManipulateEmployeeAction({ request, params }: any)
       password: data.get("password"),
     };
   
-    let url = 'https://takfornyingmenagmentapp-default-rtdb.europe-west1.firebasedatabase.app/employees.json'
+    let url = 'http://localhost:5050/employees/new'
   
     if(method === 'PATCH'){
       const employeeId = params.employeeId
-      url = 'https://takfornyingmenagmentapp-default-rtdb.europe-west1.firebasedatabase.app/employees/' + employeeId + '.json'
+      url = 'http://localhost:5050/employees/' + employeeId + '/edit'
     }
   
     const response = await fetch(url ,

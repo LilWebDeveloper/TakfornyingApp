@@ -3,11 +3,7 @@ import { json } from "react-router-dom";
 export default async function EmployeeLoader({ request, params }: any) {
   const id = params.employeeId;
 
-  const response = await fetch(
-    "https://takfornyingmenagmentapp-default-rtdb.europe-west1.firebasedatabase.app/employees/" +
-      id +
-      ".json"
-  );
+  const response = await fetch("http://localhost:5050/employees/" + id );
 
   if (!response.ok) {
     throw json(
@@ -16,6 +12,6 @@ export default async function EmployeeLoader({ request, params }: any) {
     );
   } else {
     const resData = await response.json();
-    return resData;
+    return resData.employee;
   }
 }

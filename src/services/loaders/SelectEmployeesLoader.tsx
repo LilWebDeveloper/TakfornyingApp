@@ -7,18 +7,6 @@ export default async function SelectEmployeesLoader() {
      
     } else {
       const resData = await response.json();
-  
-      // const loadedEmployees: any[] = [];
-  
-      // for (const key in resData.employees) {
-      //   loadedEmployees.push({
-      //     id: key,
-      //     value: resData[key].id,
-      //     label: resData[key].firstName + " " + resData[key].secondName,
-      //   });
-      // }
-      console.log(resData.employees)
-  
       return resData.employees;
     }
   }

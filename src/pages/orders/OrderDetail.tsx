@@ -5,7 +5,6 @@ import OrdersList from "../../components/orders/OrdersList";
 function OrderDetailPage() {
   const orders: any = useLoaderData();
   const order: any = useRouteLoaderData("order-detail");
-  console.log(order || 'elo')
 
 
   return (

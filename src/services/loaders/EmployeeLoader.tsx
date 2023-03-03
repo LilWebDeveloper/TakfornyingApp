@@ -13,6 +13,6 @@ export default async function EmployeeLoader({ params }: any) {
     );
   } else {
     const resData: EmployeeResData = await response.json();
-    return resData.employees;
+    return resData.employee;
   }
 }

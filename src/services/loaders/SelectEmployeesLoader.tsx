@@ -9,6 +9,6 @@ export default async function SelectEmployeesLoader() {
      //error
     } else {
       const resData: EmployeeResData = await response.json();
-      return resData.employees;
+      return resData.employee;
     }
   }

@@ -1,3 +1,5 @@
+import { EmployeeResData } from "../../interfaces/Employee";
+
 export default async function EmployeesLoader() {
     const response = await fetch(
       "http://localhost:5050/employees"
@@ -6,7 +8,7 @@ export default async function EmployeesLoader() {
     if (!response.ok) {
      //error
     } else {
-      const resData = await response.json();
-      return resData.employees;
+      const resData: EmployeeResData = await response.json();
+      return resData.employee;
     }
   }

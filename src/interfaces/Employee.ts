@@ -9,5 +9,5 @@ export default interface EmployeeType {
 }
 
 export interface EmployeeResData {
-    employees: EmployeeType;
+    employee: EmployeeType;
 }

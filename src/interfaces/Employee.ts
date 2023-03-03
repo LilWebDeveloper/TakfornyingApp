@@ -1,5 +1,3 @@
-import { FormMethod } from "react-router-dom";
-
 export default interface EmployeeType {
   dNumber: number;
   firstName: string;
@@ -12,9 +10,4 @@ export default interface EmployeeType {
 
 export interface EmployeeResData {
     employees: EmployeeType;
-}
-
-export interface EmployeeFormType {
-  method: FormMethod,
-  employee: EmployeeType | undefined
 }

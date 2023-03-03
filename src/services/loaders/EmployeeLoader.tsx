@@ -1,4 +1,5 @@
 import { json } from "react-router-dom";
+import { EmployeeResData } from "../../interfaces/Employee";
 
 export default async function EmployeeLoader({ params }: any) {
   const id: string = params.employeeId;
@@ -11,7 +12,7 @@ export default async function EmployeeLoader({ params }: any) {
       { status: 500 }
     );
   } else {
-    const resData = await response.json();
+    const resData: EmployeeResData = await response.json();
     return resData.employee;
   }
 }

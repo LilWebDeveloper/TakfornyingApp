@@ -7,3 +7,7 @@ export default interface EmployeeType {
   secondName: string;
   _id: string;
 }
+
+export interface EmployeeResData {
+    employee: EmployeeType;
+}

@@ -1,7 +1,7 @@
 import { json } from "react-router-dom";
 
-export default async function OrderLoader({ request, params }: any) {
-  const id = params.orderId;
+export default async function OrderLoader({ params }: any) {
+  const id: string = params.orderId;
 
   const response = await fetch("http://localhost:5050/orders/" + id);
   const resData = await response.json();

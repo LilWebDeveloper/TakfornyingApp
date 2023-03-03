@@ -2,9 +2,11 @@ import { redirect } from "react-router-dom";
 import Order from "../../interfaces/Order";
 
 export default async function ManipulateOrderAction({ request, params }: any) {
-  const method = request.method;
+  const method: string = request.method;
 
   const data = await request.formData();
+
+  console.log(data)
 
   const orderData: Order = {
     address: data.get("address"),
@@ -17,7 +19,7 @@ export default async function ManipulateOrderAction({ request, params }: any) {
     updatedAt: undefined,
     __v: undefined,
     _id: undefined
-  };
+  }
 
   let url = "http://localhost:5050/orders";
 

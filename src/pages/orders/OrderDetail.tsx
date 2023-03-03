@@ -3,12 +3,11 @@ import OrderItem from "../../components/orders/OrderItem";
 import OrdersList from "../../components/orders/OrdersList";
 
 function OrderDetailPage() {
-  const orders: any = useLoaderData();
-  const order: any = useRouteLoaderData("order-detail");
-
+  const orders = useLoaderData();
+  const order = useRouteLoaderData("order-detail");
   return (
     <>
-      <OrderItem order={order} />;
+      <OrderItem order={order} />
       <OrdersList orders={orders} />
     </>
   );

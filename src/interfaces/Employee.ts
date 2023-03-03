@@ -1,4 +1,4 @@
-export default interface Employee {
+export default interface EmployeeType {
   dNumber: number;
   firstName: string;
   jobPosition: string;

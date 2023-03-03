@@ -25,7 +25,7 @@ function OrderItem({ order }: any) {
       submit(null, { method: "delete" });
     }
   }
-  console.log(order)
+  //console.log(order)
   return (
     <>
       <TableContainer component={Paper} className={classes.order}>

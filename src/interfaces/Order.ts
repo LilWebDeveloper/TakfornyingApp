@@ -1,6 +1,6 @@
 import Employee from '../interfaces/Employee'
 
-export default interface Order {
+export default interface OrderType {
   address: string;
   createdAt: string | undefined;
   description: string;

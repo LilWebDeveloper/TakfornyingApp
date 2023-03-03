@@ -1,17 +1,22 @@
 import { redirect } from "react-router-dom";
+import Order from "../../interfaces/Order";
 
 export default async function ManipulateOrderAction({ request, params }: any) {
   const method = request.method;
 
   const data = await request.formData();
 
-  const orderData = {
+  const orderData: Order = {
     address: data.get("address"),
     roofPaint: data.get("roofPaint"),
     roofSize: data.get("roofSize"),
     roofAngle: data.get("roofAngle"),
     description: data.get("description"),
     worker: data.get("worker"),
+    createdAt: undefined,
+    updatedAt: undefined,
+    __v: undefined,
+    _id: undefined
   };
 
   let url = "http://localhost:5050/orders";

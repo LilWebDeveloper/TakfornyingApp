@@ -10,9 +10,9 @@ import { Form } from "react-router-dom";
 
 import classes from "../../style/Forms.module.css";
 
-import OrderForm from "../../interfaces/OrderForm";
+import OrderFormType from "../../interfaces/OrderForm";
 
-function OrderForm({ method, order, selectEmployees }: OrderForm) {
+function OrderForm({ method, order, selectEmployees }: OrderFormType) {
 
   console.log(method, order, selectEmployees)
   return (

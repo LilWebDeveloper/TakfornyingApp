@@ -10,8 +10,9 @@ import { JobPosition } from "../../fake-db/JobPositionList";
 import PersonAddTwoToneIcon from '@mui/icons-material/PersonAddTwoTone';
 
 import classes from "../../style/Forms.module.css";
+import { EmployeeFormType } from "../../interfaces/Employee";
 
-function EmployeeForm({ method, employee }: any) {
+function EmployeeForm({ method, employee }: EmployeeFormType) {
   return (
     <div>
       <Grid item xs={12}>

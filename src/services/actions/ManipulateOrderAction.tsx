@@ -6,8 +6,6 @@ export default async function ManipulateOrderAction({ request, params }: any) {
 
   const data = await request.formData();
 
-  console.log(data)
-
   const orderData: Order = {
     address: data.get("address"),
     roofPaint: data.get("roofPaint"),

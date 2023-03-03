@@ -8,6 +8,10 @@ export default interface EmployeeType {
   _id: string;
 }
 
+export interface EmployeesResData {
+    employees: EmployeeType;
+}
+
 export interface EmployeeResData {
     employee: EmployeeType;
 }

@@ -13,8 +13,6 @@ import classes from "../../style/Forms.module.css";
 import OrderFormType from "../../interfaces/OrderForm";
 
 function OrderForm({ method, order, selectEmployees }: OrderFormType) {
-
-  console.log(method, order, selectEmployees)
   return (
     <div>
       <Grid item xs={12}>

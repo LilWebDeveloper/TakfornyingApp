@@ -7,7 +7,7 @@ function NewOrderPage() {
   return (
     <>
       <h1>Add new order</h1>
-      <OrderForm method="post" selectEmployees={SelectEmployeesLoader} />
+      <OrderForm method="post" selectEmployees={SelectEmployeesLoader} order={undefined} />
     </>
   );
 }

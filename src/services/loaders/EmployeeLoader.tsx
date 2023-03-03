@@ -1,7 +1,7 @@
 import { json } from "react-router-dom";
 
-export default async function EmployeeLoader({ request, params }: any) {
-  const id = params.employeeId;
+export default async function EmployeeLoader({ params }: any) {
+  const id: string = params.employeeId;
 
   const response = await fetch("http://localhost:5050/employees/" + id );
 

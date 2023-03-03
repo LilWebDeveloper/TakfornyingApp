@@ -1,10 +1,10 @@
 export default async function OrdersLoader() {
     const response = await fetch(
-      "http://localhost:5050/orders/"
+      "http://localhost:5050/orders"
     );
   
     if (!response.ok) {
-     
+     //error
     } else {
       const resData = await response.json();
   

@@ -3,13 +3,18 @@ import Grid from "@mui/material/Grid";
 import Paper from "@mui/material/Paper";
 import AddCircleTwoToneIcon from "@mui/icons-material/AddCircleTwoTone";
 
+
 import { RoofPaint } from "../../fake-db/RoofPaint";
 
 import { Form } from "react-router-dom";
 
 import classes from "../../style/Forms.module.css";
 
-function OrderForm({ method, order, selectEmployees }: any) {
+import OrderForm from "../../interfaces/OrderForm";
+
+function OrderForm({ method, order, selectEmployees }: OrderForm) {
+
+  console.log(method, order, selectEmployees)
   return (
     <div>
       <Grid item xs={12}>

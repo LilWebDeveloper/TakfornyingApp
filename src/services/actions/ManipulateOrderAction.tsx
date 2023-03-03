@@ -30,7 +30,7 @@ export default async function ManipulateOrderAction({ request, params }: any) {
   });
 
   if (!response.ok) {
-    console.log(orderData);
+    //error
   }
 
   return redirect("/dashboard/orders");

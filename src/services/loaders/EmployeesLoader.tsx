@@ -4,7 +4,7 @@ export default async function EmployeesLoader() {
     );
   
     if (!response.ok) {
-     
+     //error
     } else {
       const resData = await response.json();
       return resData.employees;

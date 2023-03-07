@@ -10,8 +10,14 @@ import { JobPosition } from "../../fake-db/JobPositionList";
 import PersonAddTwoToneIcon from '@mui/icons-material/PersonAddTwoTone';
 
 import classes from "../../style/Forms.module.css";
+import { useRef } from "react";
 
 function EmployeeForm({ method, employee }: any) {
+
+  const maxMinLenght = {maxLength: 30, minLength: 3}
+
+
+
   return (
     <div>
       <Grid item xs={12}>
@@ -25,6 +31,8 @@ function EmployeeForm({ method, employee }: any) {
               name="firstName"
               type="text"
               label="First Name"
+              inputProps={maxMinLenght}
+              required
               variant="outlined"
               defaultValue={employee ? employee.firstName : ""}
             />
@@ -35,6 +43,8 @@ function EmployeeForm({ method, employee }: any) {
               name="secondName"
               type="text"
               label="Second Name"
+              required
+              inputProps={maxMinLenght}
               variant="outlined"
               defaultValue={employee ? employee.secondName : ""}
             />
@@ -47,6 +57,8 @@ function EmployeeForm({ method, employee }: any) {
               name="jobPosition"
               select
               label="Job Position"
+              required
+              inputProps={maxMinLenght}
               defaultValue={employee ? employee.jobPosition : ""}
             >
               {JobPosition.map((option: any) => (
@@ -62,6 +74,8 @@ function EmployeeForm({ method, employee }: any) {
               name="dNumber"
               type="string"
               label="D-Number / Person Number"
+              required
+              inputProps={{pattern: "[0-9]{11}"}}
               variant="outlined"
               defaultValue={employee ? employee.dNumber : ""}
             />
@@ -74,6 +88,8 @@ function EmployeeForm({ method, employee }: any) {
               name="userLogin"
               type="text"
               label="Login for employee"
+              required
+              inputProps={maxMinLenght}
               variant="outlined"
               defaultValue={employee ? employee.login : ""}
             />
@@ -84,6 +100,8 @@ function EmployeeForm({ method, employee }: any) {
               name="password"
               type="text"
               label="Temporary password for employee"
+              required
+              inputProps={maxMinLenght}
               variant="outlined"
               defaultValue={employee ? employee.password : ""}
             />

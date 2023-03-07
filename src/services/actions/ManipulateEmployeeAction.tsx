@@ -33,7 +33,7 @@ export default async function ManipulateEmployeeAction({
   });
 
   if (!response.ok) {
-    console.log(response);
+    throw response
   }
 
   return redirect("/dashboard/employees");

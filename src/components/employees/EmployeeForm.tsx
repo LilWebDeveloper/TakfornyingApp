@@ -10,14 +10,11 @@ import { JobPosition } from "../../fake-db/JobPositionList";
 import PersonAddTwoToneIcon from '@mui/icons-material/PersonAddTwoTone';
 
 import classes from "../../style/Forms.module.css";
-import { useRef } from "react";
+
+const maxMinLenght = {maxLength: 30, minLength: 3}
 
 function EmployeeForm({ method, employee }: any) {
-
-  const maxMinLenght = {maxLength: 30, minLength: 3}
-
-
-
+  // Change validation to MUI TextField Validation
   return (
     <div>
       <Grid item xs={12}>

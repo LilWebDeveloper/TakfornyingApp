@@ -17,17 +17,6 @@ import takfornyingLogo from "../../assets/logo2021takfornying.jpg";
 
 function LoginDashboard() {
   const data: any = useActionData();
-
-  // const loginHandler = (event: React.FormEvent<HTMLFormElement>) => {
-  //   event.preventDefault();
-
-  //   const data = new FormData(event.currentTarget);
-  //   console.log({
-  //     login: data.get("login"),
-  //     password: data.get("password"),
-  //   });
-  // };
-
   return (
     <Grid container component="main" sx={{ height: "100vh" }}>
       <CssBaseline />
@@ -62,7 +51,11 @@ function LoginDashboard() {
             Sign in
           </Typography>
           {data && data.message && (
-            <Typography component="h1" variant="h5">
+            <Typography
+              component="h1"
+              variant="subtitle1"
+              sx={{ color: "error.main" }}
+            >
               {data.message}
             </Typography>
           )}

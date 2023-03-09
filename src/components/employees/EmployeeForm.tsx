@@ -95,7 +95,7 @@ function EmployeeForm({ method, employee }: any) {
               className={classes.input_size}
               id="password"
               name="password"
-              type="text"
+              type="password"
               label="Temporary password for employee"
               required
               inputProps={maxMinLenght}

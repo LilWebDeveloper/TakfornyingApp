@@ -8,12 +8,16 @@ import {
   Button,
 } from "@mui/material";
 
+import { Form, useActionData } from "react-router-dom";
+
 import { Copyright } from "../copyright/Copyright";
 
 import takfornyingImage from "../../assets/takfornying.jpg";
 import takfornyingLogo from "../../assets/logo2021takfornying.jpg";
 
 function LoginDashboard() {
+  const data: any = useActionData();
+
   const loginHandler = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
@@ -57,12 +61,7 @@ function LoginDashboard() {
             <Typography component="h1" variant="h5">
               Sign in
             </Typography>
-            <Box
-              component="form"
-              noValidate
-              onSubmit={loginHandler}
-              sx={{ mt: 1 }}
-            >
+            <Form method="post">
                 <TextField
                   margin="normal"
                   required
@@ -83,6 +82,7 @@ function LoginDashboard() {
                   id="password"
                   autoComplete="current-password"
                 />
+                {/* {data && data.errors && <ul>{Object.values(data.errors).map<any, any>(err => (<li key={err}>{err}</li>))}</ul>} */}
                 <Button
                   style={{
                     backgroundColor: "primary",
@@ -95,7 +95,7 @@ function LoginDashboard() {
                   Sign In
                 </Button>
               <Copyright />
-            </Box>
+            </Form>
           </Box>
         </Grid>
       </Grid>

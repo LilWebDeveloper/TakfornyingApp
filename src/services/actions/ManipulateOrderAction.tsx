@@ -1,5 +1,6 @@
 import { redirect } from "react-router-dom";
 import Order from "../../interfaces/Order";
+import { getAuthToken } from "../../util/auth";
 
 export default async function ManipulateOrderAction({ request, params }: any) {
   const method: string = request.method;
@@ -26,10 +27,13 @@ export default async function ManipulateOrderAction({ request, params }: any) {
     url = "http://localhost:5050/orders/" + orderId;
   }
 
+  const token = getAuthToken();
+
   const response = await fetch(url, {
     method: method,
     headers: {
       "Content-Type": "application/json",
+      'Authorization': 'Bearer ' + token
     },
     body: JSON.stringify(orderData),
   });

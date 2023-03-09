@@ -62,11 +62,7 @@ function LoginDashboard() {
             Sign in
           </Typography>
           {data && data.message && (
-            <Typography
-              sx={{color: 'primart.main'}}
-              component="h1"
-              variant="h5"
-            >
+            <Typography component="h1" variant="h5">
               {data.message}
             </Typography>
           )}

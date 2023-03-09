@@ -33,7 +33,7 @@ export default async function ManipulateOrderAction({ request, params }: any) {
     method: method,
     headers: {
       "Content-Type": "application/json",
-      'Authorization': 'Bearer ' + token
+      "Authorization": 'Bearer ' + token,
     },
     body: JSON.stringify(orderData),
   });

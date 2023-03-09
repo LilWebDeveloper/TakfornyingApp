@@ -31,20 +31,25 @@ import DeleteOrderAction from "./services/actions/DeleteOrderAction";
 import SelectEmployeesLoader from "./services/loaders/SelectEmployeesLoader";
 import LoginPage from "./pages/login/Login";
 import loginAction from "./services/actions/LoginAction";
+import { logoutAction } from "./services/actions/logout";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <LoginPage />,
-    action: loginAction
+    action: loginAction,
+  },
+  {
+    path: "logout",
+    action: logoutAction,
   },
   {
     path: "dashboard",
     element: <RootLayout />,
     children: [
       { index: true, element: <AddressesMapPage /> },
-
       // EMPLOYEES
+      
       {
         path: "employees",
         element: <EmployeesPage />,

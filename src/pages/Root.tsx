@@ -1,5 +1,5 @@
 import * as React from "react";
-import { Outlet } from "react-router-dom";
+import { Form, Outlet } from "react-router-dom";
 
 import { ThemeProvider } from "@mui/material/styles";
 import CssBaseline from "@mui/material/CssBaseline";
@@ -18,7 +18,7 @@ import { NavBar, Drawer } from "../components/navBar/NavBar";
 import { Copyright } from "../components/copyright/Copyright";
 import { NavBarListItems } from "../components/navBar/NavBarListItems";
 
-import { Theme } from '../style/CreateTheme'
+import { Theme } from "../style/CreateTheme";
 
 function RootLayoutContent() {
   const [open, setOpen] = React.useState(false);
@@ -60,10 +60,17 @@ function RootLayoutContent() {
             >
               Takfornying
             </Typography>
-            <Button variant="contained" color="error" sx={{ color: "white" }}>
-              <LogoutTwoToneIcon />
-              Logout
-            </Button>
+            <Form action="/logout" method="post">
+              <Button
+                type="submit"
+                variant="contained"
+                color="error"
+                sx={{ color: "white" }}
+              >
+                <LogoutTwoToneIcon />
+                Logout
+              </Button>
+            </Form>
           </Toolbar>
         </NavBar>
         <Drawer variant="permanent" open={open}>

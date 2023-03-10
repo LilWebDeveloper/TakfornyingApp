@@ -32,6 +32,7 @@ import SelectEmployeesLoader from "./services/loaders/SelectEmployeesLoader";
 import LoginPage from "./pages/login/Login";
 import loginAction from "./services/actions/LoginAction";
 import { logoutAction } from "./services/actions/logout";
+import { checkAuthLoader } from "./util/auth";
 
 const router = createBrowserRouter([
   {
@@ -46,6 +47,7 @@ const router = createBrowserRouter([
   {
     path: "dashboard",
     element: <RootLayout />,
+    loader: checkAuthLoader,
     children: [
       { index: true, element: <AddressesMapPage /> },
       // EMPLOYEES

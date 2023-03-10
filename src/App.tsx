@@ -32,7 +32,7 @@ import SelectEmployeesLoader from "./services/loaders/SelectEmployeesLoader";
 import LoginPage from "./pages/login/Login";
 import loginAction from "./services/actions/LoginAction";
 import { logoutAction } from "./services/actions/logout";
-import { checkAuthLoader } from "./util/auth";
+import { checkAuthLoader, tokenLoader } from "./util/auth";
 
 const router = createBrowserRouter([
   {
@@ -45,81 +45,87 @@ const router = createBrowserRouter([
     action: logoutAction,
   },
   {
-    path: "dashboard",
-    element: <RootLayout />,
-    loader: checkAuthLoader,
+    id: "token-loader",
+    loader: tokenLoader,
     children: [
-      { index: true, element: <AddressesMapPage /> },
-      // EMPLOYEES
-      
       {
-        path: "employees",
-        element: <EmployeesPage />,
-        loader: EmployeesLoader,
-      },
-      {
-        path: "employees/:employeeId",
-        id: "employee-detail",
-        loader: EmployeeLoader,
+        path: "dashboard",
+        element: <RootLayout />,
+        loader: checkAuthLoader,
         children: [
-          {
-            index: true,
-            element: <EmployeeDetailPage />,
-            loader: EmployeesLoader,
-            action: DeleteEmployeeAction,
-          },
-          {
-            path: "edit",
-            element: <EditEmployeePage />,
-            action: ManipulateEmployeeAction,
-          },
-        ],
-      },
-      {
-        path: "employees/new",
-        element: <NewEmployeePage />,
-        action: ManipulateEmployeeAction,
-      },
+          { index: true, element: <AddressesMapPage /> },
+          // EMPLOYEES
 
-      // ORDERS
-      {
-        path: "orders",
-        element: <OrdersPage />,
-        loader: OrdersLoader,
-      },
-      {
-        path: "orders/:orderId",
-        id: "order-detail",
-        loader: OrderLoader,
-        children: [
           {
-            index: true,
-            element: <OrderDetailPage />,
-            loader: OrdersLoader,
-            action: DeleteOrderAction,
+            path: "employees",
+            element: <EmployeesPage />,
+            loader: EmployeesLoader,
           },
           {
-            id: "select-employee-loader",
-            loader: SelectEmployeesLoader,
+            path: "employees/:employeeId",
+            id: "employee-detail",
+            loader: EmployeeLoader,
             children: [
               {
+                index: true,
+                element: <EmployeeDetailPage />,
+                loader: EmployeesLoader,
+                action: DeleteEmployeeAction,
+              },
+              {
                 path: "edit",
-                element: <EditOrderPage />,
-                action: ManipulateOrderAction,
+                element: <EditEmployeePage />,
+                action: ManipulateEmployeeAction,
               },
             ],
           },
+          {
+            path: "employees/new",
+            element: <NewEmployeePage />,
+            action: ManipulateEmployeeAction,
+          },
+
+          // ORDERS
+          {
+            path: "orders",
+            element: <OrdersPage />,
+            loader: OrdersLoader,
+          },
+          {
+            path: "orders/:orderId",
+            id: "order-detail",
+            loader: OrderLoader,
+            children: [
+              {
+                index: true,
+                element: <OrderDetailPage />,
+                loader: OrdersLoader,
+                action: DeleteOrderAction,
+              },
+              {
+                id: "select-employee-loader",
+                loader: SelectEmployeesLoader,
+                children: [
+                  {
+                    path: "edit",
+                    element: <EditOrderPage />,
+                    action: ManipulateOrderAction,
+                  },
+                ],
+              },
+            ],
+          },
+          {
+            path: "orders/new",
+            element: <NewOrderPage />,
+            action: ManipulateOrderAction,
+            loader: SelectEmployeesLoader,
+          },
+
+          // API MAP ADDRESSES
+          { path: "addresses", element: <AddressesMapPage /> },
         ],
       },
-      {
-        path: "orders/new",
-        element: <NewOrderPage />,
-        action: ManipulateOrderAction,
-        loader: SelectEmployeesLoader,
-      },
-
-      // API MAP ADDRESSES
-      { path: "addresses", element: <AddressesMapPage /> },
     ],
   },
 ]);

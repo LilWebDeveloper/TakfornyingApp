@@ -1,5 +1,5 @@
-import * as React from "react";
-import { Form, Outlet } from "react-router-dom";
+import React, { useEffect } from "react";
+import { Form, Outlet, useRouteLoaderData, useSubmit } from "react-router-dom";
 
 import { ThemeProvider } from "@mui/material/styles";
 import CssBaseline from "@mui/material/CssBaseline";
@@ -21,10 +21,22 @@ import { NavBarListItems } from "../components/navBar/NavBarListItems";
 import { Theme } from "../style/CreateTheme";
 
 function RootLayoutContent() {
+  const token = useRouteLoaderData("token-loader");
+  const submit = useSubmit();
   const [open, setOpen] = React.useState(false);
   const toggleDrawer = () => {
     setOpen(!open);
   };
+
+  useEffect(() => {
+    if (!token) {
+      return;
+    }
+
+    setTimeout(() => {
+      submit(null, { action: "/logout", method: "post" });
+    }, 1 * 60 * 60 * 1000);
+  }, [token, submit]);
 
   return (
     <ThemeProvider theme={Theme}>

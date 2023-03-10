@@ -19,6 +19,7 @@ import { Copyright } from "../components/copyright/Copyright";
 import { NavBarListItems } from "../components/navBar/NavBarListItems";
 
 import { Theme } from "../style/CreateTheme";
+import { getTokenDuration } from "../util/auth";
 
 function RootLayoutContent() {
   const token = useRouteLoaderData("token-loader");
@@ -33,9 +34,16 @@ function RootLayoutContent() {
       return;
     }
 
+    if (token === "EXPIRED") {
+      submit(null, { action: "/logout", method: "post" });
+      return;
+    }
+
+    const tokenDuration = getTokenDuration();
+
     setTimeout(() => {
       submit(null, { action: "/logout", method: "post" });
-    }, 1 * 60 * 60 * 1000);
+    }, tokenDuration);
   }, [token, submit]);
 
   return (

@@ -27,6 +27,7 @@ import { getTokenDuration } from "../util/auth";
 
 // import { useSelector, useDispatch} from "react-redux";
 import jwtDecode from "jwt-decode";
+import { ListSubheader } from "@mui/material";
 
 function RootLayoutContent() {
   const token: any = useRouteLoaderData("token-loader");
@@ -71,6 +72,8 @@ function RootLayoutContent() {
   if (permission === "Admin") showAdminPanel = true;
   if (permission === "Manager") showManagerPanel = true;
   if (permission === "Employee") showEmployeePanel = true;
+
+  const login = decodeJWT.employeeLogin
 
   return (
     <ThemeProvider theme={Theme}>
@@ -142,6 +145,9 @@ function RootLayoutContent() {
           {showEmployeePanel && (
             <List component="nav">{EmployeeNavBarListItems}</List>
           )}
+          <ListSubheader component="div" inset>
+            Welcome {login}
+          </ListSubheader>
         </Drawer>
         <Box
           component="main"

@@ -8,11 +8,6 @@ import AddBusinessIcon from "@mui/icons-material/AddBusiness";
 import MapIcon from "@mui/icons-material/Map";
 
 import { CustomNavLink } from "./CustomNavLink";
-import { getAuthToken } from "../../util/auth";
-import jwtDecode from "jwt-decode";
-
-const token: any = getAuthToken();
-const decodeJWT: any = jwtDecode(token);
 
 export const AdminNavBarListItems = (
   <React.Fragment>
@@ -41,9 +36,6 @@ export const AdminNavBarListItems = (
       title="Orders addresses"
       iconType={<MapIcon />}
     />
-    <ListSubheader component="div" inset>
-      Logged {decodeJWT.employeeLogin}
-    </ListSubheader>
   </React.Fragment>
 );
 
@@ -64,9 +56,6 @@ export const ManagerNavBarListItems = (
       title="Orders addresses"
       iconType={<MapIcon />}
     />
-    <ListSubheader component="div" inset>
-      Logged {decodeJWT.employeeLogin}
-    </ListSubheader>
   </React.Fragment>
 );
 
@@ -82,9 +71,5 @@ export const EmployeeNavBarListItems = (
       title="Orders addresses"
       iconType={<MapIcon />}
     />
-
-    <ListSubheader component="div" inset>
-      Logged {decodeJWT.employeeLogin}
-    </ListSubheader>
   </React.Fragment>
 );

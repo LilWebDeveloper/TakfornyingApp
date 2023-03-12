@@ -16,13 +16,20 @@ import LogoutTwoToneIcon from "@mui/icons-material/LogoutTwoTone";
 
 import { NavBar, Drawer } from "../components/navBar/NavBar";
 import { Copyright } from "../components/copyright/Copyright";
-import { NavBarListItems } from "../components/navBar/NavBarListItems";
+import {
+  AdminNavBarListItems,
+  ManagerNavBarListItems,
+  EmployeeNavBarListItems,
+} from "../components/navBar/NavBarListItems";
 
 import { Theme } from "../style/CreateTheme";
 import { getTokenDuration } from "../util/auth";
 
+// import { useSelector, useDispatch} from "react-redux";
+import jwtDecode from "jwt-decode";
+
 function RootLayoutContent() {
-  const token = useRouteLoaderData("token-loader");
+  const token: any = useRouteLoaderData("token-loader");
   const submit = useSubmit();
   const [open, setOpen] = React.useState(false);
   const toggleDrawer = () => {
@@ -46,6 +53,25 @@ function RootLayoutContent() {
     }, tokenDuration);
   }, [token, submit]);
 
+  // const showAdminPanel = useSelector((state: any) => state.adminPanel);
+  // const showManagerPanel = useSelector((state: any) => state.managerPanel);
+  // const showEmployeePanel = useSelector((state: any) => state.employeePanel);
+  // const dispatch = useDispatch();
+
+  const decodeJWT: any = jwtDecode(token);
+
+  const permission = decodeJWT.employeePermission;
+
+  // dispatch({ type: permission });
+
+  let showAdminPanel = false;
+  let showManagerPanel = false;
+  let showEmployeePanel = false;
+
+  if (permission === "Admin") showAdminPanel = true;
+  if (permission === "Manager") showManagerPanel = true;
+  if (permission === "Employee") showEmployeePanel = true;
+
   return (
     <ThemeProvider theme={Theme}>
       <Box sx={{ display: "flex" }}>
@@ -56,7 +82,7 @@ function RootLayoutContent() {
               backgroundColor: "#631200",
             }}
             sx={{
-              pr: "24px", // keep right padding when drawer closed
+              pr: "24px",
             }}
           >
             <IconButton
@@ -107,7 +133,15 @@ function RootLayoutContent() {
             </IconButton>
           </Toolbar>
           <Divider />
-          <List component="nav">{NavBarListItems}</List>
+          {showAdminPanel && (
+            <List component="nav">{AdminNavBarListItems}</List>
+          )}
+          {showManagerPanel && (
+            <List component="nav">{ManagerNavBarListItems}</List>
+          )}
+          {showEmployeePanel && (
+            <List component="nav">{EmployeeNavBarListItems}</List>
+          )}
         </Drawer>
         <Box
           component="main"

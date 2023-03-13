@@ -1,8 +1,18 @@
 import { getAuthToken } from "../../util/auth";
+import jwtDecode from "jwt-decode";
 
 export default async function OrdersLoader() {
-  const token = getAuthToken();
-  const response = await fetch("http://localhost:5050/orders", {
+  const token: any = getAuthToken();
+  const decode: any = jwtDecode(token);
+  const employeePermission = decode.employeePermission;
+
+  let url = "http://localhost:5050/orders"
+
+  if(employeePermission === 'Employee'){
+    url = "http://localhost:5050/orders/employee"
+  }
+
+  const response = await fetch(url, {
     headers: {
       Authorization: "Bearer " + token,
     },
@@ -12,20 +22,6 @@ export default async function OrdersLoader() {
     //error
   } else {
     const resData = await response.json();
-
-    const loadedOrders: any[] = [];
-
-    for (const key in resData) {
-      loadedOrders.push({
-        id: key,
-        address: resData[key].address,
-        roofPaint: resData[key].roofPaint,
-        roofSize: resData[key].roofSize,
-        roofAngle: resData[key].roofAngle,
-        description: resData[key].description,
-      });
-    }
-
     return resData.orders;
   }
 }

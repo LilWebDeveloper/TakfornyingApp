@@ -61,7 +61,9 @@ function OrderItem({ order }: any) {
                 {order.address}
               </TableCell>
               <TableCell align="center">
-                {order.worker.firstName + " " + order.worker.secondName}
+                {order.worker
+                  ? order.worker.firstName + " " + order.worker.secondName
+                  : ""}
               </TableCell>
               <TableCell align="center">{order.roofPaint}</TableCell>
               <TableCell align="center">{order.roofSize} &#13217;</TableCell>

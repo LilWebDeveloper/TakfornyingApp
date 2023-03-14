@@ -112,7 +112,7 @@ function OrderForm({ method, order, selectEmployees }: OrderFormType) {
               color="primary"
             >
               <AddCircleTwoToneIcon sx={{ mr: 1 }} />
-              Add
+              {method==="post" ? 'ADD' : 'EDIT'}
             </Button>
           </Form>
         </Paper>

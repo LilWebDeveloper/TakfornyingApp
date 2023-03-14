@@ -3,8 +3,14 @@
     text-align: center;
   }
 .input_size{
-    width: 30em;
+  width: 30em;
 }
+@media only screen and (max-width: 600px){
+  .input_size{
+    width: 100%;
+  }
+}
+
 .input_size input{
   text-align: center;
 }

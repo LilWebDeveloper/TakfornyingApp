@@ -29,6 +29,8 @@ import { getTokenDuration } from "../util/auth";
 import jwtDecode from "jwt-decode";
 import { ListSubheader } from "@mui/material";
 
+import classes from '../style/Root.module.css'
+
 function RootLayoutContent() {
   const token: any = useRouteLoaderData("token-loader");
   const submit = useSubmit();
@@ -117,7 +119,7 @@ function RootLayoutContent() {
                 sx={{ color: "white" }}
               >
                 <LogoutTwoToneIcon />
-                Logout
+                <div className={classes.logoutButton}>Logout</div>
               </Button>
             </Form>
           </Toolbar>

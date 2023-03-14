@@ -18,7 +18,7 @@ function EmployeeForm({ method, employee }: any) {
   return (
     <div>
       <Grid item xs={12}>
-        <Paper sx={{ p: 2, display: "flex", flexDirection: "column" }}>
+        <Paper sx={{m:2, p: 2, display: "flex", flexDirection: "column" }}>
           <Form method={method} className={classes.order_form}>
             <div>
               <TextField

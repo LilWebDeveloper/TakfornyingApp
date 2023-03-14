@@ -68,7 +68,7 @@ function OrderForm({ method, order, selectEmployees }: OrderFormType) {
                 name="roofAngle"
                 type="number"
                 label="Roof Angle"
-                inputProps={{max: 50}}
+                inputProps={{ max: 50 }}
                 required
                 variant="outlined"
                 defaultValue={order ? order.roofAngle : ""}
@@ -82,7 +82,7 @@ function OrderForm({ method, order, selectEmployees }: OrderFormType) {
                 name="description"
                 type="text"
                 label="Description"
-                inputProps={{minLength: 3}}
+                inputProps={{ minLength: 3 }}
                 required
                 variant="outlined"
                 defaultValue={order ? order.description : ""}
@@ -93,10 +93,10 @@ function OrderForm({ method, order, selectEmployees }: OrderFormType) {
                 id="worker"
                 name="worker"
                 select
-                inputProps={{pattern: "[0-9a-fA-F]{24}"}}
+                inputProps={{ pattern: "[0-9a-fA-F]{24}" }}
                 required
                 label="Select Worker"
-                defaultValue={order ? order.worker : ""}
+                defaultValue={order ? order.worker._id : ""}
               >
                 {selectEmployees.map((option: any) => (
                   <MenuItem key={option._id} value={option._id}>

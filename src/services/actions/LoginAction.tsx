@@ -20,7 +20,7 @@ export default async function loginAction({ request }: any) {
   }
 
   if (!response.ok) {
-    throw json({ message: "Could not authenticate user." }, { status: 500 });
+    throw new Error('Could not authenticate user!');
   }
 
   const resData = await response.json();

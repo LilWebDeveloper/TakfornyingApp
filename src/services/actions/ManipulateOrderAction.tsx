@@ -1,4 +1,4 @@
-import { redirect } from "react-router-dom";
+import { json, redirect } from "react-router-dom";
 import Order from "../../interfaces/Order";
 import { getAuthToken } from "../../util/auth";
 
@@ -39,8 +39,7 @@ export default async function ManipulateOrderAction({ request, params }: any) {
   });
 
   if (!response.ok) {
-    //error
+    throw new Error('Could not send order!');
   }
-
   return redirect("/dashboard/orders");
 }

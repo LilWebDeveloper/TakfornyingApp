@@ -10,7 +10,7 @@ export default async function SelectEmployeesLoader() {
   });
 
   if (!response.ok) {
-    //error
+    throw new Error('Could not fetch employees list!');
   } else {
     const resData: EmployeesResData = await response.json();
     return resData.employees;

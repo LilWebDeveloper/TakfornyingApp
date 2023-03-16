@@ -11,7 +11,7 @@ export default async function EmployeesLoader() {
   });
 
   if (!response.ok) {
-    throw json({message: 'Could not fetch event.'}, {status: 500})
+    throw new Error('Could not fetch employees!');
   } else {
     const resData: EmployeesResData = await response.json();
     return resData.employees;

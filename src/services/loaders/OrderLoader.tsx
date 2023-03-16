@@ -13,10 +13,7 @@ export default async function OrderLoader({ params }: any) {
   const resData = await response.json();
 
   if (!response.ok) {
-    throw json(
-      { message: "Could not fetch details for selected order." },
-      { status: 500 }
-    );
+    throw new Error('Could not fetch order!');
   } else {
     return resData.order;
   }

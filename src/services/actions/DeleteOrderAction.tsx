@@ -12,7 +12,7 @@ export default async function DeleteOrderAction({ params, request }: any) {
   });
 
   if (!response.ok) {
-    throw json({ message: "Could not delete order." }, { status: 500 });
+    throw new Error('Could not delete order!');
   }
 
   return redirect("/dashboard/orders");

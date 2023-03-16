@@ -19,7 +19,7 @@ export default async function OrdersLoader() {
   });
 
   if (!response.ok) {
-    //error
+    throw new Error('Could not fetch orders!');
   } else {
     const resData = await response.json();
     return resData.orders;

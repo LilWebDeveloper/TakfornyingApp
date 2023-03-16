@@ -37,7 +37,7 @@ export default async function ManipulateEmployeeAction({
   });
 
   if (!response.ok) {
-    throw response
+    throw new Error('Could not send employee!');
   }
 
   return redirect("/dashboard/employees");

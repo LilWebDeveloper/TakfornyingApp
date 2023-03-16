@@ -12,7 +12,7 @@ export default async function DeleteEmployeeAction({ params }: any) {
   });
 
   if (!response.ok) {
-    throw json({ message: "Could not delete employee." }, { status: 500 });
+    throw new Error('Could not delete employee!');
   }
 
   return redirect("/dashboard/employees");

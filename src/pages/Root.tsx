@@ -90,19 +90,20 @@ function RootLayoutContent() {
               pr: "24px",
             }}
           >
-            <IconButton
-              className={classes.menuOpenButton}
-              edge="start"
-              color="inherit"
-              aria-label="open drawer"
-              onClick={toggleDrawer}
-              sx={{
-                marginRight: "36px",
-                ...(open && { display: "none" }),
-              }}
-            >
-              <MenuIcon />
-            </IconButton>
+            <div className={classes.navbarButton}>
+              <IconButton
+                edge="start"
+                color="inherit"
+                aria-label="open drawer"
+                onClick={toggleDrawer}
+                sx={{
+                  marginRight: "36px",
+                  ...(open && { display: "none" }),
+                }}
+              >
+                <MenuIcon />
+              </IconButton>
+            </div>
             <Typography
               component="h1"
               variant="h6"

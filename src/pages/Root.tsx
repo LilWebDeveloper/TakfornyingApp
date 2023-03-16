@@ -29,7 +29,7 @@ import { getTokenDuration } from "../util/auth";
 import jwtDecode from "jwt-decode";
 import { ListSubheader } from "@mui/material";
 
-import classes from '../style/Root.module.css'
+import classes from "../style/Root.module.css";
 
 function RootLayoutContent() {
   const token: any = useRouteLoaderData("token-loader");
@@ -75,7 +75,7 @@ function RootLayoutContent() {
   if (permission === "Manager") showManagerPanel = true;
   if (permission === "Employee") showEmployeePanel = true;
 
-  const login = decodeJWT.employeeLogin
+  const login = decodeJWT.employeeLogin;
 
   return (
     <ThemeProvider theme={Theme}>
@@ -91,6 +91,7 @@ function RootLayoutContent() {
             }}
           >
             <IconButton
+              className={classes.menuOpenButton}
               edge="start"
               color="inherit"
               aria-label="open drawer"

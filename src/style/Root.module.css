@@ -2,4 +2,7 @@
     .logoutButton{
         font-size: 10px;
     }
+    .navbarOpenButton{
+        display: none;
+    }
 }

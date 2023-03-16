@@ -1,4 +1,4 @@
-import { json, redirect } from "react-router-dom";
+import { redirect } from "react-router-dom";
 import Order from "../../interfaces/Order";
 import { getAuthToken } from "../../util/auth";
 

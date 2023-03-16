@@ -1,4 +1,3 @@
-import { json } from "react-router-dom";
 import { EmployeeResData } from "../../interfaces/Employee";
 import { getAuthToken } from "../../util/auth";
 

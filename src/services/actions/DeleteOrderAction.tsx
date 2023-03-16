@@ -1,4 +1,4 @@
-import { redirect, json } from "react-router-dom";
+import { redirect } from "react-router-dom";
 import { getAuthToken } from "../../util/auth";
 
 export default async function DeleteOrderAction({ params, request }: any) {

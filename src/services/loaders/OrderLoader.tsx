@@ -1,4 +1,3 @@
-import { json } from "react-router-dom";
 import { getAuthToken } from "../../util/auth";
 
 export default async function OrderLoader({ params }: any) {

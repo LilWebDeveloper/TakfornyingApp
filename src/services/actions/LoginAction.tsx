@@ -1,4 +1,4 @@
-import { json, redirect } from "react-router-dom";
+import { redirect } from "react-router-dom";
 
 export default async function loginAction({ request }: any) {
   const data = await request.formData();

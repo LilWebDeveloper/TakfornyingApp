@@ -25,7 +25,7 @@ import {
 import { Theme } from "../style/CreateTheme";
 import { getTokenDuration } from "../util/auth";
 
-// import { useSelector, useDispatch} from "react-redux";
+//import { useSelector, useDispatch} from "react-redux";
 import jwtDecode from "jwt-decode";
 import { ListSubheader } from "@mui/material";
 
@@ -64,8 +64,6 @@ function RootLayoutContent() {
   const decodeJWT: any = jwtDecode(token);
 
   const permission = decodeJWT.employeePermission;
-
-  // dispatch({ type: permission });
 
   let showAdminPanel = false;
   let showManagerPanel = false;

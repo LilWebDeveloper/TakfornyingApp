@@ -33,7 +33,7 @@ export const AdminNavBarListItems = (
     />
     <CustomNavLink
       goTo="addresses"
-      title="Orders addresses"
+      title="Addresses"
       iconType={<MapIcon />}
     />
   </React.Fragment>
@@ -53,7 +53,7 @@ export const ManagerNavBarListItems = (
     />
     <CustomNavLink
       goTo="addresses"
-      title="Orders addresses"
+      title="Addresses"
       iconType={<MapIcon />}
     />
   </React.Fragment>
@@ -68,7 +68,7 @@ export const EmployeeNavBarListItems = (
     <CustomNavLink goTo="orders" title="Orders" iconType={<StoreIcon />} />
     <CustomNavLink
       goTo="addresses"
-      title="Orders addresses"
+      title="Addresses"
       iconType={<MapIcon />}
     />
   </React.Fragment>

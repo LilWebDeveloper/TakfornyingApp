@@ -8,6 +8,7 @@ import ListItemText from "@mui/material/ListItemText";
 import classes from "../../style/NavBarListItems.module.css";
 
 import { NavLinkType } from "../../interfaces/NavLinkType";
+import { Divider } from "@mui/material";
 
 export function CustomNavLink({ goTo, title, iconType}: NavLinkType) {
   return (
@@ -19,11 +20,15 @@ export function CustomNavLink({ goTo, title, iconType}: NavLinkType) {
       end
     >
       <ListItemButton>
-        <ListItemIcon>
+        <ListItemIcon className={classes.ListItemButton}>
           {iconType}
         </ListItemIcon>
         <ListItemText primary={title} />
       </ListItemButton>
+      <div className={classes.buttonLabel}>
+        <p>{title}</p>
+        <Divider light />
+      </div>
     </NavLink>
   );
 }

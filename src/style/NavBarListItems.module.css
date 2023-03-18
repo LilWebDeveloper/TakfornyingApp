@@ -8,3 +8,17 @@
   color: var(--color-primary-400);
   font-weight: 700;
 }
+.buttonLabel{
+  display: none;
+}
+@media only screen and (max-width: 600px){
+  .buttonLabel{
+    display: contents;
+    font-size: 0.5rem;
+    text-align: center;
+    width: 100%;
+  }
+  .buttonLabel p {
+    margin-bottom: 0;
+  }
+}

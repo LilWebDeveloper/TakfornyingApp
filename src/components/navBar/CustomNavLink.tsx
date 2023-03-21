@@ -27,7 +27,6 @@ export function CustomNavLink({ goTo, title, iconType}: NavLinkType) {
       </ListItemButton>
       <div className={classes.buttonLabel}>
         <p>{title}</p>
-        <Divider light />
       </div>
     </NavLink>
   );

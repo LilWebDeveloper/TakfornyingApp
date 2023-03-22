@@ -3,7 +3,7 @@ import { useLoaderData } from "react-router-dom";
 import OrdersList from "../../components/orders/OrdersList";
 
 function OrdersPage() {
-  const orders: any = useLoaderData();
+  const orders = useLoaderData();
 
   return <OrdersList orders={orders} />;
 }

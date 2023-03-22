@@ -9,9 +9,7 @@ import { Form } from "react-router-dom";
 
 import classes from "../../style/Forms.module.css";
 
-import { OrderFormType } from "../../interfaces/Order";
-
-function OrderForm({ method, order, selectEmployees }: OrderFormType) {
+function OrderForm({ method, order, selectEmployees }: any) {
   // Change validation to MUI TextField Validation
   return (
     <div>

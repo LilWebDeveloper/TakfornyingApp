@@ -2,8 +2,8 @@ import { useRouteLoaderData } from "react-router-dom";
 import OrderForm from "../../components/orders/OrderForm";
 
 function EditOrderPage() {
-  const order: any = useRouteLoaderData("order-detail");
-  const selectEmployee: any = useRouteLoaderData("select-employee-loader");
+  const order = useRouteLoaderData("order-detail");
+  const selectEmployee = useRouteLoaderData("select-employee-loader");
 
   return (
     <>

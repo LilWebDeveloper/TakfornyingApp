@@ -2,12 +2,12 @@ import { useLoaderData } from "react-router-dom";
 import OrderForm from "../../components/orders/OrderForm";
 
 function NewOrderPage() {
-  const SelectEmployeesLoader: any = useLoaderData();
+  const SelectEmployeesLoader = useLoaderData();
 
   return (
     <>
       <h1>Add new order</h1>
-      <OrderForm method="post" selectEmployees={SelectEmployeesLoader} order={undefined} />
+      <OrderForm method="post" selectEmployees={SelectEmployeesLoader} />
     </>
   );
 }

@@ -4,8 +4,8 @@ import EmployeeItem from "../../components/employees/EmployeeItem";
 
 
 function EmployeeDetailPage() {
-  const employees: any = useLoaderData();
-  const employee: any = useRouteLoaderData("employee-detail");
+  const employees = useLoaderData();
+  const employee = useRouteLoaderData("employee-detail");
 
   return (
     <>

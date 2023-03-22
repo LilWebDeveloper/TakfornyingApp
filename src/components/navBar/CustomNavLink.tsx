@@ -8,7 +8,6 @@ import ListItemText from "@mui/material/ListItemText";
 import classes from "../../style/NavBarListItems.module.css";
 
 import { NavLinkType } from "../../interfaces/NavLinkType";
-import { Divider } from "@mui/material";
 
 export function CustomNavLink({ goTo, title, iconType}: NavLinkType) {
   return (

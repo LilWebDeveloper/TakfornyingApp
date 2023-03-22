@@ -18,3 +18,11 @@ export interface OrderFormType {
   order: OrderType | undefined,
   selectEmployees: Employee[]
 }
+
+export interface OrdersResData {
+  orders: OrderType[]
+}
+
+export interface OrderResData {
+  order: OrderType
+}

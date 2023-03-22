@@ -5,7 +5,7 @@ export default async function ManipulateEmployeeAction({
   request,
   params,
 }: any) {
-  const method = request.method;
+  const method: string = request.method;
 
   const data = await request.formData();
 
@@ -21,7 +21,7 @@ export default async function ManipulateEmployeeAction({
   let url = "http://localhost:5050/employees";
 
   if (method === "PATCH") {
-    const employeeId = params.employeeId;
+    const employeeId: string = params.employeeId;
     url = "http://localhost:5050/employees/" + employeeId;
   }
 

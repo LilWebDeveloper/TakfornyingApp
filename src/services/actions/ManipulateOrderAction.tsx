@@ -2,8 +2,11 @@ import { redirect } from "react-router-dom";
 import Order from "../../interfaces/Order";
 import { getAuthToken } from "../../util/auth";
 
+
 export default async function ManipulateOrderAction({ request, params }: any) {
   const method: string = request.method;
+
+  console.log(request, params)
 
   const data = await request.formData();
 
@@ -23,7 +26,7 @@ export default async function ManipulateOrderAction({ request, params }: any) {
   let url = "http://localhost:5050/orders";
 
   if (method === "PATCH") {
-    const orderId = params.orderId;
+    const orderId: string = params.orderId;
     url = "http://localhost:5050/orders/" + orderId;
   }
 

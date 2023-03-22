@@ -1,9 +1,10 @@
 import { getAuthToken } from "../../util/auth";
 import jwtDecode from "jwt-decode";
+import { OrdersResData } from "../../interfaces/Order";
 
 export default async function OrdersLoader() {
-  const token: any = getAuthToken();
-  const decode: any = jwtDecode(token);
+  const token = getAuthToken()!;
+  const decode: any = jwtDecode(token); // usunąć wykrzyknik 
   const employeePermission = decode.employeePermission;
 
   let url = "http://localhost:5050/orders"
@@ -21,7 +22,7 @@ export default async function OrdersLoader() {
   if (!response.ok) {
     throw new Error('Could not fetch orders!');
   } else {
-    const resData = await response.json();
+    const resData: OrdersResData = await response.json();
     return resData.orders;
   }
 }

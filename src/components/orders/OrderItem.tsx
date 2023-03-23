@@ -14,6 +14,7 @@ import classes from "../../style/Item.module.css";
 import { Button } from "@mui/material";
 
 import { Link, useSubmit } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 function OrderItem({ order }: any) {
   const submit = useSubmit();
@@ -25,7 +26,13 @@ function OrderItem({ order }: any) {
       submit(null, { method: "delete" });
     }
   }
-  //console.log(order)
+
+  const role = useSelector((state: any) => state.auth.role);
+
+  let showButtons = true;
+
+  if (role === "Employee") showButtons = false;
+
   return (
     <>
       <TableContainer component={Paper} className={classes.order}>
@@ -73,18 +80,20 @@ function OrderItem({ order }: any) {
           </TableBody>
         </Table>
       </TableContainer>
-      <menu className={classes.actions}>
-        <Link to="edit">
-          <Button variant="contained" color="primary">
-            <EditTwoToneIcon sx={{ mr: 1 }} />
-            Edit
+      {showButtons && (
+        <menu className={classes.actions}>
+          <Link to="edit">
+            <Button variant="contained" color="primary">
+              <EditTwoToneIcon sx={{ mr: 1 }} />
+              Edit
+            </Button>
+          </Link>
+          <Button onClick={DeleteHandler} variant="contained" color="primary">
+            <DeleteTwoToneIcon sx={{ mr: 1 }} />
+            Delete
           </Button>
-        </Link>
-        <Button onClick={DeleteHandler} variant="contained" color="primary">
-          <DeleteTwoToneIcon sx={{ mr: 1 }} />
-          Delete
-        </Button>
-      </menu>
+        </menu>
+      )}
     </>
   );
 }

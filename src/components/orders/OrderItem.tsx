@@ -35,7 +35,7 @@ function OrderItem({ order }: any) {
 
   return (
     <>
-      <TableContainer component={Paper} className={classes.order}>
+      <TableContainer sx={{m:2}} component={Paper} className={classes.order}>
         <Table sx={{ minWidth: 650 }} aria-label="simple table">
           <TableHead sx={{ bgcolor: "primary.main" }}>
             <TableRow className={classes.tableCell} sx={{ fontWeight: 400 }}>

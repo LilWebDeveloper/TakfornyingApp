@@ -8,15 +8,30 @@ import {
   Button,
 } from "@mui/material";
 
-import { Form, useActionData } from "react-router-dom";
-
+import { Form, useActionData, useNavigate } from "react-router-dom";
 import { Copyright } from "../copyright/Copyright";
-
 import takfornyingImage from "../../assets/takfornying.jpg";
 import takfornyingLogo from "../../assets/logo2021takfornying.jpg";
+import { useEffect } from "react";
+import { useDispatch } from "react-redux";
+import { authActions } from "../../store/authSlice";
 
 function LoginDashboard() {
   const data: any = useActionData();
+
+  const dispatch = useDispatch();
+  const navigate = useNavigate()
+
+  useEffect(() => {
+    if (data) {
+      dispatch(authActions.setCurrentToken(data.token));
+      dispatch(authActions.setCurrentName(data.name));
+      dispatch(authActions.setCurrentEmployeeId(data.employeeId));
+      dispatch(authActions.setCurrentRole(data.role));
+      navigate('/dashboard')
+    }
+  },[data, dispatch, navigate]);
+
   return (
     <Grid container component="main" sx={{ height: "100vh" }}>
       <CssBaseline />

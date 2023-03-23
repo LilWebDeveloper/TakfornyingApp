@@ -14,7 +14,6 @@ import classes from "../../style/Forms.module.css";
 const maxMinLenght = {maxLength: 30, minLength: 3}
 
 function EmployeeForm({ method, employee }: any) {
-  // Change validation to MUI TextField Validation
   return (
     <div>
       <Grid item xs={12}>

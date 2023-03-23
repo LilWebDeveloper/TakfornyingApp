@@ -1,4 +1,4 @@
-export default interface tokenResData {
+export default interface UserInfo {
     employeeId: string,
     message: string,
     name: string,

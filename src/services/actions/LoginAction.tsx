@@ -1,6 +1,3 @@
-import { redirect } from "react-router-dom";
-import tokenResData from "../../interfaces/tokenResData";
-
 export default async function loginAction({ request }: any) {
   const data = await request.formData();
   const authData = {
@@ -14,17 +11,17 @@ export default async function loginAction({ request }: any) {
       "Content-Type": "application/json",
     },
     body: JSON.stringify(authData),
-  });
+  })
 
   if (response.status === 422 || response.status === 401) {
     return response;
   }
 
   if (!response.ok) {
-    throw new Error('Could not authenticate user!');
+    throw new Error("Could not authenticate user!");
   }
 
-  const resData: tokenResData = await response.json();
+  const resData = await response.json();
   const token = resData.token;
 
   localStorage.setItem("token", token);
@@ -32,5 +29,5 @@ export default async function loginAction({ request }: any) {
   expiration.setHours(expiration.getHours() + 1);
   localStorage.setItem("expiration", expiration.toISOString());
 
-  return redirect("dashboard");
+  return resData;
 }

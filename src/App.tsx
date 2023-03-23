@@ -52,6 +52,7 @@ const router = createBrowserRouter([
         path: "dashboard",
         element: <RootLayout />,
         loader: checkAuthLoader,
+        action: loginAction,
         children: [
           { index: true, element: <AddressesMapPage /> },
           // EMPLOYEES

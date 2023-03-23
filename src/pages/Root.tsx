@@ -25,11 +25,10 @@ import {
 import { Theme } from "../style/CreateTheme";
 import { getTokenDuration } from "../util/auth";
 
-//import { useSelector, useDispatch} from "react-redux";
-import jwtDecode from "jwt-decode";
 import { ListSubheader } from "@mui/material";
 
 import classes from "../style/Root.module.css";
+import { useSelector } from "react-redux";
 
 function RootLayoutContent() {
   const token: any = useRouteLoaderData("token-loader");
@@ -56,24 +55,16 @@ function RootLayoutContent() {
     }, tokenDuration);
   }, [token, submit]);
 
-  // const showAdminPanel = useSelector((state: any) => state.adminPanel);
-  // const showManagerPanel = useSelector((state: any) => state.managerPanel);
-  // const showEmployeePanel = useSelector((state: any) => state.employeePanel);
-  // const dispatch = useDispatch();
-
-  const decodeJWT: any = jwtDecode(token);
-
-  const permission = decodeJWT.employeePermission;
+  const role = useSelector((state: any) => state.auth.role);
+  const name = useSelector((state: any) => state.auth.name)
 
   let showAdminPanel = false;
   let showManagerPanel = false;
   let showEmployeePanel = false;
 
-  if (permission === "Admin") showAdminPanel = true;
-  if (permission === "Manager") showManagerPanel = true;
-  if (permission === "Employee") showEmployeePanel = true;
-
-  const login = decodeJWT.employeeLogin;
+  if (role === "Admin") showAdminPanel = true;
+  if (role === "Manager") showManagerPanel = true;
+  if (role === "Employee") showEmployeePanel = true;
 
   return (
     <ThemeProvider theme={Theme}>
@@ -148,7 +139,7 @@ function RootLayoutContent() {
             <List component="nav">{EmployeeNavBarListItems}</List>
           )}
           <ListSubheader component="div" inset>
-            Welcome {login}
+            Welcome {name}
           </ListSubheader>
         </Drawer>
         <Box

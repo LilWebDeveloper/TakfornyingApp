@@ -1,8 +1,9 @@
 import { EmployeeResData } from "../../interfaces/Employee";
+import { EmployeeParamsType } from "../../interfaces/ParamsTypes";
 import { getAuthToken } from "../../util/auth";
 
-export default async function EmployeeLoader({ params }: any) {
-  const id: string = params.employeeId;
+export default async function EmployeeLoader({ params }: EmployeeParamsType) {
+  const id = params.employeeId;
   const token = getAuthToken();
   const response = await fetch("http://localhost:5050/employees/" + id, {
     headers: {

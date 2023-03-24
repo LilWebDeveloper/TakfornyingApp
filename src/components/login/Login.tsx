@@ -15,9 +15,10 @@ import takfornyingLogo from "../../assets/logo2021takfornying.jpg";
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { authActions } from "../../store/authSlice";
+import UserInfo from "../../interfaces/tokenResData";
 
 function LoginDashboard() {
-  const data: any = useActionData();
+  const data = useActionData() as UserInfo;
 
   const dispatch = useDispatch();
   const navigate = useNavigate()

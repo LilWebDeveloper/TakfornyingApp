@@ -1,16 +1,16 @@
 import { getAuthToken } from "../../util/auth";
-import jwtDecode from "jwt-decode";
 import { OrdersResData } from "../../interfaces/Order";
+import { useSelector } from "react-redux";
+import { StateType } from "../../interfaces/StateTypes";
 
 export default async function OrdersLoader() {
-  const token = getAuthToken()!;
-  const decode: any = jwtDecode(token); // usunąć wykrzyknik 
-  const employeePermission = decode.employeePermission;
+  const token = getAuthToken()
+  const role = useSelector((state: StateType) => state.auth.role);
 
-  let url = "http://localhost:5050/orders"
+  let url = "http://localhost:5050/orders";
 
-  if(employeePermission === 'Employee'){
-    url = "http://localhost:5050/orders/employee"
+  if (role === "Employee") {
+    url = "http://localhost:5050/orders/employee";
   }
 
   const response = await fetch(url, {
@@ -20,7 +20,7 @@ export default async function OrdersLoader() {
   });
 
   if (!response.ok) {
-    throw new Error('Could not fetch orders!');
+    throw new Error("Could not fetch orders!");
   } else {
     const resData: OrdersResData = await response.json();
     return resData.orders;

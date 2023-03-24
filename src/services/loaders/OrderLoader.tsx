@@ -1,8 +1,9 @@
 import { OrderResData } from "../../interfaces/Order";
+import { OrderParamsType } from "../../interfaces/ParamsTypes";
 import { getAuthToken } from "../../util/auth";
 
-export default async function OrderLoader({ params }: any) {
-  const id: string = params.orderId;
+export default async function OrderLoader({ params }: OrderParamsType) {
+  const id = params.orderId;
   const token = getAuthToken();
 
   const response = await fetch("http://localhost:5050/orders/" + id, {

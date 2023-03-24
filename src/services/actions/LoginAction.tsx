@@ -1,4 +1,7 @@
-export default async function loginAction({ request }: any) {
+import { LoginResData } from "../../interfaces/Login";
+import RequestType from "../../interfaces/RequestType";
+
+export default async function loginAction({ request }: RequestType) {
   const data = await request.formData();
   const authData = {
     login: data.get("login"),
@@ -21,7 +24,7 @@ export default async function loginAction({ request }: any) {
     throw new Error("Could not authenticate user!");
   }
 
-  const resData = await response.json();
+  const resData: LoginResData = await response.json();
   const token = resData.token;
 
   localStorage.setItem("token", token);

@@ -1,8 +1,9 @@
-interface Auth {
-    employeeId: string,
-    name: string,
-    role: string,
-    token: string
+export interface Auth {
+    token: string | null,
+    employeeId: string | null,
+    name: string | null,
+    role: string | null,
+    
 }
 
 interface Persist {

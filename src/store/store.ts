@@ -6,8 +6,9 @@ import {
 import authSlice from "./authSlice";
 import storage from "redux-persist/lib/storage";
 import { persistReducer } from "redux-persist";
+import StoreType from "../interfaces/Store";
 
-const persistConfig: any = {
+const persistConfig: StoreType = {
   key: "root",
   storage,
 };

@@ -1,6 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { Auth } from "../interfaces/StateTypes";
 
-const initialState = {
+const initialState: Auth = {
     token: null,
     name: null,
     employeeId: null,

@@ -1,16 +1,14 @@
 import { redirect } from "react-router-dom";
-import { OrderGetType } from "../../interfaces/Order";
+import { ManipulateOrderType } from "../../interfaces/ManipulateActions";
 import { getAuthToken } from "../../util/auth";
 
 
-export default async function ManipulateOrderAction({ request, params }: any) {
+export default async function ManipulateOrderAction({ request, params }: ManipulateOrderType) {
   const method = request.method;
-
-  console.log(request, params)
 
   const data = await request.formData();
 
-  const orderData: OrderGetType = {
+  const orderData = {
     address: data.get("address"),
     roofPaint: data.get("roofPaint"),
     roofSize: data.get("roofSize"),

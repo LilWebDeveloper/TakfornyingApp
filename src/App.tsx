@@ -33,6 +33,7 @@ import LoginPage from "./pages/login/Login";
 import loginAction from "./services/actions/LoginAction";
 import { logoutAction } from "./services/actions/logout";
 import { checkAuthLoader, tokenLoader } from "./util/auth";
+import { AdminProtect, ManagerProtect } from "./pages/AdminProtect";
 
 const router = createBrowserRouter([
   {
@@ -59,7 +60,11 @@ const router = createBrowserRouter([
 
           {
             path: "employees",
-            element: <EmployeesPage />,
+            element: (
+              <AdminProtect>
+                <EmployeesPage />
+              </AdminProtect>
+            ),
             loader: EmployeesLoader,
           },
           {
@@ -69,20 +74,32 @@ const router = createBrowserRouter([
             children: [
               {
                 index: true,
-                element: <EmployeeDetailPage />,
+                element: (
+                  <AdminProtect>
+                    <EmployeeDetailPage />
+                  </AdminProtect>
+                ),
                 loader: EmployeesLoader,
                 action: DeleteEmployeeAction,
               },
               {
                 path: "edit",
-                element: <EditEmployeePage />,
+                element: (
+                  <AdminProtect>
+                    <EditEmployeePage />
+                  </AdminProtect>
+                ),
                 action: ManipulateEmployeeAction,
               },
             ],
           },
           {
             path: "employees/new",
-            element: <NewEmployeePage />,
+            element: (
+              <AdminProtect>
+                <NewEmployeePage />
+              </AdminProtect>
+            ),
             action: ManipulateEmployeeAction,
           },
 
@@ -109,7 +126,11 @@ const router = createBrowserRouter([
                 children: [
                   {
                     path: "edit",
-                    element: <EditOrderPage />,
+                    element: (
+                      <ManagerProtect>
+                        <EditOrderPage />
+                      </ManagerProtect>
+                    ),
                     action: ManipulateOrderAction,
                   },
                 ],
@@ -118,7 +139,11 @@ const router = createBrowserRouter([
           },
           {
             path: "orders/new",
-            element: <NewOrderPage />,
+            element: (
+              <ManagerProtect>
+                <NewOrderPage />
+              </ManagerProtect>
+            ),
             action: ManipulateOrderAction,
             loader: SelectEmployeesLoader,
           },

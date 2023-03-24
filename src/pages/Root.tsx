@@ -29,9 +29,10 @@ import { ListSubheader } from "@mui/material";
 
 import classes from "../style/Root.module.css";
 import { useSelector } from "react-redux";
+import { StateType } from "../interfaces/StateTypes";
 
 function RootLayoutContent() {
-  const token: any = useRouteLoaderData("token-loader");
+  const token = useRouteLoaderData("token-loader");
   const submit = useSubmit();
   const [open, setOpen] = React.useState(false);
   const toggleDrawer = () => {
@@ -55,8 +56,8 @@ function RootLayoutContent() {
     }, tokenDuration);
   }, [token, submit]);
 
-  const role = useSelector((state: any) => state.auth.role);
-  const name = useSelector((state: any) => state.auth.name)
+  const role = useSelector((state: StateType) => state.auth.role);
+  const name = useSelector((state: StateType) => state.auth.name)
 
   let showAdminPanel = false;
   let showManagerPanel = false;

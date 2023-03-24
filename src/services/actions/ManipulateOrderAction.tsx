@@ -1,16 +1,16 @@
 import { redirect } from "react-router-dom";
-import Order from "../../interfaces/Order";
+import { OrderGetType } from "../../interfaces/Order";
 import { getAuthToken } from "../../util/auth";
 
 
 export default async function ManipulateOrderAction({ request, params }: any) {
-  const method: string = request.method;
+  const method = request.method;
 
   console.log(request, params)
 
   const data = await request.formData();
 
-  const orderData: Order = {
+  const orderData: OrderGetType = {
     address: data.get("address"),
     roofPaint: data.get("roofPaint"),
     roofSize: data.get("roofSize"),
@@ -26,7 +26,7 @@ export default async function ManipulateOrderAction({ request, params }: any) {
   let url = "http://localhost:5050/orders";
 
   if (method === "PATCH") {
-    const orderId: string = params.orderId;
+    const orderId = params.orderId;
     url = "http://localhost:5050/orders/" + orderId;
   }
 

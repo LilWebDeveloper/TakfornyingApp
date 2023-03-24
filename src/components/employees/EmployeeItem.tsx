@@ -16,8 +16,9 @@ import DeleteTwoToneIcon from "@mui/icons-material/DeleteTwoTone";
 
 import { Link, useSubmit } from "react-router-dom";
 import { useSelector } from "react-redux";
+import { EmployeeResData } from "../../interfaces/Employee";
 
-function EmployeeItem({ employee }: any) {
+function EmployeeItem({ employee }: EmployeeResData) {
   const submit = useSubmit();
 
   function DeleteHandler() {

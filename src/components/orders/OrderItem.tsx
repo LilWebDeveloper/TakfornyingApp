@@ -15,8 +15,9 @@ import { Button } from "@mui/material";
 
 import { Link, useSubmit } from "react-router-dom";
 import { useSelector } from "react-redux";
+import { OrderResData } from "../../interfaces/Order";
 
-function OrderItem({ order }: any) {
+function OrderItem({ order }: OrderResData) {
   const submit = useSubmit();
 
   function DeleteHandler() {

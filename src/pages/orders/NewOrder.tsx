@@ -1,8 +1,9 @@
 import { useLoaderData } from "react-router-dom";
 import OrderForm from "../../components/orders/OrderForm";
+import EmployeeType from "../../interfaces/Employee";
 
 function NewOrderPage() {
-  const SelectEmployeesLoader = useLoaderData();
+  const SelectEmployeesLoader = useLoaderData() as EmployeeType;
 
   return (
     <>

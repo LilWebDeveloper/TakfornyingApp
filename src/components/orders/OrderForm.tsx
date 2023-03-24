@@ -8,9 +8,9 @@ import { RoofPaint } from "../../fake-db/RoofPaint";
 import { Form } from "react-router-dom";
 
 import classes from "../../style/Forms.module.css";
+import { OrderFormType } from "../../interfaces/Order";
 
-function OrderForm({ method, order, selectEmployees }: any) {
-  // Change validation to MUI TextField Validation
+function OrderForm({ method, order, selectEmployees }: OrderFormType) {
   return (
     <div>
       <Grid item xs={12}>
@@ -94,7 +94,7 @@ function OrderForm({ method, order, selectEmployees }: any) {
                 inputProps={{ pattern: "[0-9a-fA-F]{24}" }}
                 required
                 label="Select Worker"
-                defaultValue={order ? order.worker._id : ""}
+                defaultValue={order ? order.worker.id : ""}
               >
                 {selectEmployees.map((option: any) => (
                   <MenuItem key={option._id} value={option._id}>

@@ -14,7 +14,7 @@ export const AdminProtect = ({children, redirectPath = '/dashboard'}: any) => {
 export const ManagerProtect = ({children, redirectPath = '/dashboard'}: any) => {
     const role = useSelector((state: any) => state.auth.role)
 
-  if(role !== 'Manager'){
+  if(role !== 'Manager' && role !== 'Admin'){
     return <Navigate to={redirectPath} replace/>
   } 
 

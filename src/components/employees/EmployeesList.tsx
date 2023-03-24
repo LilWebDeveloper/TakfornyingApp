@@ -4,8 +4,9 @@ import Grid from "@mui/material/Grid";
 import Paper from "@mui/material/Paper";
 
 import classes from "../../style/List.module.css";
+import { EmployeesResData } from "../../interfaces/Employee";
 
-const EmployeesList = ({ employees }: any) => {
+const EmployeesList = ({ employees }: EmployeesResData) => {
   return (
     <div className={classes.orders}>
       <h1>All Employees</h1>

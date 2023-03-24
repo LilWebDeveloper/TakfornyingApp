@@ -20,5 +20,3 @@ export const ManagerProtect = ({children, redirectPath = '/dashboard'}: any) => 
 
   return children ? children : <Outlet />
 } 
-
-<ManagerProtect></ManagerProtect>

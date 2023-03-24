@@ -1,8 +1,11 @@
 import { redirect } from "react-router-dom";
+import { EmployeeParamsType } from "../../interfaces/ParamsTypes";
 import { getAuthToken } from "../../util/auth";
 
-export default async function DeleteEmployeeAction({ params }: any) {
-  const employeeId: string = params.employeeId;
+
+
+export default async function DeleteEmployeeAction({ params }: EmployeeParamsType) {
+  const employeeId = params.employeeId;
   const token = getAuthToken();
   const response = await fetch("http://localhost:5050/employees/" + employeeId, {
     method: "DELETE",

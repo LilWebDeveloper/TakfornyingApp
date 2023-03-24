@@ -15,6 +15,7 @@ import EditTwoToneIcon from "@mui/icons-material/EditTwoTone";
 import DeleteTwoToneIcon from "@mui/icons-material/DeleteTwoTone";
 
 import { Link, useSubmit } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 function EmployeeItem({ employee }: any) {
   const submit = useSubmit();
@@ -27,9 +28,15 @@ function EmployeeItem({ employee }: any) {
     }
   }
 
+  const role = useSelector((state: any) => state.auth.role);
+
+  let showButtons = true;
+
+  if (role === "Employee") showButtons = false;
+
   return (
     <>
-      <TableContainer sx={{m:2}} component={Paper} className={classes.order}>
+      <TableContainer sx={{ m: 2 }} component={Paper} className={classes.order}>
         <Table sx={{ minWidth: 650 }} aria-label="simple table">
           <TableHead sx={{ bgcolor: "primary.main" }}>
             <TableRow className={classes.tableCell} sx={{ fontWeight: 400 }}>
@@ -62,18 +69,20 @@ function EmployeeItem({ employee }: any) {
           </TableBody>
         </Table>
       </TableContainer>
-      <menu className={classes.actions}>
-        <Link to="edit">
-          <Button variant="contained" color="primary">
-            <EditTwoToneIcon sx={{ mr: 1 }} />
-            Edit
+      {showButtons && (
+        <menu className={classes.actions}>
+          <Link to="edit">
+            <Button variant="contained" color="primary">
+              <EditTwoToneIcon sx={{ mr: 1 }} />
+              Edit
+            </Button>
+          </Link>
+          <Button onClick={DeleteHandler} variant="contained" color="primary">
+            <DeleteTwoToneIcon sx={{ mr: 1 }} />
+            Delete
           </Button>
-        </Link>
-        <Button onClick={DeleteHandler} variant="contained" color="primary">
-          <DeleteTwoToneIcon sx={{ mr: 1 }} />
-          Delete
-        </Button>
-      </menu>
+        </menu>
+      )}
     </>
   );
 }

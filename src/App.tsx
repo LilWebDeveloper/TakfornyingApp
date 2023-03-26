@@ -34,6 +34,7 @@ import loginAction from "./services/actions/LoginAction";
 import { logoutAction } from "./services/actions/logout";
 import { checkAuthLoader, tokenLoader } from "./util/auth";
 import { AdminProtect, ManagerProtect } from "./pages/AdminProtect";
+import EmployeeOrdersLoader from "./services/loaders/EmployeeOrdersLoader";
 
 const router = createBrowserRouter([
   {
@@ -105,10 +106,17 @@ const router = createBrowserRouter([
 
           // ORDERS
           {
-            path: "orders",
-            element: <OrdersPage />,
-            loader: OrdersLoader,
+            id: 'employee-orders',
+            loader: EmployeeOrdersLoader,
+            children: [
+              {
+                path: "orders",
+                element: <OrdersPage />,
+                loader: OrdersLoader
+              },
+            ]
           },
+          
           {
             path: "orders/:orderId",
             id: "order-detail",

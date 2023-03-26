@@ -19,6 +19,16 @@ export interface OrdersResData {
   orders: OrderType
 }
 
+export interface EmployeeOrdersResData {
+  employeeOrders: {
+    orders: OrderType
+  }
+}
+
+export interface EmployeeOrderType{
+  orders: OrderType
+}
+
 export interface OrderResData {
   order: OrderType
 }

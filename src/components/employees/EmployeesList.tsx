@@ -4,13 +4,13 @@ import Grid from "@mui/material/Grid";
 import Paper from "@mui/material/Paper";
 
 import classes from "../../style/List.module.css";
-import { EmployeesResData } from "../../interfaces/Employee";
+import { EmployeesResData, EmployeeType } from "../../interfaces/Employee";
 
 const EmployeesList = ({ employees }: EmployeesResData) => {
   return (
     <div className={classes.orders}>
       <h1>All Employees</h1>
-      {employees.map((data: any) => (
+      {employees.map((data: EmployeeType) => (
         <Grid key={data._id} item xs={12}>
           <Paper
             className={classes.paper}

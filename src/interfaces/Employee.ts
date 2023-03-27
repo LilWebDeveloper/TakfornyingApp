@@ -1,6 +1,6 @@
 import { FormMethod } from "react-router-dom";
 
-export default interface EmployeeType {
+export default interface EmployeesType {
   map(arg0: (data: any) => JSX.Element): import("react").ReactNode;
   dNumber: number;
   firstName: string;
@@ -10,16 +10,25 @@ export default interface EmployeeType {
   secondName: string;
   id: string;
 }
+export interface EmployeeType {
+  dNumber: number;
+  firstName: string;
+  jobPosition: string;
+  login: string;
+  password: string;
+  secondName: string;
+  _id: string;
+}
 
 export interface EmployeesResData {
-  employees: EmployeeType;
+  employees: EmployeesType;
 }
 
 export interface EmployeeResData {
-  employee: EmployeeType;
+  employee: EmployeesType;
 }
 
 export interface EmployeeFormType {
   method: FormMethod,
-  employee?: EmployeeType
+  employee?: EmployeesType
 }

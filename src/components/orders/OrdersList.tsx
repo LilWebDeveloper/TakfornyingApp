@@ -4,13 +4,13 @@ import Grid from "@mui/material/Grid";
 import Paper from "@mui/material/Paper";
 
 import classes from "../../style/List.module.css";
-import { OrdersResData } from "../../interfaces/Order";
+import { OrdersResData, OrderType } from "../../interfaces/Order";
 
 const OrdersList = ({ orders }: OrdersResData) => {
   return (
     <div className={classes.orders}>
       <h1>All orders</h1>
-      {orders.map((data: any) => (
+      {orders.map((data: OrderType) => (
         <Grid key={data._id} item xs={12}>
           <Paper
             className={classes.paper}

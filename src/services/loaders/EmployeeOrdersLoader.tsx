@@ -1,5 +1,6 @@
 import { getAuthToken } from "../../util/auth";
 import { OrdersResData } from "../../interfaces/Order";
+import { json } from "react-router-dom";
 
 export default async function EmployeeOrdersLoader() {
   const token = getAuthToken()
@@ -11,7 +12,7 @@ export default async function EmployeeOrdersLoader() {
   });
 
   if (!response.ok) {
-    throw new Error("Could not fetch orders!");
+    return json({ message: "Could not fetch employee orders.", status: 500 });
   } else {
     const resData: OrdersResData = await response.json();
     return resData;

@@ -1,0 +1,9 @@
+.paperStyle {
+  width: 50%;
+  margin: auto;
+  text-align: center;
+  flex-direction: column;
+  display: flex;
+  padding: 2rem;
+  font-weight: bold;
+}

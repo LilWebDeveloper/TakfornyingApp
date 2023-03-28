@@ -1,3 +1,4 @@
+import { json } from "react-router-dom";
 import { EmployeeResData } from "../../interfaces/Employee";
 import { EmployeeParamsType } from "../../interfaces/ParamsTypes";
 import { getAuthToken } from "../../util/auth";
@@ -12,7 +13,7 @@ export default async function EmployeeLoader({ params }: EmployeeParamsType) {
   } );
 
   if (!response.ok) {
-    throw new Error('Could not fetch employee!');
+    return json({ message: "Could not fetch employee.", status: 500 });
   } else {
     const resData: EmployeeResData = await response.json();
     return resData.employee;

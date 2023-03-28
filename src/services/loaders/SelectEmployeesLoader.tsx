@@ -1,3 +1,4 @@
+import { json } from "react-router-dom";
 import { EmployeesResData } from "../../interfaces/Employee";
 import { getAuthToken } from "../../util/auth";
 
@@ -10,7 +11,7 @@ export default async function SelectEmployeesLoader() {
   });
 
   if (!response.ok) {
-    throw new Error('Could not fetch employees list!');
+    return json({ message: "Could not fetch employees list.", status: 500 });
   } else {
     const resData: EmployeesResData = await response.json();
     return resData.employees;

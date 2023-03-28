@@ -9,6 +9,7 @@ export default interface EmployeesType {
   password: string;
   secondName: string;
   id: string;
+  status?: number;
 }
 export interface EmployeeType {
   dNumber: number;

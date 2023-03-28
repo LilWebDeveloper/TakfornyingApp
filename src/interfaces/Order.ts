@@ -13,6 +13,7 @@ export default interface OrdersType {
   worker: Employee;
   __v: number | undefined;
   _id: string | undefined;
+  status?: number;
 }
 
 export interface OrderType {

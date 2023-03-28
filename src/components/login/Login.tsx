@@ -23,12 +23,15 @@ function LoginDashboard() {
   const dispatch = useDispatch();
   const navigate = useNavigate()
 
+
   useEffect(() => {
     if (data) {
-      dispatch(authActions.setCurrentToken(data.token));
-      dispatch(authActions.setCurrentName(data.name));
-      dispatch(authActions.setCurrentEmployeeId(data.employeeId));
-      dispatch(authActions.setCurrentRole(data.role));
+      dispatch(authActions.setCurrentUserInfo({
+        token: data.token,
+        name: data.name,
+        employeeId: data.employeeId,
+        role: data.role,
+      }))
       navigate('/dashboard')
     }
   },[data, dispatch, navigate]);

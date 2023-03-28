@@ -12,18 +12,12 @@ const authSlice = createSlice({
     name: 'auth',
     initialState,
     reducers: {
-        setCurrentToken(state, action){
-            state.token = action.payload
-        },
-        setCurrentName(state, action){
-            state.name = action.payload
-        },
-        setCurrentEmployeeId(state, action){
-            state.employeeId = action.payload
-        },
-        setCurrentRole(state, action){
-            state.role = action.payload
-        },
+        setCurrentUserInfo(state, action){
+            state.token = action.payload.token
+            state.name = action.payload.name
+            state.employeeId = action.payload.employeeId
+            state.role = action.payload.role
+        }
     }
 })
 

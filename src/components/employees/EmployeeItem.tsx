@@ -1,4 +1,8 @@
 import * as React from "react";
+import { forwardRef, useState } from "react";
+import { Link, useSubmit } from "react-router-dom";
+import { useSelector } from "react-redux";
+
 import Table from "@mui/material/Table";
 import TableBody from "@mui/material/TableBody";
 import TableCell from "@mui/material/TableCell";
@@ -6,21 +10,18 @@ import TableContainer from "@mui/material/TableContainer";
 import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
+import Button from "@mui/material/Button";
+import EditTwoToneIcon from "@mui/icons-material/EditTwoTone";
+import DeleteTwoToneIcon from "@mui/icons-material/DeleteTwoTone";
+import { Snackbar, Stack } from "@mui/material";
+import MuiAlert, { AlertProps } from "@mui/material/Alert";
 
 import classes from "../../style/Item.module.css";
 
-import Button from "@mui/material/Button";
-
-import EditTwoToneIcon from "@mui/icons-material/EditTwoTone";
-import DeleteTwoToneIcon from "@mui/icons-material/DeleteTwoTone";
-
-import { Link, useSubmit } from "react-router-dom";
-import { useSelector } from "react-redux";
 import { EmployeeResData } from "../../interfaces/Employee";
 import { StateType } from "../../interfaces/StateTypes";
-import {Snackbar, Stack } from "@mui/material";
-import MuiAlert, { AlertProps } from "@mui/material/Alert";
-import { forwardRef, useState } from "react";
+
+
 
 const Alert = forwardRef<HTMLDivElement, AlertProps>(function Alert(
   props,
@@ -34,10 +35,6 @@ function EmployeeItem({ employee }: EmployeeResData) {
 
   const [open, setOpen] = useState(false);
 
-  const handleClick = () => {
-    setOpen(true);
-  };
-
   const handleClose = (
     event?: React.SyntheticEvent | Event,
     reason?: string
@@ -49,12 +46,15 @@ function EmployeeItem({ employee }: EmployeeResData) {
     setOpen(false);
   };
 
-  function DeleteHandler(event?: React.SyntheticEvent | Event, reason?: string) {
+  function DeleteHandler(
+    event?: React.SyntheticEvent | Event,
+    reason?: string
+  ) {
     const proceed = window.confirm("Are you sure?");
 
     if (proceed) {
-      setOpen(true)
       submit(null, { method: "delete" });
+      setOpen(true);
     }
   }
 
@@ -107,25 +107,21 @@ function EmployeeItem({ employee }: EmployeeResData) {
               Edit
             </Button>
           </Link>
-          <Button onChange={handleClick} onClick={DeleteHandler} variant="contained" color="primary">
+          <Button onClick={DeleteHandler} variant="contained" color="primary">
             <DeleteTwoToneIcon sx={{ mr: 1 }} />
             Delete
           </Button>
           <Stack>
-              <Snackbar
-                open={open}
-                autoHideDuration={2000}
+            <Snackbar open={open} autoHideDuration={2000} onClose={handleClose}>
+              <Alert
                 onClose={handleClose}
+                severity="error"
+                sx={{ width: "100%" }}
               >
-                <Alert
-                  onClose={handleClose}
-                  severity="error"
-                  sx={{ width: "100%" }}
-                >
-                  DELETED - The user has been removed
-                </Alert>
-              </Snackbar>
-            </Stack>
+                DELETED - The user has been removed
+              </Alert>
+            </Snackbar>
+          </Stack>
         </menu>
       )}
     </>

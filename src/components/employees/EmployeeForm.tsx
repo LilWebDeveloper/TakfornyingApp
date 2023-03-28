@@ -1,20 +1,17 @@
-import { Button, TextField, MenuItem, Snackbar, Stack } from "@mui/material";
-
 import { forwardRef, useState } from "react";
+import { Form } from "react-router-dom";
 
 import Grid from "@mui/material/Grid";
 import Paper from "@mui/material/Paper";
-
+import { Button, TextField, MenuItem, Snackbar, Stack } from "@mui/material";
 import MuiAlert, { AlertProps } from "@mui/material/Alert";
-
-import { Form } from "react-router-dom";
+import PersonAddTwoToneIcon from "@mui/icons-material/PersonAddTwoTone";
 
 import { JobPosition } from "../../fake-db/JobPositionList";
 
-import PersonAddTwoToneIcon from "@mui/icons-material/PersonAddTwoTone";
+import { EmployeeFormType } from "../../interfaces/Employee";
 
 import classes from "../../style/Forms.module.css";
-import { EmployeeFormType } from "../../interfaces/Employee";
 
 const maxMinLenght = { maxLength: 30, minLength: 3 };
 
@@ -152,7 +149,7 @@ function EmployeeForm({ method, employee }: EmployeeFormType) {
                   severity="success"
                   sx={{ width: "100%" }}
                 >
-                  SUCCESS - The data has been sent
+                  SUCCESS - Employee data has been sent
                 </Alert>
               </Snackbar>
             </Stack>

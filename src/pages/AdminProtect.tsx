@@ -1,5 +1,6 @@
 import { useSelector } from "react-redux";
 import { Navigate, Outlet } from "react-router-dom";
+
 import { ProtectType } from "../interfaces/Protect";
 import { StateType } from "../interfaces/StateTypes";
 

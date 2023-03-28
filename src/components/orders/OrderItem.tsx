@@ -1,4 +1,7 @@
-import * as React from "react";
+import { forwardRef, useState } from "react";
+import { Link, useSubmit } from "react-router-dom";
+import { useSelector } from "react-redux";
+
 import Table from "@mui/material/Table";
 import TableBody from "@mui/material/TableBody";
 import TableCell from "@mui/material/TableCell";
@@ -8,24 +11,44 @@ import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
 import EditTwoToneIcon from "@mui/icons-material/EditTwoTone";
 import DeleteTwoToneIcon from "@mui/icons-material/DeleteTwoTone";
+import MuiAlert, { AlertProps } from "@mui/material/Alert";
+
+import { Button, Snackbar, Stack } from "@mui/material";
 
 import classes from "../../style/Item.module.css";
 
-import { Button } from "@mui/material";
-
-import { Link, useSubmit } from "react-router-dom";
-import { useSelector } from "react-redux";
 import { OrderResData } from "../../interfaces/Order";
 import { StateType } from "../../interfaces/StateTypes";
 
+
+const Alert = forwardRef<HTMLDivElement, AlertProps>(function Alert(
+  props,
+  ref
+) {
+  return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
+});
+
 function OrderItem({ order }: OrderResData) {
   const submit = useSubmit();
+  const [open, setOpen] = useState(false);
+
+  const handleClose = (
+    event?: React.SyntheticEvent | Event,
+    reason?: string
+  ) => {
+    if (reason === "clickaway") {
+      return;
+    }
+
+    setOpen(false);
+  };
 
   function DeleteHandler() {
     const proceed = window.confirm("Are you sure?");
 
     if (proceed) {
       submit(null, { method: "delete" });
+      setOpen(true);
     }
   }
 
@@ -94,6 +117,17 @@ function OrderItem({ order }: OrderResData) {
             <DeleteTwoToneIcon sx={{ mr: 1 }} />
             Delete
           </Button>
+          <Stack>
+            <Snackbar open={open} autoHideDuration={2000} onClose={handleClose}>
+              <Alert
+                onClose={handleClose}
+                severity="error"
+                sx={{ width: "100%" }}
+              >
+                DELETED - The order has been removed
+              </Alert>
+            </Snackbar>
+          </Stack>
         </menu>
       )}
     </>

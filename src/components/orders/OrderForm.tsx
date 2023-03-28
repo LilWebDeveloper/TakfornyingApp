@@ -1,22 +1,49 @@
-import { Button, TextField, MenuItem } from "@mui/material";
+import { forwardRef, useState } from "react";
+import { Form } from "react-router-dom";
+
+import { Button, TextField, MenuItem, Stack, Snackbar } from "@mui/material";
 import Grid from "@mui/material/Grid";
 import Paper from "@mui/material/Paper";
+import MuiAlert, { AlertProps } from "@mui/material/Alert";
 import AddCircleTwoToneIcon from "@mui/icons-material/AddCircleTwoTone";
 
 import { RoofPaint } from "../../fake-db/RoofPaint";
 
-import { Form } from "react-router-dom";
 
 import classes from "../../style/Forms.module.css";
 import { OrderFormType } from "../../interfaces/Order";
 import { EmployeeType } from "../../interfaces/Employee";
 import { MenuItemType } from "../../interfaces/MenuItemType";
 
+
+const Alert = forwardRef<HTMLDivElement, AlertProps>(function Alert(
+  props,
+  ref
+) {
+  return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
+});
+
 function OrderForm({ method, order, selectEmployees }: OrderFormType) {
+  const [open, setOpen] = useState(false);
+
+  const handleClick = () => {
+    setOpen(true);
+  };
+
+  const handleClose = (
+    event?: React.SyntheticEvent | Event,
+    reason?: string
+  ) => {
+    if (reason === "clickaway") {
+      return;
+    }
+
+    setOpen(false);
+  };
   return (
     <div>
       <Grid item xs={12}>
-        <Paper sx={{m: 2, p: 2, display: "flex", flexDirection: "column" }}>
+        <Paper sx={{ m: 2, p: 2, display: "flex", flexDirection: "column" }}>
           <Form method={method} className={classes.order_form}>
             <div>
               <TextField
@@ -110,10 +137,26 @@ function OrderForm({ method, order, selectEmployees }: OrderFormType) {
               sx={{ m: 1 }}
               variant="contained"
               color="primary"
+              onClick={handleClick}
             >
               <AddCircleTwoToneIcon sx={{ mr: 1 }} />
-              {method==="post" ? 'ADD' : 'EDIT'}
+              {method === "post" ? "ADD" : "EDIT"}
             </Button>
+            <Stack>
+              <Snackbar
+                open={open}
+                autoHideDuration={2000}
+                onClose={handleClose}
+              >
+                <Alert
+                  onClose={handleClose}
+                  severity="success"
+                  sx={{ width: "100%" }}
+                >
+                  SUCCESS - Order data has been sent
+                </Alert>
+              </Snackbar>
+            </Stack>
           </Form>
         </Paper>
       </Grid>

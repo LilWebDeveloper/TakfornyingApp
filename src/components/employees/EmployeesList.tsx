@@ -3,8 +3,9 @@ import { Link } from "react-router-dom";
 import Grid from "@mui/material/Grid";
 import Paper from "@mui/material/Paper";
 
-import classes from "../../style/List.module.css";
 import { EmployeesResData, EmployeeType } from "../../interfaces/Employee";
+
+import classes from "../../style/List.module.css";
 
 const EmployeesList = ({ employees }: EmployeesResData) => {
   return (

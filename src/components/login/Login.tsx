@@ -1,3 +1,7 @@
+import { useEffect } from "react";
+import { useDispatch } from "react-redux";
+import { Form, useActionData, useNavigate } from "react-router-dom";
+
 import {
   Grid,
   CssBaseline,
@@ -8,12 +12,10 @@ import {
   Button,
 } from "@mui/material";
 
-import { Form, useActionData, useNavigate } from "react-router-dom";
 import { Copyright } from "../copyright/Copyright";
 import takfornyingImage from "../../assets/takfornying.jpg";
 import takfornyingLogo from "../../assets/logo2021takfornying.jpg";
-import { useEffect } from "react";
-import { useDispatch } from "react-redux";
+
 import { authActions } from "../../store/authSlice";
 import UserInfo from "../../interfaces/tokenResData";
 
@@ -21,20 +23,21 @@ function LoginDashboard() {
   const data = useActionData() as UserInfo;
 
   const dispatch = useDispatch();
-  const navigate = useNavigate()
-
+  const navigate = useNavigate();
 
   useEffect(() => {
     if (data) {
-      dispatch(authActions.setCurrentUserInfo({
-        token: data.token,
-        name: data.name,
-        employeeId: data.employeeId,
-        role: data.role,
-      }))
-      navigate('/dashboard')
+      dispatch(
+        authActions.setCurrentUserInfo({
+          token: data.token,
+          name: data.name,
+          employeeId: data.employeeId,
+          role: data.role,
+        })
+      );
+      navigate("/dashboard");
     }
-  },[data, dispatch, navigate]);
+  }, [data, dispatch, navigate]);
 
   return (
     <Grid container component="main" sx={{ height: "100vh" }}>

@@ -1,4 +1,5 @@
 import React, { useEffect } from "react";
+import { useSelector } from "react-redux";
 import { Form, Outlet, useRouteLoaderData, useSubmit } from "react-router-dom";
 
 import { ThemeProvider } from "@mui/material/styles";
@@ -13,6 +14,7 @@ import Button from "@mui/material/Button";
 import MenuIcon from "@mui/icons-material/Menu";
 import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
 import LogoutTwoToneIcon from "@mui/icons-material/LogoutTwoTone";
+import { ListSubheader } from "@mui/material";
 
 import { NavBar, Drawer } from "../components/navBar/NavBar";
 import { Copyright } from "../components/copyright/Copyright";
@@ -22,13 +24,12 @@ import {
   EmployeeNavBarListItems,
 } from "../components/navBar/NavBarListItems";
 
-import { Theme } from "../style/CreateTheme";
+
 import { getTokenDuration } from "../util/auth";
 
-import { ListSubheader } from "@mui/material";
-
 import classes from "../style/Root.module.css";
-import { useSelector } from "react-redux";
+import { Theme } from "../style/CreateTheme";
+
 import { StateType } from "../interfaces/StateTypes";
 
 function RootLayoutContent() {

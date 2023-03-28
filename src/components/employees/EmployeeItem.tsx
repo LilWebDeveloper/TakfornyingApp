@@ -18,14 +18,42 @@ import { Link, useSubmit } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { EmployeeResData } from "../../interfaces/Employee";
 import { StateType } from "../../interfaces/StateTypes";
+import {Snackbar, Stack } from "@mui/material";
+import MuiAlert, { AlertProps } from "@mui/material/Alert";
+import { forwardRef, useState } from "react";
+
+const Alert = forwardRef<HTMLDivElement, AlertProps>(function Alert(
+  props,
+  ref
+) {
+  return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
+});
 
 function EmployeeItem({ employee }: EmployeeResData) {
   const submit = useSubmit();
 
-  function DeleteHandler() {
+  const [open, setOpen] = useState(false);
+
+  const handleClick = () => {
+    setOpen(true);
+  };
+
+  const handleClose = (
+    event?: React.SyntheticEvent | Event,
+    reason?: string
+  ) => {
+    if (reason === "clickaway") {
+      return;
+    }
+
+    setOpen(false);
+  };
+
+  function DeleteHandler(event?: React.SyntheticEvent | Event, reason?: string) {
     const proceed = window.confirm("Are you sure?");
 
     if (proceed) {
+      setOpen(true)
       submit(null, { method: "delete" });
     }
   }
@@ -79,10 +107,25 @@ function EmployeeItem({ employee }: EmployeeResData) {
               Edit
             </Button>
           </Link>
-          <Button onClick={DeleteHandler} variant="contained" color="primary">
+          <Button onChange={handleClick} onClick={DeleteHandler} variant="contained" color="primary">
             <DeleteTwoToneIcon sx={{ mr: 1 }} />
             Delete
           </Button>
+          <Stack>
+              <Snackbar
+                open={open}
+                autoHideDuration={2000}
+                onClose={handleClose}
+              >
+                <Alert
+                  onClose={handleClose}
+                  severity="error"
+                  sx={{ width: "100%" }}
+                >
+                  DELETED - The user has been removed
+                </Alert>
+              </Snackbar>
+            </Stack>
         </menu>
       )}
     </>

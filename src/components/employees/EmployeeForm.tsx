@@ -1,24 +1,52 @@
-import { Button, TextField, MenuItem } from "@mui/material";
+import { Button, TextField, MenuItem, Snackbar, Stack } from "@mui/material";
+
+import { forwardRef, useState } from "react";
 
 import Grid from "@mui/material/Grid";
 import Paper from "@mui/material/Paper";
+
+import MuiAlert, { AlertProps } from "@mui/material/Alert";
 
 import { Form } from "react-router-dom";
 
 import { JobPosition } from "../../fake-db/JobPositionList";
 
-import PersonAddTwoToneIcon from '@mui/icons-material/PersonAddTwoTone';
+import PersonAddTwoToneIcon from "@mui/icons-material/PersonAddTwoTone";
 
 import classes from "../../style/Forms.module.css";
 import { EmployeeFormType } from "../../interfaces/Employee";
 
-const maxMinLenght = {maxLength: 30, minLength: 3}
+const maxMinLenght = { maxLength: 30, minLength: 3 };
+
+const Alert = forwardRef<HTMLDivElement, AlertProps>(function Alert(
+  props,
+  ref
+) {
+  return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
+});
 
 function EmployeeForm({ method, employee }: EmployeeFormType) {
+  const [open, setOpen] = useState(false);
+
+  const handleClick = () => {
+    setOpen(true);
+  };
+
+  const handleClose = (
+    event?: React.SyntheticEvent | Event,
+    reason?: string
+  ) => {
+    if (reason === "clickaway") {
+      return;
+    }
+
+    setOpen(false);
+  };
+
   return (
     <div>
       <Grid item xs={12}>
-        <Paper sx={{m:2, p: 2, display: "flex", flexDirection: "column" }}>
+        <Paper sx={{ m: 2, p: 2, display: "flex", flexDirection: "column" }}>
           <Form method={method} className={classes.order_form}>
             <div>
               <TextField
@@ -104,14 +132,30 @@ function EmployeeForm({ method, employee }: EmployeeFormType) {
               />
             </div>
             <Button
-              type="submit"
-              sx={{ m: 1 }}
-              variant="contained"
-              color="primary"
-            >
-              <PersonAddTwoToneIcon sx={{ mr: 1 }} />
-              {method === "post" ? "ADD" : "EDIT"}
-            </Button>
+                onClick={handleClick}
+                type="submit"
+                sx={{ m: 1}}
+                variant="contained"
+                color="primary"
+              >
+                <PersonAddTwoToneIcon sx={{ mr: 1 }} />
+                {method === "post" ? "ADD" : "EDIT"}
+              </Button>
+            <Stack>
+              <Snackbar
+                open={open}
+                autoHideDuration={2000}
+                onClose={handleClose}
+              >
+                <Alert
+                  onClose={handleClose}
+                  severity="success"
+                  sx={{ width: "100%" }}
+                >
+                  SUCCESS - The data has been sent
+                </Alert>
+              </Snackbar>
+            </Stack>
           </Form>
         </Paper>
       </Grid>

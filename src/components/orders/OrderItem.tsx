@@ -16,6 +16,7 @@ import { Button } from "@mui/material";
 import { Link, useSubmit } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { OrderResData } from "../../interfaces/Order";
+import { StateType } from "../../interfaces/StateTypes";
 
 function OrderItem({ order }: OrderResData) {
   const submit = useSubmit();
@@ -28,7 +29,7 @@ function OrderItem({ order }: OrderResData) {
     }
   }
 
-  const role = useSelector((state: any) => state.auth.role);
+  const role = useSelector((state: StateType) => state.auth.role);
 
   let showButtons = true;
 

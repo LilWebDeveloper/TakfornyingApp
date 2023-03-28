@@ -32,7 +32,7 @@ import { useSelector } from "react-redux";
 import { StateType } from "../interfaces/StateTypes";
 
 function RootLayoutContent() {
-  const token: unknown | string= useRouteLoaderData("token-loader");
+  const token: unknown | string = useRouteLoaderData("token-loader");
   const submit = useSubmit();
   const [open, setOpen] = React.useState(false);
   const toggleDrawer = () => {

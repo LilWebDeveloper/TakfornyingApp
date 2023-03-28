@@ -9,6 +9,8 @@ import { Form } from "react-router-dom";
 
 import classes from "../../style/Forms.module.css";
 import { OrderFormType } from "../../interfaces/Order";
+import { EmployeeType } from "../../interfaces/Employee";
+import { MenuItemType } from "../../interfaces/MenuItemType";
 
 function OrderForm({ method, order, selectEmployees }: OrderFormType) {
   return (
@@ -40,7 +42,7 @@ function OrderForm({ method, order, selectEmployees }: OrderFormType) {
                 required
                 defaultValue={order ? order.roofPaint : ""}
               >
-                {RoofPaint.map((option: any) => (
+                {RoofPaint.map((option: MenuItemType) => (
                   <MenuItem key={option.value} value={option.value}>
                     {option.label}
                   </MenuItem>
@@ -96,7 +98,7 @@ function OrderForm({ method, order, selectEmployees }: OrderFormType) {
                 label="Select Worker"
                 defaultValue={order ? order.worker.id : ""}
               >
-                {selectEmployees.map((option: any) => (
+                {selectEmployees.map((option: EmployeeType) => (
                   <MenuItem key={option._id} value={option._id}>
                     {option.firstName + " " + option.secondName}
                   </MenuItem>

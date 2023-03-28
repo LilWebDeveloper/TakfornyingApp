@@ -17,6 +17,7 @@ import DeleteTwoToneIcon from "@mui/icons-material/DeleteTwoTone";
 import { Link, useSubmit } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { EmployeeResData } from "../../interfaces/Employee";
+import { StateType } from "../../interfaces/StateTypes";
 
 function EmployeeItem({ employee }: EmployeeResData) {
   const submit = useSubmit();
@@ -29,7 +30,7 @@ function EmployeeItem({ employee }: EmployeeResData) {
     }
   }
 
-  const role = useSelector((state: any) => state.auth.role);
+  const role = useSelector((state: StateType) => state.auth.role);
 
   let showButtons = true;
 

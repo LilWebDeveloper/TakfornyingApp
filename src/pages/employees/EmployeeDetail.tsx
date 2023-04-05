@@ -6,7 +6,7 @@ import ErrorContent from "../Error";
 
 
 function EmployeeDetailPage() {
-  const employees = useLoaderData() as EmployeeType;
+  const employees = useLoaderData() as EmployeeType[];
   const employee = useRouteLoaderData("employee-detail") as EmployeeType;
 
 

@@ -17,7 +17,7 @@ import takfornyingImage from "../../assets/takfornying.jpg";
 import takfornyingLogo from "../../assets/logo2021takfornying.jpg";
 
 import { authActions } from "../../store/authSlice";
-import UserInfo from "../../interfaces/tokenResData";
+import UserInfo from "../../interfaces/UserInfo";
 
 function LoginDashboard() {
   const data = useActionData() as UserInfo;

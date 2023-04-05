@@ -4,7 +4,7 @@ import EmployeesList from "../../components/employees/EmployeesList";
 import EmployeeType from "../../interfaces/Employee";
 
 function EmployeesPage() {
-  const employees = useLoaderData() as EmployeeType;
+  const employees = useLoaderData() as EmployeeType[];
 
   return <EmployeesList employees={employees} />;
 }

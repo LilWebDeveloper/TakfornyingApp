@@ -1,5 +1,5 @@
 export interface NavLinkType {
     goTo: string;
     title: string;
-    iconType: any
+    iconType: JSX.Element
   }

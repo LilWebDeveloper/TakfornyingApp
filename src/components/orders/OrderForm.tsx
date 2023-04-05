@@ -123,7 +123,7 @@ function OrderForm({ method, order, selectEmployees }: OrderFormType) {
                 inputProps={{ pattern: "[0-9a-fA-F]{24}" }}
                 required
                 label="Select Worker"
-                defaultValue={order ? order.worker.id : ""}
+                defaultValue={order ? order.worker._id : ""}
               >
                 {selectEmployees.map((option: EmployeeType) => (
                   <MenuItem key={option._id} value={option._id}>

@@ -83,7 +83,7 @@ function EmployeeForm({ method, employee }: EmployeeFormType) {
                 inputProps={maxMinLenght}
                 defaultValue={employee ? employee.jobPosition : ""}
               >
-                {JobPosition.map((option: any) => (
+                {JobPosition.map((option) => (
                   <MenuItem key={option.value} value={option.value}>
                     {option.label}
                   </MenuItem>

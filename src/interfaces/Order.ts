@@ -1,5 +1,5 @@
 import { FormMethod } from 'react-router-dom';
-import Employee from '../interfaces/Employee'
+import Employee, { EmployeeType } from '../interfaces/Employee'
 
 export default interface OrdersType {
   map(arg0: (data: any) => JSX.Element): import("react").ReactNode;
@@ -50,5 +50,5 @@ export interface OrderResData {
 export interface OrderFormType {
   method: FormMethod,
   order?: OrdersType | undefined,
-  selectEmployees: Employee
+  selectEmployees: EmployeeType[]
 }

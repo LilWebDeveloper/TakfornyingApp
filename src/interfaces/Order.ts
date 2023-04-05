@@ -2,7 +2,6 @@ import { FormMethod } from 'react-router-dom';
 import Employee, { EmployeeType } from '../interfaces/Employee'
 
 export default interface OrdersType {
-  map(arg0: (data: any) => JSX.Element): import("react").ReactNode;
   address: string;
   createdAt: string | undefined;
   description: string;
@@ -30,17 +29,17 @@ export interface OrderType {
 }
 
 export interface OrdersResData {
-  orders: OrdersType
+  orders: OrdersType[]
 }
 
 export interface EmployeeOrdersResData {
   employeeOrders: {
-    orders: OrdersType
+    orders: OrdersType[]
   }
 }
 
 export interface EmployeeOrderType{
-  orders: OrdersType
+  orders: OrdersType[]
 }
 
 export interface OrderResData {

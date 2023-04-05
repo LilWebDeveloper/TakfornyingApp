@@ -5,7 +5,7 @@ import OrderType from "../../interfaces/Order";
 import ErrorContent from "../Error";
 
 function OrderDetailPage() {
-  const orders = useLoaderData() as OrderType;
+  const orders = useLoaderData() as OrderType[];
   const order = useRouteLoaderData("order-detail") as OrderType;
 
   if(order.status === 500){

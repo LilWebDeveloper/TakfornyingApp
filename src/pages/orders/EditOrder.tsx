@@ -6,7 +6,6 @@ import OrderType from "../../interfaces/Order";
 function EditOrderPage() {
   const order = useRouteLoaderData("order-detail") as OrderType;
   const selectEmployee = useRouteLoaderData("select-employee-loader") as EmployeeType[];
-  console.log(selectEmployee)
 
   return (
     <>

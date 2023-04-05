@@ -115,7 +115,7 @@ function EmployeeItem({ employee }: EmployeeResData) {
             <Snackbar open={open} autoHideDuration={2000} onClose={handleClose}>
               <Alert
                 onClose={handleClose}
-                severity="error"
+                severity="success"
                 sx={{ width: "100%" }}
               >
                 DELETED - The user has been removed

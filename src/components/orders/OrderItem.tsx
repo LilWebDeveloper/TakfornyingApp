@@ -121,7 +121,7 @@ function OrderItem({ order }: OrderResData) {
             <Snackbar open={open} autoHideDuration={2000} onClose={handleClose}>
               <Alert
                 onClose={handleClose}
-                severity="error"
+                severity="success"
                 sx={{ width: "100%" }}
               >
                 DELETED - The order has been removed

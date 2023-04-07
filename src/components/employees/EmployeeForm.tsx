@@ -14,10 +14,12 @@ import { EmployeeFormType } from "../../interfaces/Employee";
 import classes from "../../style/Forms.module.css";
 
 const maxMinLenght = { maxLength: 30, minLength: 3 };
+const pwdLength = { minLenght: 5}
 
 const isDNumber = (value: string) => value.trim().length === 11;
-const start3 = (value: string) => value.trim().length >= 3
-const stop30 = (value: string) => value.trim().length <= 30
+const start3 = (value: string) => value.trim().length >= 3;
+const start5 = (value: string) => value.trim().length >= 5;
+const stop30 = (value: string) => value.trim().length <= 30;
 
 const Alert = forwardRef<HTMLDivElement, AlertProps>(function Alert(
   props,
@@ -44,12 +46,16 @@ function EmployeeForm({ method, employee }: EmployeeFormType) {
     const enteredLogin = userLoginInputRef.current?.value;
     const enteredPassword = passwordInputRef.current?.value;
 
-    const enteredFirstNameIsValid = start3(enteredFirstName!) && stop30(enteredFirstName!)
-    const enteredSecondNameIsValid = start3(enteredSecondName!) && stop30(enteredSecondName!)
-    const enteredJobPositionIsValid = start3(enteredJobPosition!) && stop30(enteredJobPosition!)
+    const enteredFirstNameIsValid =
+      start3(enteredFirstName!) && stop30(enteredFirstName!);
+    const enteredSecondNameIsValid =
+      start3(enteredSecondName!) && stop30(enteredSecondName!);
+    const enteredJobPositionIsValid =
+      start3(enteredJobPosition!) && stop30(enteredJobPosition!);
     const enteredDNumberIsValid = isDNumber(enteredDNumber!);
-    const enteredLoginIsValid = start3(enteredLogin!) && stop30(enteredLogin!)
-    const enteredPasswordIsValid = start3(enteredPassword!) && stop30(enteredPassword!)
+    const enteredLoginIsValid = start3(enteredLogin!) && stop30(enteredLogin!);
+    const enteredPasswordIsValid =
+      start5(enteredPassword!) && stop30(enteredPassword!);
 
     const formIsValid =
       enteredFirstNameIsValid &&
@@ -61,9 +67,9 @@ function EmployeeForm({ method, employee }: EmployeeFormType) {
 
     if (!formIsValid) {
       setOpen(false);
+    } else {
+      setOpen(true);
     }
-
-    setOpen(true);
   };
 
   const handleClose = (
@@ -166,7 +172,7 @@ function EmployeeForm({ method, employee }: EmployeeFormType) {
                 label="Temporary password for employee"
                 inputRef={passwordInputRef as RefObject<HTMLInputElement>}
                 required
-                inputProps={maxMinLenght}
+                inputProps={pwdLength}
                 variant="outlined"
                 defaultValue={employee ? employee.password : ""}
               />

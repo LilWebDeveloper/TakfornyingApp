@@ -11,9 +11,6 @@ export default interface EmployeesType {
   status?: number;
 }
 
-export interface SelectEmployeesType{
-  
-}
 export interface EmployeeType {
   dNumber: number;
   firstName: string;

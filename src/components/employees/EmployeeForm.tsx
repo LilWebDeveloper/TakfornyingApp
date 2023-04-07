@@ -1,4 +1,4 @@
-import { forwardRef, useState } from "react";
+import { forwardRef, RefObject, useRef, useState } from "react";
 import { Form } from "react-router-dom";
 
 import Grid from "@mui/material/Grid";
@@ -15,6 +15,10 @@ import classes from "../../style/Forms.module.css";
 
 const maxMinLenght = { maxLength: 30, minLength: 3 };
 
+const isDNumber = (value: string) => value.trim().length === 11;
+const start3 = (value: string) => value.trim().length >= 3
+const stop30 = (value: string) => value.trim().length <= 30
+
 const Alert = forwardRef<HTMLDivElement, AlertProps>(function Alert(
   props,
   ref
@@ -25,7 +29,40 @@ const Alert = forwardRef<HTMLDivElement, AlertProps>(function Alert(
 function EmployeeForm({ method, employee }: EmployeeFormType) {
   const [open, setOpen] = useState(false);
 
+  const firstNameInputRef = useRef<HTMLInputElement>();
+  const secondNameInputRef = useRef<HTMLInputElement>();
+  const jobPositionInputRef = useRef<HTMLInputElement>();
+  const dNumberInputRef = useRef<HTMLInputElement>();
+  const userLoginInputRef = useRef<HTMLInputElement>();
+  const passwordInputRef = useRef<HTMLInputElement>();
+
   const handleClick = () => {
+    const enteredFirstName = firstNameInputRef.current?.value;
+    const enteredSecondName = secondNameInputRef.current?.value;
+    const enteredJobPosition = jobPositionInputRef.current?.value;
+    const enteredDNumber = dNumberInputRef.current?.value;
+    const enteredLogin = userLoginInputRef.current?.value;
+    const enteredPassword = passwordInputRef.current?.value;
+
+    const enteredFirstNameIsValid = start3(enteredFirstName!) && stop30(enteredFirstName!)
+    const enteredSecondNameIsValid = start3(enteredSecondName!) && stop30(enteredSecondName!)
+    const enteredJobPositionIsValid = start3(enteredJobPosition!) && stop30(enteredJobPosition!)
+    const enteredDNumberIsValid = isDNumber(enteredDNumber!);
+    const enteredLoginIsValid = start3(enteredLogin!) && stop30(enteredLogin!)
+    const enteredPasswordIsValid = start3(enteredPassword!) && stop30(enteredPassword!)
+
+    const formIsValid =
+      enteredFirstNameIsValid &&
+      enteredSecondNameIsValid &&
+      enteredJobPositionIsValid &&
+      enteredDNumberIsValid &&
+      enteredLoginIsValid &&
+      enteredPasswordIsValid;
+
+    if (!formIsValid) {
+      setOpen(false);
+    }
+
     setOpen(true);
   };
 
@@ -54,6 +91,7 @@ function EmployeeForm({ method, employee }: EmployeeFormType) {
                 type="text"
                 label="First Name"
                 inputProps={maxMinLenght}
+                inputRef={firstNameInputRef as RefObject<HTMLInputElement>}
                 required
                 variant="outlined"
                 defaultValue={employee ? employee.firstName : ""}
@@ -65,6 +103,7 @@ function EmployeeForm({ method, employee }: EmployeeFormType) {
                 name="secondName"
                 type="text"
                 label="Second Name"
+                inputRef={secondNameInputRef as RefObject<HTMLInputElement>}
                 required
                 inputProps={maxMinLenght}
                 variant="outlined"
@@ -79,6 +118,7 @@ function EmployeeForm({ method, employee }: EmployeeFormType) {
                 name="jobPosition"
                 select
                 label="Job Position"
+                inputRef={jobPositionInputRef as RefObject<HTMLInputElement>}
                 required
                 inputProps={maxMinLenght}
                 defaultValue={employee ? employee.jobPosition : ""}
@@ -94,8 +134,9 @@ function EmployeeForm({ method, employee }: EmployeeFormType) {
                 className={classes.input_size}
                 id="dNumber"
                 name="dNumber"
-                type="string"
+                type="text"
                 label="D-Number / Person Number"
+                inputRef={dNumberInputRef as RefObject<HTMLInputElement>}
                 required
                 inputProps={{ pattern: "[0-9]{11}" }}
                 variant="outlined"
@@ -110,6 +151,7 @@ function EmployeeForm({ method, employee }: EmployeeFormType) {
                 name="userLogin"
                 type="text"
                 label="Login for employee"
+                inputRef={userLoginInputRef as RefObject<HTMLInputElement>}
                 required
                 inputProps={maxMinLenght}
                 variant="outlined"
@@ -122,6 +164,7 @@ function EmployeeForm({ method, employee }: EmployeeFormType) {
                 name="password"
                 type="password"
                 label="Temporary password for employee"
+                inputRef={passwordInputRef as RefObject<HTMLInputElement>}
                 required
                 inputProps={maxMinLenght}
                 variant="outlined"
@@ -129,15 +172,15 @@ function EmployeeForm({ method, employee }: EmployeeFormType) {
               />
             </div>
             <Button
-                onClick={handleClick}
-                type="submit"
-                sx={{ m: 1}}
-                variant="contained"
-                color="primary"
-              >
-                <PersonAddTwoToneIcon sx={{ mr: 1 }} />
-                {method === "post" ? "ADD" : "EDIT"}
-              </Button>
+              onClick={handleClick}
+              type="submit"
+              sx={{ m: 1 }}
+              variant="contained"
+              color="primary"
+            >
+              <PersonAddTwoToneIcon sx={{ mr: 1 }} />
+              {method === "post" ? "ADD" : "EDIT"}
+            </Button>
             <Stack>
               <Snackbar
                 open={open}

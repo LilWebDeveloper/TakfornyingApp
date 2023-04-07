@@ -1,4 +1,4 @@
-import { forwardRef, RefObject, useRef, useState } from "react";
+import { forwardRef, useRef, useState } from "react";
 import { Form } from "react-router-dom";
 
 import Grid from "@mui/material/Grid";
@@ -97,7 +97,7 @@ function EmployeeForm({ method, employee }: EmployeeFormType) {
                 type="text"
                 label="First Name"
                 inputProps={maxMinLenght}
-                inputRef={firstNameInputRef as RefObject<HTMLInputElement>}
+                inputRef={firstNameInputRef}
                 required
                 variant="outlined"
                 defaultValue={employee ? employee.firstName : ""}
@@ -109,7 +109,7 @@ function EmployeeForm({ method, employee }: EmployeeFormType) {
                 name="secondName"
                 type="text"
                 label="Second Name"
-                inputRef={secondNameInputRef as RefObject<HTMLInputElement>}
+                inputRef={secondNameInputRef}
                 required
                 inputProps={maxMinLenght}
                 variant="outlined"
@@ -124,7 +124,7 @@ function EmployeeForm({ method, employee }: EmployeeFormType) {
                 name="jobPosition"
                 select
                 label="Job Position"
-                inputRef={jobPositionInputRef as RefObject<HTMLInputElement>}
+                inputRef={jobPositionInputRef}
                 required
                 inputProps={maxMinLenght}
                 defaultValue={employee ? employee.jobPosition : ""}
@@ -142,7 +142,7 @@ function EmployeeForm({ method, employee }: EmployeeFormType) {
                 name="dNumber"
                 type="text"
                 label="D-Number / Person Number"
-                inputRef={dNumberInputRef as RefObject<HTMLInputElement>}
+                inputRef={dNumberInputRef}
                 required
                 inputProps={{ pattern: "[0-9]{11}" }}
                 variant="outlined"
@@ -157,7 +157,7 @@ function EmployeeForm({ method, employee }: EmployeeFormType) {
                 name="userLogin"
                 type="text"
                 label="Login for employee"
-                inputRef={userLoginInputRef as RefObject<HTMLInputElement>}
+                inputRef={userLoginInputRef}
                 required
                 inputProps={maxMinLenght}
                 variant="outlined"
@@ -170,7 +170,7 @@ function EmployeeForm({ method, employee }: EmployeeFormType) {
                 name="password"
                 type="password"
                 label="Temporary password for employee"
-                inputRef={passwordInputRef as RefObject<HTMLInputElement>}
+                inputRef={passwordInputRef}
                 required
                 inputProps={pwdLength}
                 variant="outlined"

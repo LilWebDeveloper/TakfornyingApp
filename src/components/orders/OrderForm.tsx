@@ -1,4 +1,4 @@
-import { forwardRef, useState } from "react";
+import { forwardRef, useRef, useState } from "react";
 import { Form } from "react-router-dom";
 
 import { Button, TextField, MenuItem, Stack, Snackbar } from "@mui/material";
@@ -9,12 +9,17 @@ import AddCircleTwoToneIcon from "@mui/icons-material/AddCircleTwoTone";
 
 import { RoofPaint } from "../../fake-db/RoofPaint";
 
-
 import classes from "../../style/Forms.module.css";
 import { OrderFormType } from "../../interfaces/Order";
 import { EmployeeType } from "../../interfaces/Employee";
 import { MenuItemType } from "../../interfaces/MenuItemType";
 
+const start3 = (value: string) => value.trim().length >= 3;
+const stop20 = (value: string) => value.trim().length <= 20;
+const stop50 = (value: string) => value.trim().length <= 50;
+const workerId = (value: string) => value.trim().length === 24;
+const roofSizeValid = (value: string) => Number(value) > 0;
+const roofAngleValid = (value: string) => Number(value) <= 50;
 
 const Alert = forwardRef<HTMLDivElement, AlertProps>(function Alert(
   props,
@@ -26,8 +31,43 @@ const Alert = forwardRef<HTMLDivElement, AlertProps>(function Alert(
 function OrderForm({ method, order, selectEmployees }: OrderFormType) {
   const [open, setOpen] = useState(false);
 
+  const addressInputRef = useRef<HTMLInputElement>();
+  const roofPaintInputRef = useRef<HTMLInputElement>();
+  const roofSizeInputRef = useRef<HTMLInputElement>();
+  const roofAngleInputRef = useRef<HTMLInputElement>();
+  const descriptionInputRef = useRef<HTMLInputElement>();
+  const workerInputRef = useRef<HTMLInputElement>();
+
   const handleClick = () => {
-    setOpen(true);
+    const enteredAddress = addressInputRef.current?.value;
+    const enteredRoofPaint = roofPaintInputRef.current?.value;
+    const enteredRoofSize = roofSizeInputRef.current?.value;
+    const enteredRoofAngle = roofAngleInputRef.current?.value;
+    const enteredDescription = descriptionInputRef.current?.value;
+    const enteredWorker = workerInputRef.current?.value;
+
+    const enteredAddressIsValid =
+      start3(enteredAddress!) && stop50(enteredAddress!);
+    const enteredRoofPaintIsValid =
+      start3(enteredRoofPaint!) && stop20(enteredRoofPaint!);
+    const enteredRoofSizeIsValid = roofSizeValid(enteredRoofSize!);
+    const enteredRoofAngleIsValid = roofAngleValid(enteredRoofAngle!);
+    const enteredDescriptionIsValid = start3(enteredDescription!);
+    const enteredWorkerIsValid = workerId(enteredWorker!);
+
+    const formIsValid =
+      enteredAddressIsValid &&
+      enteredRoofPaintIsValid &&
+      enteredRoofSizeIsValid &&
+      enteredRoofAngleIsValid &&
+      enteredDescriptionIsValid &&
+      enteredWorkerIsValid;
+
+    if (!formIsValid) {
+      setOpen(false);
+    } else {
+      setOpen(true);
+    }
   };
 
   const handleClose = (
@@ -55,6 +95,7 @@ function OrderForm({ method, order, selectEmployees }: OrderFormType) {
                 label="Address"
                 inputProps={{ minLength: 3, maxLength: 50 }}
                 required
+                inputRef={addressInputRef}
                 variant="outlined"
                 defaultValue={order ? order.address : ""}
               />
@@ -67,6 +108,7 @@ function OrderForm({ method, order, selectEmployees }: OrderFormType) {
                 label="Roof Paint"
                 inputProps={{ minLength: 3, maxLength: 20 }}
                 required
+                inputRef={roofPaintInputRef}
                 defaultValue={order ? order.roofPaint : ""}
               >
                 {RoofPaint.map((option: MenuItemType) => (
@@ -85,6 +127,7 @@ function OrderForm({ method, order, selectEmployees }: OrderFormType) {
                 type="number"
                 label="Roof Size"
                 required
+                inputRef={roofSizeInputRef}
                 variant="outlined"
                 defaultValue={order ? order.roofSize : ""}
               />
@@ -97,6 +140,7 @@ function OrderForm({ method, order, selectEmployees }: OrderFormType) {
                 label="Roof Angle"
                 inputProps={{ max: 50 }}
                 required
+                inputRef={roofAngleInputRef}
                 variant="outlined"
                 defaultValue={order ? order.roofAngle : ""}
               />
@@ -111,6 +155,7 @@ function OrderForm({ method, order, selectEmployees }: OrderFormType) {
                 label="Description"
                 inputProps={{ minLength: 3 }}
                 required
+                inputRef={descriptionInputRef}
                 variant="outlined"
                 defaultValue={order ? order.description : ""}
               />
@@ -122,6 +167,7 @@ function OrderForm({ method, order, selectEmployees }: OrderFormType) {
                 select
                 inputProps={{ pattern: "[0-9a-fA-F]{24}" }}
                 required
+                inputRef={workerInputRef}
                 label="Select Worker"
                 defaultValue={order ? order.worker._id : ""}
               >

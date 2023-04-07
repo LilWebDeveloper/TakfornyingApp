@@ -7,7 +7,6 @@ const ManagerMap = (allAddresses: any) => {
 
   const addresses = allAddresses.allAddresses;
 
-  
   return (
     <GoogleMap
       zoom={6}

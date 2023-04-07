@@ -14,7 +14,7 @@ export default async function loginAction({ request }: RequestType) {
       "Content-Type": "application/json",
     },
     body: JSON.stringify(authData),
-  })
+  });
 
   if (response.status === 422 || response.status === 401) {
     return response;
@@ -31,7 +31,6 @@ export default async function loginAction({ request }: RequestType) {
   const expiration = new Date();
   expiration.setHours(expiration.getHours() + 1);
   localStorage.setItem("expiration", expiration.toISOString());
-  console.log(resData)
 
   return resData;
 }

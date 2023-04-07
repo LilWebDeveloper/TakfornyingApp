@@ -8,6 +8,7 @@
     "@emotion/styled": "^11.10.5",
     "@mui/icons-material": "^5.11.0",
     "@mui/material": "^5.11.8",
+    "@react-google-maps/api": "^2.18.1",
     "@reduxjs/toolkit": "^1.9.3",
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
@@ -51,7 +52,7 @@
     ]
   },
   "devDependencies": {
-    "@types/jwt-decode": "^3.1.0",
+    "@types/google.maps": "^3.52.4",
     "@types/redux-persist": "^4.3.1"
   }
 }

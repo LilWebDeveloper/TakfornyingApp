@@ -1,0 +1,22 @@
+.mapContainer {
+  height: 100%;
+  width: 100%;
+  padding: 0.5rem;
+}
+.paperSize {
+  height: 500px;
+  width: 50%;
+  margin: auto;
+}
+@media only screen and (max-width: 1257px) {
+  .mapContainer {
+    height: 100%;
+    width: 100%;
+    padding: 0.5rem;
+  }
+  .paperSize {
+    height: 500px;
+    width: 90%;
+    margin: auto;
+  }
+}

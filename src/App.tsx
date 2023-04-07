@@ -60,7 +60,23 @@ const router = createBrowserRouter([
           {
             errorElement: <ErrorContent />,
             children: [
-              { index: true, element: <AddressesMapPage /> },
+              {
+                id: "employee-orders-address",
+                loader: EmployeeOrdersLoader,
+                children: [
+                  {
+                    index: true,
+                    element: <AddressesMapPage />,
+                    loader: OrdersLoader,
+                  },
+                  // API MAP ADDRESSES
+                  {
+                    path: "addresses",
+                    element: <AddressesMapPage />,
+                    loader: OrdersLoader,
+                  },
+                ],
+              },
               // EMPLOYEES
 
               {
@@ -116,12 +132,10 @@ const router = createBrowserRouter([
                   {
                     path: "orders",
                     element: <OrdersPage />,
-
                     loader: OrdersLoader,
                   },
                 ],
               },
-
               {
                 path: "orders/:orderId",
                 id: "order-detail",
@@ -160,9 +174,6 @@ const router = createBrowserRouter([
                 action: ManipulateOrderAction,
                 loader: SelectEmployeesLoader,
               },
-
-              // API MAP ADDRESSES
-              { path: "addresses", element: <AddressesMapPage /> },
             ],
           },
         ],

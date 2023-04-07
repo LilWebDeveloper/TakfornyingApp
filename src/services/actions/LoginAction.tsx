@@ -31,6 +31,7 @@ export default async function loginAction({ request }: RequestType) {
   const expiration = new Date();
   expiration.setHours(expiration.getHours() + 1);
   localStorage.setItem("expiration", expiration.toISOString());
+  console.log(resData)
 
   return resData;
 }

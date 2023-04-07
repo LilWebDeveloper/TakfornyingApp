@@ -35,7 +35,9 @@ function LoginDashboard() {
           role: data.role,
         })
       );
-      navigate("/dashboard");
+      if (data.status === 200) {
+        navigate("/dashboard");
+      }
     }
   }, [data, dispatch, navigate]);
 

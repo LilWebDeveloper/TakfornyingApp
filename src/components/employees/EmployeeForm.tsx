@@ -17,9 +17,9 @@ const maxMinLenght = { maxLength: 30, minLength: 3 };
 const pwdLength = { minLenght: 5}
 
 const isDNumber = (value: string) => value.trim().length === 11;
-const start3 = (value: string) => value.trim().length >= 3;
-const start5 = (value: string) => value.trim().length >= 5;
-const stop30 = (value: string) => value.trim().length <= 30;
+const min3 = (value: string) => value.trim().length >= 3;
+const min5 = (value: string) => value.trim().length >= 5;
+const max30 = (value: string) => value.trim().length <= 30;
 
 const Alert = forwardRef<HTMLDivElement, AlertProps>(function Alert(
   props,
@@ -47,15 +47,15 @@ function EmployeeForm({ method, employee }: EmployeeFormType) {
     const enteredPassword = passwordInputRef.current?.value;
 
     const enteredFirstNameIsValid =
-      start3(enteredFirstName!) && stop30(enteredFirstName!);
+    min3(enteredFirstName!) && max30(enteredFirstName!);
     const enteredSecondNameIsValid =
-      start3(enteredSecondName!) && stop30(enteredSecondName!);
+      min3(enteredSecondName!) && max30(enteredSecondName!);
     const enteredJobPositionIsValid =
-      start3(enteredJobPosition!) && stop30(enteredJobPosition!);
+      min3(enteredJobPosition!) && max30(enteredJobPosition!);
     const enteredDNumberIsValid = isDNumber(enteredDNumber!);
-    const enteredLoginIsValid = start3(enteredLogin!) && stop30(enteredLogin!);
+    const enteredLoginIsValid = min3(enteredLogin!) && max30(enteredLogin!);
     const enteredPasswordIsValid =
-      start5(enteredPassword!) && stop30(enteredPassword!);
+      min5(enteredPassword!) && max30(enteredPassword!);
 
     const formIsValid =
       enteredFirstNameIsValid &&

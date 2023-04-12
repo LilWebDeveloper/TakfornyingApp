@@ -3,13 +3,11 @@ import { useLoaderData, useRouteLoaderData } from "react-router-dom";
 import { StateType } from "../../interfaces/StateTypes";
 import EmployeeMap from "./EmployeeMap";
 import ManagerMap from "./ManagerMap";
+import { EmployeeOrderType, OrderType } from "../../interfaces/Order";
 
 const Map = () => {
-  //all Addresses
-  const orders: any = useLoaderData();
-
-  //Employee addresses
-  const employeeOrders: any = useRouteLoaderData("employee-orders-address");
+  const orders = useLoaderData() as OrderType[];
+  const employeeOrders = useRouteLoaderData("employee-orders-address") as EmployeeOrderType;
 
   const role = useSelector((state: StateType) => state.auth.role);
   

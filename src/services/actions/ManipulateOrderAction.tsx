@@ -1,11 +1,9 @@
 import { redirect } from "react-router-dom";
 import { ManipulateOrderType } from "../../interfaces/ManipulateActions";
 import { getAuthToken } from "../../util/auth";
+import CoordinateType from "../../interfaces/CoordinateType";
 
-interface CoordinateType {
-  lat: number | null;
-  lng: number | null;
-}
+
 
 export default async function ManipulateOrderAction({
   request,
@@ -26,8 +24,8 @@ export default async function ManipulateOrderAction({
   try {
     await geocoder.geocode(
       { address: address },
-      function (results: any, status) {
-        if (status === google.maps.GeocoderStatus.OK) {
+      function (results, status) {
+        if (status === google.maps.GeocoderStatus.OK && results && results.length > 0) {
           const lat: number = results[0].geometry.location.lat();
           const lng: number = results[0].geometry.location.lng();
           coordinate.lat = lat;

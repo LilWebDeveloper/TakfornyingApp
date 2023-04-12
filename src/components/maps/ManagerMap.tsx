@@ -8,6 +8,8 @@ const ManagerMap = (allAddresses: AllAddressesMap) => {
   const center = useMemo(() => ({ lat: 52, lng: 20 }), []);
   const addresses = allAddresses.allAddresses;
 
+  console.log(selectedMarker)
+
   return (
     <GoogleMap
       zoom={6}
@@ -26,6 +28,9 @@ const ManagerMap = (allAddresses: AllAddressesMap) => {
       {selectedMarker && (
         <InfoWindowF
           position={{ lat: selectedMarker.lat, lng: selectedMarker.lng }}
+          onCloseClick={() => {
+            setSelectedMarker(undefined)
+          }}
         >
           <h1>{selectedMarker.address}</h1>
         </InfoWindowF>

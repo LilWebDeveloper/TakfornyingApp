@@ -26,6 +26,9 @@ const EmployeeMap = (employeeAddresses: EmployeeOrdersMap) => {
       {selectedMarker && (
         <InfoWindowF
           position={{ lat: selectedMarker.lat, lng: selectedMarker.lng }}
+          onCloseClick={() => {
+            setSelectedMarker(undefined);
+          }}
         >
           <h1>{selectedMarker.address}</h1>
         </InfoWindowF>

@@ -8,8 +8,6 @@ const ManagerMap = (allAddresses: AllAddressesMap) => {
   const center = useMemo(() => ({ lat: 52, lng: 20 }), []);
   const addresses = allAddresses.allAddresses;
 
-  console.log(selectedMarker)
-
   return (
     <GoogleMap
       zoom={6}

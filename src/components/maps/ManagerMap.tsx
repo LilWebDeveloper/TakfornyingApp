@@ -15,7 +15,7 @@ const ManagerMap = (allAddresses: any) => {
     >
       {addresses.map((data: any) => (
         <MarkerF
-          key={data.placeId}
+          key={data._id}
           position={{ lat: data.lat, lng: data.lng }}
         />
       ))}

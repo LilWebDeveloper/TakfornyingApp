@@ -13,6 +13,7 @@ import classes from "../../style/Forms.module.css";
 import { OrderFormType } from "../../interfaces/Order";
 import { EmployeeType } from "../../interfaces/Employee";
 import { MenuItemType } from "../../interfaces/MenuItemType";
+import { useLoadScript } from "@react-google-maps/api";
 
 const min3 = (value: string) => value.trim().length >= 3;
 const max20 = (value: string) => value.trim().length <= 20;
@@ -28,7 +29,11 @@ const Alert = forwardRef<HTMLDivElement, AlertProps>(function Alert(
   return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
 });
 
+
 function OrderForm({ method, order, selectEmployees }: OrderFormType) {
+  useLoadScript({
+    googleMapsApiKey: "AIzaSyCf-EcJvHKq6R-r4VnEz_BCSfAIVx7zew4",
+  });
   const [open, setOpen] = useState(false);
 
   const addressInputRef = useRef<HTMLInputElement>();
@@ -47,7 +52,7 @@ function OrderForm({ method, order, selectEmployees }: OrderFormType) {
     const enteredWorker = workerInputRef.current?.value;
 
     const enteredAddressIsValid =
-    min3(enteredAddress!) && max50(enteredAddress!);
+      min3(enteredAddress!) && max50(enteredAddress!);
     const enteredRoofPaintIsValid =
       min3(enteredRoofPaint!) && max20(enteredRoofPaint!);
     const enteredRoofSizeIsValid = roofSizeValid(enteredRoofSize!);
@@ -84,7 +89,11 @@ function OrderForm({ method, order, selectEmployees }: OrderFormType) {
     <div>
       <Grid item xs={12}>
         <Paper sx={{ m: 2, p: 2, display: "flex", flexDirection: "column" }}>
-          <Form method={method} className={classes.order_form}>
+          <Form
+            method={method}
+            className={classes.order_form}
+            onSubmit={handleClick}
+          >
             <div>
               <TextField
                 sx={{ m: 1 }}

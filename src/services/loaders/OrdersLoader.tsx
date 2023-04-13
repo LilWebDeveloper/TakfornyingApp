@@ -2,7 +2,7 @@ import { getAuthToken } from "../../util/auth";
 import { OrdersResData } from "../../interfaces/Order";
 import { json } from "react-router-dom";
 
-export async function OrdersLoader() {
+export default async function OrdersLoader() {
   const token = getAuthToken();
 
   const response = await fetch("http://localhost:5050/orders", {

@@ -1,5 +1,5 @@
 import { FormMethod } from 'react-router-dom';
-import Employee, { EmployeeType } from '../interfaces/Employee'
+import { EmployeeType } from '../interfaces/Employee'
 
 export default interface OrdersType {
   address: string;
@@ -11,7 +11,7 @@ export default interface OrdersType {
   lat: number;
   lng: number;
   updatedAt: string | undefined;
-  worker: Employee;
+  worker: EmployeeType;
   __v: number | undefined;
   _id: string | undefined;
   status?: number;

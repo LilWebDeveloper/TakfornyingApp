@@ -84,7 +84,7 @@ function EmployeeItem({ employee }: EmployeeResData) {
               </TableCell>
             </TableRow>
           </TableHead>
-          <TableBody>
+          <TableBody role='employee-details'>
             <TableRow
               key={employee._id}
               sx={{ "&:last-child td, &:last-child th": { border: 0 } }}

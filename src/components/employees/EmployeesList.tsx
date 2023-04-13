@@ -18,10 +18,10 @@ const EmployeesList = ({ employees }: EmployeesResData) => {
           >
             <Link to={`/dashboard/employees/${data._id}`}>
               <div className={classes.content}>
-                <h2>
+                <h2 role="name">
                   {data.firstName} {data.secondName}
                 </h2>
-                <h3>{data.jobPosition}</h3>
+                <h3 role="job-position">{data.jobPosition}</h3>
               </div>
             </Link>
           </Paper>

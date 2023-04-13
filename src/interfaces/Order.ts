@@ -27,7 +27,7 @@ export interface OrderType {
   lat: number;
   lng: number;
   updatedAt: string | undefined;
-  worker: Employee;
+  worker: EmployeeType;
   __v: number | undefined;
   _id: string | undefined;
 }

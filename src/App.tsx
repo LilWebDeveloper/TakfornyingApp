@@ -1,3 +1,5 @@
+import { Suspense, lazy } from "react";
+
 import RootLayout from "./pages/Root";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 
@@ -6,12 +8,10 @@ import AddressesMapPage from "./pages/AddressesMap";
 
 // EMPLOYEE
 import NewEmployeePage from "./pages/employees/NewEmployee";
-import EmployeesPage from "./pages/employees/Employees";
-import EmployeeDetailPage from "./pages/employees/EmployeeDetail";
 import EditEmployeePage from "./pages/employees/EditEmployee";
 
+//loaders
 import EmployeeLoader from "./services/loaders/EmployeeLoader";
-import EmployeesLoader from "./services/loaders/EmployeesLoader";
 
 import ManipulateEmployeeAction from "./services/actions/ManipulateEmployeeAction";
 import DeleteEmployeeAction from "./services/actions/DeleteEmployeeAction";
@@ -19,23 +19,31 @@ import DeleteEmployeeAction from "./services/actions/DeleteEmployeeAction";
 // ORDERS
 import EditOrderPage from "./pages/orders/EditOrder";
 import NewOrderPage from "./pages/orders/NewOrder";
-import OrderDetailPage from "./pages/orders/OrderDetail";
-import OrdersPage from "./pages/orders/Orders";
 
-import OrdersLoader from "./services/loaders/OrdersLoader";
 import OrderLoader from "./services/loaders/OrderLoader";
 
 import ManipulateOrderAction from "./services/actions/ManipulateOrderAction";
 import DeleteOrderAction from "./services/actions/DeleteOrderAction";
 
-import SelectEmployeesLoader from "./services/loaders/SelectEmployeesLoader";
+// LOGIN
 import LoginPage from "./pages/login/Login";
+
+import { checkAuthLoader, tokenLoader } from "./util/auth";
+
 import loginAction from "./services/actions/LoginAction";
 import { logoutAction } from "./services/actions/logout";
-import { checkAuthLoader, tokenLoader } from "./util/auth";
+
 import { AdminProtect, ManagerProtect } from "./pages/AdminProtect";
-import EmployeeOrdersLoader from "./services/loaders/EmployeeOrdersLoader";
+
 import ErrorContent from "./pages/Error";
+
+const OrdersPage = lazy(() => import("./pages/orders/Orders"));
+const OrderDetailPage = lazy(() => import("./pages/orders/OrderDetail"));
+
+const EmployeesPage = lazy(() => import("./pages/employees/Employees"));
+const EmployeeDetailPage = lazy(
+  () => import("./pages/employees/EmployeeDetail")
+);
 
 const router = createBrowserRouter([
   {
@@ -62,18 +70,27 @@ const router = createBrowserRouter([
             children: [
               {
                 id: "employee-orders-address",
-                loader: EmployeeOrdersLoader,
+                loader: () =>
+                  import("./services/loaders/EmployeeOrdersLoader").then(
+                    (module) => module.EmployeeOrdersLoader()
+                  ),
                 children: [
                   {
                     index: true,
                     element: <AddressesMapPage />,
-                    loader: OrdersLoader,
+                    loader: () =>
+                      import("./services/loaders/OrdersLoader").then((module) =>
+                        module.OrdersLoader()
+                      ),
                   },
                   // API MAP ADDRESSES
                   {
                     path: "addresses",
                     element: <AddressesMapPage />,
-                    loader: OrdersLoader,
+                    loader: () =>
+                      import("./services/loaders/OrdersLoader").then((module) =>
+                        module.OrdersLoader()
+                      ),
                   },
                 ],
               },
@@ -83,10 +100,15 @@ const router = createBrowserRouter([
                 path: "employees",
                 element: (
                   <AdminProtect>
-                    <EmployeesPage />
+                    <Suspense fallback={<p>Loading...</p>}>
+                      <EmployeesPage />
+                    </Suspense>
                   </AdminProtect>
                 ),
-                loader: EmployeesLoader,
+                loader: () =>
+                  import("./services/loaders/EmployeesLoader").then((module) =>
+                    module.EmployeesLoader()
+                  ),
               },
               {
                 path: "employees/:employeeId",
@@ -97,10 +119,15 @@ const router = createBrowserRouter([
                     index: true,
                     element: (
                       <AdminProtect>
-                        <EmployeeDetailPage />
+                        <Suspense fallback={<p>Loading...</p>}>
+                          <EmployeeDetailPage />
+                        </Suspense>
                       </AdminProtect>
                     ),
-                    loader: EmployeesLoader,
+                    loader: () =>
+                      import("./services/loaders/EmployeesLoader").then(
+                        (module) => module.EmployeesLoader()
+                      ),
                     action: DeleteEmployeeAction,
                   },
                   {
@@ -127,12 +154,22 @@ const router = createBrowserRouter([
               // ORDERS
               {
                 id: "employee-orders",
-                loader: EmployeeOrdersLoader,
+                loader: () =>
+                  import("./services/loaders/EmployeeOrdersLoader").then(
+                    (module) => module.EmployeeOrdersLoader()
+                  ),
                 children: [
                   {
                     path: "orders",
-                    element: <OrdersPage />,
-                    loader: OrdersLoader,
+                    element: (
+                      <Suspense fallback={<p>Loading...</p>}>
+                        <OrdersPage />
+                      </Suspense>
+                    ),
+                    loader: () =>
+                      import("./services/loaders/OrdersLoader").then((module) =>
+                        module.OrdersLoader()
+                      ),
                   },
                 ],
               },
@@ -143,13 +180,23 @@ const router = createBrowserRouter([
                 children: [
                   {
                     index: true,
-                    element: <OrderDetailPage />,
-                    loader: OrdersLoader,
+                    element: (
+                      <Suspense fallback={<p>Loading...</p>}>
+                        <OrderDetailPage />
+                      </Suspense>
+                    ),
+                    loader: () =>
+                      import("./services/loaders/OrdersLoader").then((module) =>
+                        module.OrdersLoader()
+                      ),
                     action: DeleteOrderAction,
                   },
                   {
                     id: "select-employee-loader",
-                    loader: SelectEmployeesLoader,
+                    loader: () =>
+                      import("./services/loaders/SelectEmployeesLoader").then(
+                        (module) => module.SelectEmployeesLoader()
+                      ),
                     children: [
                       {
                         path: "edit",
@@ -172,7 +219,10 @@ const router = createBrowserRouter([
                   </ManagerProtect>
                 ),
                 action: ManipulateOrderAction,
-                loader: SelectEmployeesLoader,
+                loader: () =>
+                  import("./services/loaders/SelectEmployeesLoader").then(
+                    (module) => module.SelectEmployeesLoader()
+                  ),
               },
             ],
           },

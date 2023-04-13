@@ -13,10 +13,12 @@
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
+    "@types/google.maps": "^3.52.5",
     "@types/jest": "^27.5.2",
     "@types/node": "^16.18.12",
     "@types/react": "^18.0.28",
     "@types/react-dom": "^18.0.10",
+    "dotenv": "^16.0.3",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-redux": "^8.0.5",
@@ -52,7 +54,6 @@
     ]
   },
   "devDependencies": {
-    "@types/google.maps": "^3.52.4",
     "@types/redux-persist": "^4.3.1"
   }
 }

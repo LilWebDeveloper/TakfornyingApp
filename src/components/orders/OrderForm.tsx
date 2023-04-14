@@ -12,15 +12,11 @@ import classes from "../../style/Forms.module.css";
 import { OrderFormType } from "../../interfaces/Order";
 import { EmployeeType } from "../../interfaces/Employee";
 import { MenuItemType } from "../../interfaces/MenuItemType";
-import { useLoadScript } from "@react-google-maps/api";
 import { max20, max20min3Length, max50, max50min3Length, maxNumber50, min3, minLenght3, roofAngleValid, roofSizeValid, workerId } from "../../utils/ValidationFunction";
 import Alert from "../Alert/Alert";
 
 
 function OrderForm({ method, order, selectEmployees }: OrderFormType) {
-  useLoadScript({
-    googleMapsApiKey: process.env.REACT_APP_GOOGLE_KEY!,
-  });
   const [open, setOpen] = useState(false);
 
   const addressInputRef = useRef<HTMLInputElement>();

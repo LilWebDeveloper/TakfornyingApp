@@ -40,6 +40,7 @@ import EmployeesPage from "./pages/employees/Employees";
 import EmployeeDetailPage from "./pages/employees/EmployeeDetail";
 import OrdersPage from "./pages/orders/Orders";
 import OrderDetailPage from "./pages/orders/OrderDetail";
+import { useLoadScript } from "@react-google-maps/api";
 
 const router = createBrowserRouter([
   {
@@ -187,6 +188,10 @@ const router = createBrowserRouter([
 ]);
 
 function App() {
+  useLoadScript({
+    googleMapsApiKey: process.env.REACT_APP_GOOGLE_KEY!,
+  });
+  
   return <RouterProvider router={router} />;
 }
 

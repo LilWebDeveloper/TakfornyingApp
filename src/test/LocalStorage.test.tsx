@@ -1,12 +1,7 @@
-type StoreType = {
-  [key: string]: {
-    key?: string;
-    value?: string;
-  };
-};
+import { StorageType } from "../interfaces/StorageType";
 
 const localStorageMock = (function () {
-  let store: StoreType = {};
+  let store: StorageType = {};
 
   return {
     getItem(key: string) {

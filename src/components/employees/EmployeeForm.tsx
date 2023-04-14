@@ -12,10 +12,8 @@ import { JobPosition } from "../../utils/JobPositionList";
 import { EmployeeFormType } from "../../interfaces/Employee";
 
 import classes from "../../style/Forms.module.css";
-import { isDNumber, max30, min3, min5 } from "../../utils/ValidationFunction";
+import { isDNumber, max30, max30Min3Lenght, min3, min5, minPasswordLength5 } from "../../utils/ValidationFunction";
 
-const maxMinLenght = { maxLength: 30, minLength: 3 };
-const pwdLength = { minLenght: 5}
 
 const Alert = forwardRef<HTMLDivElement, AlertProps>(function Alert(
   props,
@@ -92,7 +90,7 @@ function EmployeeForm({ method, employee }: EmployeeFormType) {
                 name="firstName"
                 type="text"
                 label="First Name"
-                inputProps={maxMinLenght}
+                inputProps={max30Min3Lenght}
                 inputRef={firstNameInputRef}
                 required
                 variant="outlined"
@@ -107,7 +105,7 @@ function EmployeeForm({ method, employee }: EmployeeFormType) {
                 label="Second Name"
                 inputRef={secondNameInputRef}
                 required
-                inputProps={maxMinLenght}
+                inputProps={max30Min3Lenght}
                 variant="outlined"
                 defaultValue={employee ? employee.secondName : ""}
               />
@@ -122,7 +120,7 @@ function EmployeeForm({ method, employee }: EmployeeFormType) {
                 label="Job Position"
                 inputRef={jobPositionInputRef}
                 required
-                inputProps={maxMinLenght}
+                inputProps={max30Min3Lenght}
                 defaultValue={employee ? employee.jobPosition : ""}
               >
                 {JobPosition.map((option) => (
@@ -155,7 +153,7 @@ function EmployeeForm({ method, employee }: EmployeeFormType) {
                 label="Login for employee"
                 inputRef={userLoginInputRef}
                 required
-                inputProps={maxMinLenght}
+                inputProps={max30Min3Lenght}
                 variant="outlined"
                 defaultValue={employee ? employee.login : ""}
               />
@@ -168,7 +166,7 @@ function EmployeeForm({ method, employee }: EmployeeFormType) {
                 label="Temporary password for employee"
                 inputRef={passwordInputRef}
                 required
-                inputProps={pwdLength}
+                inputProps={minPasswordLength5}
                 variant="outlined"
                 defaultValue={employee ? employee.password : ""}
               />

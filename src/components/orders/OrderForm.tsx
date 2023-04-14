@@ -14,7 +14,7 @@ import { OrderFormType } from "../../interfaces/Order";
 import { EmployeeType } from "../../interfaces/Employee";
 import { MenuItemType } from "../../interfaces/MenuItemType";
 import { useLoadScript } from "@react-google-maps/api";
-import { max20, max50, min3, roofAngleValid, roofSizeValid, workerId } from "../../utils/ValidationFunction";
+import { max20, max20min3Length, max50, max50min3Length, maxNumber50, min3, minLenght3, roofAngleValid, roofSizeValid, workerId } from "../../utils/ValidationFunction";
 
 const Alert = forwardRef<HTMLDivElement, AlertProps>(function Alert(
   props,
@@ -96,7 +96,7 @@ function OrderForm({ method, order, selectEmployees }: OrderFormType) {
                 name="address"
                 type="text"
                 label="Address"
-                inputProps={{ minLength: 3, maxLength: 50 }}
+                inputProps={max50min3Length}
                 required
                 inputRef={addressInputRef}
                 variant="outlined"
@@ -109,7 +109,7 @@ function OrderForm({ method, order, selectEmployees }: OrderFormType) {
                 name="roofPaint"
                 select
                 label="Roof Paint"
-                inputProps={{ minLength: 3, maxLength: 20 }}
+                inputProps={max20min3Length}
                 required
                 inputRef={roofPaintInputRef}
                 defaultValue={order ? order.roofPaint : ""}
@@ -141,7 +141,7 @@ function OrderForm({ method, order, selectEmployees }: OrderFormType) {
                 name="roofAngle"
                 type="number"
                 label="Roof Angle"
-                inputProps={{ max: 50 }}
+                inputProps={maxNumber50}
                 required
                 inputRef={roofAngleInputRef}
                 variant="outlined"
@@ -156,7 +156,7 @@ function OrderForm({ method, order, selectEmployees }: OrderFormType) {
                 name="description"
                 type="text"
                 label="Description"
-                inputProps={{ minLength: 3 }}
+                inputProps={minLenght3}
                 required
                 inputRef={descriptionInputRef}
                 variant="outlined"

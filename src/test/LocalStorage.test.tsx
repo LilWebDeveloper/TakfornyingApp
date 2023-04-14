@@ -1,9 +1,9 @@
 type StoreType = {
-    [key: string]:{
-        key?: string;
-        value?: string;
-    }
-}
+  [key: string]: {
+    key?: string;
+    value?: string;
+  };
+};
 
 const localStorageMock = (function () {
   let store: StoreType = {};
@@ -13,7 +13,7 @@ const localStorageMock = (function () {
       return store[key];
     },
 
-    setItem(key: string, value: {key?: string, value?: string}) {
+    setItem(key: string, value: { key?: string; value?: string }) {
       store[key] = value;
     },
 
@@ -33,13 +33,22 @@ const localStorageMock = (function () {
 
 Object.defineProperty(window, "localStorage", { value: localStorageMock });
 
-const setLocalStorage = (id: string, data: {data: string}) => {
+const setLocalStorage = (id: string, data: { data: string }) => {
   window.localStorage.setItem(id, JSON.stringify(data));
 };
 
-test("token is added into local storage", () => {
+describe("Set to Local Storage", () => {
+  test("token is added into local storage", () => {
     const mockId = "token";
     const mockJson = { data: "dummyToken" };
     setLocalStorage(mockId, mockJson);
     expect(localStorage.getItem(mockId)).toEqual(JSON.stringify(mockJson));
   });
+
+  test("expiration is added into local storage", () => {
+    const mockId = "expiration";
+    const mockJson = { data: "2020-11-14T18:02:00" };
+    setLocalStorage(mockId, mockJson);
+    expect(localStorage.getItem(mockId)).toEqual(JSON.stringify(mockJson));
+  });
+});

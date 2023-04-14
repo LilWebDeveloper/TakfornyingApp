@@ -1,5 +1,5 @@
 import * as React from "react";
-import { forwardRef, useState } from "react";
+import { useState } from "react";
 import { Link, useSubmit } from "react-router-dom";
 import { useSelector } from "react-redux";
 
@@ -14,21 +14,12 @@ import Button from "@mui/material/Button";
 import EditTwoToneIcon from "@mui/icons-material/EditTwoTone";
 import DeleteTwoToneIcon from "@mui/icons-material/DeleteTwoTone";
 import { Snackbar, Stack } from "@mui/material";
-import MuiAlert, { AlertProps } from "@mui/material/Alert";
 
 import classes from "../../style/Item.module.css";
 
 import { EmployeeResData } from "../../interfaces/Employee";
 import { StateType } from "../../interfaces/StateTypes";
-
-
-
-const Alert = forwardRef<HTMLDivElement, AlertProps>(function Alert(
-  props,
-  ref
-) {
-  return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
-});
+import Alert from "../Alert/Alert";
 
 function EmployeeItem({ employee }: EmployeeResData) {
   const submit = useSubmit();

@@ -1,10 +1,9 @@
-import { forwardRef, useRef, useState } from "react";
+import { useRef, useState } from "react";
 import { Form } from "react-router-dom";
 
 import { Button, TextField, MenuItem, Stack, Snackbar } from "@mui/material";
 import Grid from "@mui/material/Grid";
 import Paper from "@mui/material/Paper";
-import MuiAlert, { AlertProps } from "@mui/material/Alert";
 import AddCircleTwoToneIcon from "@mui/icons-material/AddCircleTwoTone";
 
 import { RoofPaint } from "../../utils/RoofPaint";
@@ -15,13 +14,7 @@ import { EmployeeType } from "../../interfaces/Employee";
 import { MenuItemType } from "../../interfaces/MenuItemType";
 import { useLoadScript } from "@react-google-maps/api";
 import { max20, max20min3Length, max50, max50min3Length, maxNumber50, min3, minLenght3, roofAngleValid, roofSizeValid, workerId } from "../../utils/ValidationFunction";
-
-const Alert = forwardRef<HTMLDivElement, AlertProps>(function Alert(
-  props,
-  ref
-) {
-  return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
-});
+import Alert from "../Alert/Alert";
 
 
 function OrderForm({ method, order, selectEmployees }: OrderFormType) {

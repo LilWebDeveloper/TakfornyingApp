@@ -1,10 +1,10 @@
-import { forwardRef, useRef, useState } from "react";
+import { useRef, useState } from "react";
 import { Form } from "react-router-dom";
 
 import Grid from "@mui/material/Grid";
 import Paper from "@mui/material/Paper";
 import { Button, TextField, MenuItem, Snackbar, Stack } from "@mui/material";
-import MuiAlert, { AlertProps } from "@mui/material/Alert";
+
 import PersonAddTwoToneIcon from "@mui/icons-material/PersonAddTwoTone";
 
 import { JobPosition } from "../../utils/JobPositionList";
@@ -13,14 +13,7 @@ import { EmployeeFormType } from "../../interfaces/Employee";
 
 import classes from "../../style/Forms.module.css";
 import { isDNumber, max30, max30Min3Lenght, min3, min5, minPasswordLength5 } from "../../utils/ValidationFunction";
-
-
-const Alert = forwardRef<HTMLDivElement, AlertProps>(function Alert(
-  props,
-  ref
-) {
-  return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
-});
+import Alert from "../Alert/Alert";
 
 function EmployeeForm({ method, employee }: EmployeeFormType) {
   const [open, setOpen] = useState(false);

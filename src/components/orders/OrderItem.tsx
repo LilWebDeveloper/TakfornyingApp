@@ -1,4 +1,4 @@
-import { forwardRef, useState } from "react";
+import { useState } from "react";
 import { Link, useSubmit } from "react-router-dom";
 import { useSelector } from "react-redux";
 
@@ -11,7 +11,6 @@ import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
 import EditTwoToneIcon from "@mui/icons-material/EditTwoTone";
 import DeleteTwoToneIcon from "@mui/icons-material/DeleteTwoTone";
-import MuiAlert, { AlertProps } from "@mui/material/Alert";
 
 import { Button, Snackbar, Stack } from "@mui/material";
 
@@ -19,14 +18,7 @@ import classes from "../../style/Item.module.css";
 
 import { OrderResData } from "../../interfaces/Order";
 import { StateType } from "../../interfaces/StateTypes";
-
-
-const Alert = forwardRef<HTMLDivElement, AlertProps>(function Alert(
-  props,
-  ref
-) {
-  return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
-});
+import Alert from "../Alert/Alert";
 
 function OrderItem({ order }: OrderResData) {
   const submit = useSubmit();

@@ -14,13 +14,7 @@ import { OrderFormType } from "../../interfaces/Order";
 import { EmployeeType } from "../../interfaces/Employee";
 import { MenuItemType } from "../../interfaces/MenuItemType";
 import { useLoadScript } from "@react-google-maps/api";
-
-const min3 = (value: string) => value.trim().length >= 3;
-const max20 = (value: string) => value.trim().length <= 20;
-const max50 = (value: string) => value.trim().length <= 50;
-const workerId = (value: string) => value.trim().length === 24;
-const roofSizeValid = (value: string) => Number(value) > 0;
-const roofAngleValid = (value: string) => Number(value) <= 50;
+import { max20, max50, min3, roofAngleValid, roofSizeValid, workerId } from "../../consts/ValidationFunction";
 
 const Alert = forwardRef<HTMLDivElement, AlertProps>(function Alert(
   props,

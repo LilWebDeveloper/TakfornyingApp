@@ -12,14 +12,10 @@ import { JobPosition } from "../../consts/JobPositionList";
 import { EmployeeFormType } from "../../interfaces/Employee";
 
 import classes from "../../style/Forms.module.css";
+import { isDNumber, max30, min3, min5 } from "../../consts/ValidationFunction";
 
 const maxMinLenght = { maxLength: 30, minLength: 3 };
 const pwdLength = { minLenght: 5}
-
-const isDNumber = (value: string) => value.trim().length === 11;
-const min3 = (value: string) => value.trim().length >= 3;
-const min5 = (value: string) => value.trim().length >= 5;
-const max30 = (value: string) => value.trim().length <= 30;
 
 const Alert = forwardRef<HTMLDivElement, AlertProps>(function Alert(
   props,

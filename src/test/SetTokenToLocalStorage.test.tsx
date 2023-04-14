@@ -1,16 +1,19 @@
-interface storeType {
-  token?: string;
+type StoreType = {
+    [key: string]:{
+        key?: string;
+        value?: string;
+    }
 }
 
 const localStorageMock = (function () {
-  let store: any = {};
+  let store: StoreType = {};
 
   return {
     getItem(key: string) {
       return store[key];
     },
 
-    setItem(key: string, value: string) {
+    setItem(key: string, value: {key?: string, value?: string}) {
       store[key] = value;
     },
 
@@ -30,7 +33,7 @@ const localStorageMock = (function () {
 
 Object.defineProperty(window, "localStorage", { value: localStorageMock });
 
-const setLocalStorage = (id: any, data: {data: string}) => {
+const setLocalStorage = (id: string, data: {data: string}) => {
   window.localStorage.setItem(id, JSON.stringify(data));
 };
 

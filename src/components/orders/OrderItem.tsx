@@ -19,6 +19,7 @@ import classes from "../../style/Item.module.css";
 import { OrderResData } from "../../interfaces/Order";
 import { StateType } from "../../interfaces/StateTypes";
 import Alert from "../Alert/Alert";
+import { orderDetails } from "../../utils/TestsRoles";
 
 function OrderItem({ order }: OrderResData) {
   const submit = useSubmit();
@@ -76,7 +77,7 @@ function OrderItem({ order }: OrderResData) {
               </TableCell>
             </TableRow>
           </TableHead>
-          <TableBody role='order-details'>
+          <TableBody role={orderDetails}>
             <TableRow
               key={order._id}
               sx={{ "&:last-child td, &:last-child th": { border: 0 } }}

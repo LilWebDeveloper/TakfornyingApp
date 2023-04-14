@@ -20,6 +20,7 @@ import classes from "../../style/Item.module.css";
 import { EmployeeResData } from "../../interfaces/Employee";
 import { StateType } from "../../interfaces/StateTypes";
 import Alert from "../Alert/Alert";
+import { employeeDetails } from "../../utils/TestsRoles";
 
 function EmployeeItem({ employee }: EmployeeResData) {
   const submit = useSubmit();
@@ -75,7 +76,7 @@ function EmployeeItem({ employee }: EmployeeResData) {
               </TableCell>
             </TableRow>
           </TableHead>
-          <TableBody role='employee-details'>
+          <TableBody role={employeeDetails}>
             <TableRow
               key={employee._id}
               sx={{ "&:last-child td, &:last-child th": { border: 0 } }}

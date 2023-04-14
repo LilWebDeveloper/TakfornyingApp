@@ -19,11 +19,11 @@ export default async function ManipulateEmployeeAction({
     password: data.get("password"),
   };
 
-  let url = "http://localhost:5050/employees";
+  let url = "https://takfornying.onrender.com/employees";
 
   if (method === "PATCH") {
     const employeeId = params.employeeId;
-    url = "http://localhost:5050/employees/" + employeeId;
+    url = "https://takfornying.onrender.com/employees/" + employeeId;
   }
 
   const token = getAuthToken();

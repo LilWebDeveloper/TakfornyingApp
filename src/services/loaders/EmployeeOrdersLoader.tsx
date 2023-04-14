@@ -5,7 +5,7 @@ import { json } from "react-router-dom";
 export default async function EmployeeOrdersLoader() {
   const token = getAuthToken()
 
-  const response = await fetch("http://localhost:5050/orders/employee", {
+  const response = await fetch("https://takfornying.onrender.com/orders/employee", {
     headers: {
       Authorization: "Bearer " + token,
     },

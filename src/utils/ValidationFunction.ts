@@ -13,6 +13,6 @@ export const isDNumber = (value: string) => value.trim().length === 11;
 export const max30Min3Lenght = { maxLength: 30, minLength: 3 };
 export const max50min3Length = { maxLength: 50, minLength: 3 };
 export const max20min3Length = { maxLength: 20, minLength: 3 };
-export const minLenght3 = { minLenght: 3 };
-export const minPasswordLength5 = { minLenght: 5 };
+export const minLenght3 = { minLength: 3 };
+export const minPasswordLength5 = { minLength: 5 };
 export const maxNumber50 = { max: 50 };

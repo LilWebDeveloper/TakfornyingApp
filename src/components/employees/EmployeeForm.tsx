@@ -7,7 +7,7 @@ import { Button, TextField, MenuItem, Snackbar, Stack } from "@mui/material";
 import MuiAlert, { AlertProps } from "@mui/material/Alert";
 import PersonAddTwoToneIcon from "@mui/icons-material/PersonAddTwoTone";
 
-import { JobPosition } from "../../fake-db/JobPositionList";
+import { JobPosition } from "../../consts/JobPositionList";
 
 import { EmployeeFormType } from "../../interfaces/Employee";
 

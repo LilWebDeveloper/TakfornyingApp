@@ -1,6 +1,6 @@
 import { redirect } from "react-router-dom";
 import { ManipulateOrderType } from "../../interfaces/ManipulateActions";
-import { getAuthToken } from "../../util/auth";
+import { getAuthToken } from "../../utils/auth";
 import CoordinateType from "../../interfaces/CoordinateType";
 
 

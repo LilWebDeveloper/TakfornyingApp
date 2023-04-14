@@ -1,6 +1,6 @@
 import { redirect } from "react-router-dom";
 import { ManipulateEmployeeType } from "../../interfaces/ManipulateActions";
-import { getAuthToken } from "../../util/auth";
+import { getAuthToken } from "../../utils/auth";
 
 export default async function ManipulateEmployeeAction({
   request,

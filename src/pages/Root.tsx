@@ -25,7 +25,7 @@ import {
 } from "../components/navBar/NavBarListItems";
 
 
-import { getTokenDuration } from "../util/auth";
+import { getTokenDuration } from "../utils/auth";
 
 import classes from "../style/Root.module.css";
 import { Theme } from "../style/CreateTheme";

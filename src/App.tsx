@@ -29,7 +29,7 @@ import DeleteOrderAction from "./services/actions/DeleteOrderAction";
 // LOGIN
 import LoginPage from "./pages/login/Login";
 
-import { checkAuthLoader, tokenLoader } from "./util/auth";
+import { checkAuthLoader, tokenLoader } from "./utils/auth";
 
 import loginAction from "./services/actions/LoginAction";
 import { logoutAction } from "./services/actions/logout";

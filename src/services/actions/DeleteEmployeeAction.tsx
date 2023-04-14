@@ -1,6 +1,6 @@
 import { redirect } from "react-router-dom";
 import { EmployeeParamsType } from "../../interfaces/ParamsTypes";
-import { getAuthToken } from "../../util/auth";
+import { getAuthToken } from "../../utils/auth";
 
 
 

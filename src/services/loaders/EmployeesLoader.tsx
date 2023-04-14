@@ -1,6 +1,6 @@
 import { json } from "react-router-dom";
 import { EmployeesResData } from "../../interfaces/Employee";
-import { getAuthToken } from "../../util/auth";
+import { getAuthToken } from "../../utils/auth";
 
 export default async function EmployeesLoader() {
   const token = getAuthToken();

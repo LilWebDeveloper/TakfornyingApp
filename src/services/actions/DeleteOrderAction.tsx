@@ -1,6 +1,6 @@
 import { redirect } from "react-router-dom";
 import { OrderParamsType } from "../../interfaces/ParamsTypes";
-import { getAuthToken } from "../../util/auth";
+import { getAuthToken } from "../../utils/auth";
 
 export default async function DeleteOrderAction({ params }: OrderParamsType) {
   const orderId = params.orderId;

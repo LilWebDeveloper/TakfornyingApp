@@ -1,7 +1,7 @@
 import { json } from "react-router-dom";
 import { OrderResData } from "../../interfaces/Order";
 import { OrderParamsType } from "../../interfaces/ParamsTypes";
-import { getAuthToken } from "../../util/auth";
+import { getAuthToken } from "../../utils/auth";
 
 export default async function OrderLoader({ params }: OrderParamsType) {
   const id = params.orderId;

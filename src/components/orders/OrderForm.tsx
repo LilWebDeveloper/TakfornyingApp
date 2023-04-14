@@ -7,14 +7,14 @@ import Paper from "@mui/material/Paper";
 import MuiAlert, { AlertProps } from "@mui/material/Alert";
 import AddCircleTwoToneIcon from "@mui/icons-material/AddCircleTwoTone";
 
-import { RoofPaint } from "../../consts/RoofPaint";
+import { RoofPaint } from "../../utils/RoofPaint";
 
 import classes from "../../style/Forms.module.css";
 import { OrderFormType } from "../../interfaces/Order";
 import { EmployeeType } from "../../interfaces/Employee";
 import { MenuItemType } from "../../interfaces/MenuItemType";
 import { useLoadScript } from "@react-google-maps/api";
-import { max20, max50, min3, roofAngleValid, roofSizeValid, workerId } from "../../consts/ValidationFunction";
+import { max20, max50, min3, roofAngleValid, roofSizeValid, workerId } from "../../utils/ValidationFunction";
 
 const Alert = forwardRef<HTMLDivElement, AlertProps>(function Alert(
   props,

@@ -7,12 +7,12 @@ import { Button, TextField, MenuItem, Snackbar, Stack } from "@mui/material";
 import MuiAlert, { AlertProps } from "@mui/material/Alert";
 import PersonAddTwoToneIcon from "@mui/icons-material/PersonAddTwoTone";
 
-import { JobPosition } from "../../consts/JobPositionList";
+import { JobPosition } from "../../utils/JobPositionList";
 
 import { EmployeeFormType } from "../../interfaces/Employee";
 
 import classes from "../../style/Forms.module.css";
-import { isDNumber, max30, min3, min5 } from "../../consts/ValidationFunction";
+import { isDNumber, max30, min3, min5 } from "../../utils/ValidationFunction";
 
 const maxMinLenght = { maxLength: 30, minLength: 3 };
 const pwdLength = { minLenght: 5}

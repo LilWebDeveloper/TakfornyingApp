@@ -1,4 +1,4 @@
-import { getAuthToken } from "../../util/auth";
+import { getAuthToken } from "../../utils/auth";
 import { OrdersResData } from "../../interfaces/Order";
 import { json } from "react-router-dom";
 

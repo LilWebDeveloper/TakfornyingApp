@@ -7,7 +7,7 @@ export default async function OrderLoader({ params }: OrderParamsType) {
   const id = params.orderId;
   const token = getAuthToken();
 
-  const response = await fetch("https://takfornying.onrender.com/orders/" + id, {
+  const response = await fetch(`${process.env.REACT_APP_FETCH_ADDRESS!}/orders/` + id, {
     headers: {
       'Authorization': 'Bearer ' + token
     }

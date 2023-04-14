@@ -19,7 +19,7 @@ import Alert from "../Alert/Alert";
 
 function OrderForm({ method, order, selectEmployees }: OrderFormType) {
   useLoadScript({
-    googleMapsApiKey: "AIzaSyCf-EcJvHKq6R-r4VnEz_BCSfAIVx7zew4",
+    googleMapsApiKey: process.env.REACT_APP_GOOGLE_KEY!,
   });
   const [open, setOpen] = useState(false);
 

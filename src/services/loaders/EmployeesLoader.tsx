@@ -4,7 +4,7 @@ import { getAuthToken } from "../../utils/auth";
 
 export default async function EmployeesLoader() {
   const token = getAuthToken();
-  const response = await fetch("https://takfornying.onrender.com/employees", {
+  const response = await fetch(`${process.env.REACT_APP_FETCH_ADDRESS!}/employees`, {
     headers: {
       'Authorization': 'Bearer ' + token
     }

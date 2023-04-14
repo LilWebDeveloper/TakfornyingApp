@@ -50,11 +50,11 @@ export default async function ManipulateOrderAction({
     _id: undefined,
   };
 
-  let url = "https://takfornying.onrender.com/orders";
+  let url = `${process.env.REACT_APP_FETCH_ADDRESS!}/orders`;
 
   if (method === "PATCH") {
     const orderId = params.orderId;
-    url = "https://takfornying.onrender.com/orders/" + orderId;
+    url = `${process.env.REACT_APP_FETCH_ADDRESS!}/orders/` + orderId;
   }
 
   const token = getAuthToken();

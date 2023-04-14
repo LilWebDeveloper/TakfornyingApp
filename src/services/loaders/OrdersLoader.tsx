@@ -5,7 +5,7 @@ import { json } from "react-router-dom";
 export default async function OrdersLoader() {
   const token = getAuthToken();
 
-  const response = await fetch("https://takfornying.onrender.com/orders", {
+  const response = await fetch(`${process.env.REACT_APP_FETCH_ADDRESS!}/orders`, {
     headers: {
       Authorization: "Bearer " + token,
     },

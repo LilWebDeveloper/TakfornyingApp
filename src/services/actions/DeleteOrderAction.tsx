@@ -5,7 +5,7 @@ import { getAuthToken } from "../../utils/auth";
 export default async function DeleteOrderAction({ params }: OrderParamsType) {
   const orderId = params.orderId;
   const token = getAuthToken();
-  const response = await fetch("https://takfornying.onrender.com/orders/" + orderId, {
+  const response = await fetch(`${process.env.REACT_APP_FETCH_ADDRESS!}/orders/` + orderId, {
     method: "DELETE",
     headers: {
       'Authorization': 'Bearer ' + token

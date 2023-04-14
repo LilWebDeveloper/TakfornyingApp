@@ -1,5 +1,6 @@
 import { LoginResData } from "../../interfaces/Login";
 import RequestType from "../../interfaces/RequestType";
+import { setExpirationToLocalStorage, setTokenToLocalStorage } from "../../utils/LocalStorage";
 
 export default async function loginAction({ request }: RequestType) {
   const data = await request.formData();
@@ -27,10 +28,8 @@ export default async function loginAction({ request }: RequestType) {
   const resData: LoginResData = await response.json();
   const token = resData.token;
 
-  localStorage.setItem("token", token);
-  const expiration = new Date();
-  expiration.setHours(expiration.getHours() + 1);
-  localStorage.setItem("expiration", expiration.toISOString());
+  setTokenToLocalStorage(token);
+  setExpirationToLocalStorage()
 
   return resData;
 }

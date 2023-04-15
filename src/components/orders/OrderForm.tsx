@@ -75,7 +75,6 @@ function OrderForm({ method, order, selectEmployees }: OrderFormType) {
           <Form
             method={method}
             className={classes.order_form}
-            onSubmit={handleClick}
           >
             <div>
               <TextField

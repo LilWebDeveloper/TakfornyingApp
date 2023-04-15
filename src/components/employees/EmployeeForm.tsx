@@ -12,7 +12,14 @@ import { JobPosition } from "../../utils/JobPositionList";
 import { EmployeeFormType } from "../../interfaces/Employee";
 
 import classes from "../../style/Forms.module.css";
-import { isDNumber, max30, max30Min3Lenght, min3, min5, minPasswordLength5 } from "../../utils/ValidationFunction";
+import {
+  isDNumber,
+  max30,
+  max30Min3Lenght,
+  min3,
+  min5,
+  minPasswordLength5,
+} from "../../utils/ValidationFunction";
 import Alert from "../Alert/Alert";
 
 function EmployeeForm({ method, employee }: EmployeeFormType) {
@@ -34,7 +41,7 @@ function EmployeeForm({ method, employee }: EmployeeFormType) {
     const enteredPassword = passwordInputRef.current?.value;
 
     const enteredFirstNameIsValid =
-    min3(enteredFirstName!) && max30(enteredFirstName!);
+      min3(enteredFirstName!) && max30(enteredFirstName!);
     const enteredSecondNameIsValid =
       min3(enteredSecondName!) && max30(enteredSecondName!);
     const enteredJobPositionIsValid =
@@ -165,11 +172,11 @@ function EmployeeForm({ method, employee }: EmployeeFormType) {
               />
             </div>
             <Button
-              onClick={handleClick}
               type="submit"
               sx={{ m: 1 }}
               variant="contained"
               color="primary"
+              onClick={handleClick}
             >
               <PersonAddTwoToneIcon sx={{ mr: 1 }} />
               {method === "post" ? "ADD" : "EDIT"}

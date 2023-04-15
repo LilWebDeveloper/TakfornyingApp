@@ -41,6 +41,10 @@ function LoginDashboard() {
     }
   }, [data, dispatch, navigate]);
 
+  let errorColor = "error.main"
+
+  if(data && data.message === 'Authorized') errorColor = "success.main"
+
   return (
     <Grid container component="main" sx={{ height: "100vh" }}>
       <CssBaseline />
@@ -78,7 +82,7 @@ function LoginDashboard() {
             <Typography
               component="h1"
               variant="subtitle1"
-              sx={{ color: "error.main" }}
+              sx={{ color: errorColor }}
             >
               {data.message}
             </Typography>

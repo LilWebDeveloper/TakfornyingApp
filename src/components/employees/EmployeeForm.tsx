@@ -49,7 +49,7 @@ function EmployeeForm({ method, employee }: EmployeeFormType) {
     const enteredDNumberIsValid = isDNumber(enteredDNumber!);
     const enteredLoginIsValid = min3(enteredLogin!) && max30(enteredLogin!);
     const enteredPasswordIsValid =
-      min5(enteredPassword!) && max30(enteredPassword!);
+      min5(enteredPassword!);
 
     const formIsValid =
       enteredFirstNameIsValid &&

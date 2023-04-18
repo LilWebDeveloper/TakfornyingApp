@@ -40,10 +40,24 @@ describe("Set to Local Storage", () => {
     expect(localStorage.getItem(mockId)).toEqual(JSON.stringify(mockJson));
   });
 
+  test("token is deleted from local storage", () => {
+    const mockId = "token";
+    const mockJson = { data: "dummyToken" };
+    setLocalStorage(mockId, mockJson);
+    expect(localStorage.removeItem(mockId)).not.toEqual(JSON.stringify(mockJson));
+  });
+
   test("expiration is added into local storage", () => {
     const mockId = "expiration";
     const mockJson = { data: "2020-11-14T18:02:00" };
     setLocalStorage(mockId, mockJson);
     expect(localStorage.getItem(mockId)).toEqual(JSON.stringify(mockJson));
+  });
+  
+  test("expiration is deleted from local storage", () => {
+    const mockId = "expiration";
+    const mockJson = { data: "2020-11-14T18:02:00" };
+    setLocalStorage(mockId, mockJson);
+    expect(localStorage.removeItem(mockId)).not.toEqual(JSON.stringify(mockJson));
   });
 });

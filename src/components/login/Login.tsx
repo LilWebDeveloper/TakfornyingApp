@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
-import { Form, useActionData, useNavigate } from "react-router-dom";
+import { Form, useActionData, useNavigate, useNavigation } from "react-router-dom";
 
 import {
   Grid,
@@ -21,6 +21,9 @@ import UserInfo from "../../interfaces/UserInfo";
 
 function LoginDashboard() {
   const data = useActionData() as UserInfo;
+
+  const navigation = useNavigation();
+  const isSubmitting = navigation.state === 'submitting'
 
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -109,6 +112,7 @@ function LoginDashboard() {
               autoComplete="current-password"
             />
             <Button
+              disabled={isSubmitting}
               style={{
                 backgroundColor: "primary",
               }}
@@ -117,7 +121,7 @@ function LoginDashboard() {
               variant="contained"
               sx={{ mt: 3, mb: 2 }}
             >
-              Sign In
+              {isSubmitting ? 'Logging' : 'Sign In'}
             </Button>
             <Copyright />
           </Form>

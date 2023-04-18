@@ -1,5 +1,5 @@
 import { useRef, useState } from "react";
-import { Form } from "react-router-dom";
+import { Form, useNavigation } from "react-router-dom";
 
 import Grid from "@mui/material/Grid";
 import Paper from "@mui/material/Paper";
@@ -24,6 +24,17 @@ import Alert from "../Alert/Alert";
 
 function EmployeeForm({ method, employee }: EmployeeFormType) {
   const [open, setOpen] = useState(false);
+
+  const navigation = useNavigation();
+  const isSubmitting = navigation.state === 'submitting'
+
+  let buttonLabel = ''
+
+  if(method === 'post'){
+    buttonLabel = 'ADD'
+  } else if (method === 'patch'){
+    buttonLabel = 'EDIT'
+  }
 
   const firstNameInputRef = useRef<HTMLInputElement>();
   const secondNameInputRef = useRef<HTMLInputElement>();
@@ -172,6 +183,7 @@ function EmployeeForm({ method, employee }: EmployeeFormType) {
               />
             </div>
             <Button
+              disabled={isSubmitting}
               type="submit"
               sx={{ m: 1 }}
               variant="contained"
@@ -179,7 +191,7 @@ function EmployeeForm({ method, employee }: EmployeeFormType) {
               onClick={handleClick}
             >
               <PersonAddTwoToneIcon sx={{ mr: 1 }} />
-              {method === "post" ? "ADD" : "EDIT"}
+              {isSubmitting ? 'Sending...' : buttonLabel}
             </Button>
             <Stack>
               <Snackbar

@@ -1,5 +1,5 @@
 import { useRef, useState } from "react";
-import { Form } from "react-router-dom";
+import { Form, useNavigation } from "react-router-dom";
 
 import { Button, TextField, MenuItem, Stack, Snackbar } from "@mui/material";
 import Grid from "@mui/material/Grid";
@@ -18,6 +18,17 @@ import Alert from "../Alert/Alert";
 
 function OrderForm({ method, order, selectEmployees }: OrderFormType) {
   const [open, setOpen] = useState(false);
+
+  const navigation = useNavigation();
+  const isSubmitting = navigation.state === 'submitting'
+
+  let buttonLabel = ''
+
+  if(method === 'post'){
+    buttonLabel = 'ADD'
+  } else if (method === 'patch'){
+    buttonLabel = 'EDIT'
+  }
 
   const addressInputRef = useRef<HTMLInputElement>();
   const roofPaintInputRef = useRef<HTMLInputElement>();
@@ -170,6 +181,7 @@ function OrderForm({ method, order, selectEmployees }: OrderFormType) {
               </TextField>
             </div>
             <Button
+              disabled={isSubmitting}
               type="submit"
               sx={{ m: 1 }}
               variant="contained"
@@ -177,7 +189,7 @@ function OrderForm({ method, order, selectEmployees }: OrderFormType) {
               onClick={handleClick}
             >
               <AddCircleTwoToneIcon sx={{ mr: 1 }} />
-              {method === "post" ? "ADD" : "EDIT"}
+              {isSubmitting ? 'Sending...' : buttonLabel}
             </Button>
             <Stack>
               <Snackbar

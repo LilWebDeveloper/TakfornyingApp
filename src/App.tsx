@@ -139,31 +139,31 @@ const router = createBrowserRouter([
                     element: <OrdersPage />,
                     loader: OrdersLoader,
                   },
-                ],
-              },
-              {
-                path: "orders/:orderId",
-                id: "order-detail",
-                loader: OrderLoader,
-                children: [
                   {
-                    index: true,
-                    element: <OrderDetailPage />,
-                    loader: OrdersLoader,
-                    action: DeleteOrderAction,
-                  },
-                  {
-                    id: "select-employee-loader",
-                    loader: SelectEmployeesLoader,
+                    path: "orders/:orderId",
+                    id: "order-detail",
+                    loader: OrderLoader,
                     children: [
                       {
-                        path: "edit",
-                        element: (
-                          <ManagerProtect>
-                            <EditOrderPage />
-                          </ManagerProtect>
-                        ),
-                        action: ManipulateOrderAction,
+                        index: true,
+                        element: <OrderDetailPage />,
+                        loader: OrdersLoader,
+                        action: DeleteOrderAction,
+                      },
+                      {
+                        id: "select-employee-loader",
+                        loader: SelectEmployeesLoader,
+                        children: [
+                          {
+                            path: "edit",
+                            element: (
+                              <ManagerProtect>
+                                <EditOrderPage />
+                              </ManagerProtect>
+                            ),
+                            action: ManipulateOrderAction,
+                          },
+                        ],
                       },
                     ],
                   },
@@ -191,7 +191,7 @@ function App() {
   useLoadScript({
     googleMapsApiKey: process.env.REACT_APP_GOOGLE_KEY!,
   });
-  
+
   return <RouterProvider router={router} />;
 }
 

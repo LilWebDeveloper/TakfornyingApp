@@ -13,7 +13,13 @@ import Paper from "@mui/material/Paper";
 import Button from "@mui/material/Button";
 import EditTwoToneIcon from "@mui/icons-material/EditTwoTone";
 import DeleteTwoToneIcon from "@mui/icons-material/DeleteTwoTone";
-import { Snackbar, Stack } from "@mui/material";
+import {
+  Dialog,
+  DialogActions,
+  DialogTitle,
+  Snackbar,
+  Stack,
+} from "@mui/material";
 
 import classes from "../../style/Item.module.css";
 
@@ -24,10 +30,18 @@ import { employeeDetails } from "../../utils/TestsRoles";
 
 function EmployeeItem({ employee }: EmployeeResData) {
   const submit = useSubmit();
+  const [confirmOpen, setConfirmOpen] = useState(false);
+  const [alertOpen, setAlertOpen] = useState(false);
 
-  const [open, setOpen] = useState(false);
+  const handleClickConfirmOpen = () => {
+    setConfirmOpen(true);
+  };
 
-  const handleClose = (
+  const handleConfirmClose = () => {
+    setConfirmOpen(false);
+  };
+
+  const handleAlertClose = (
     event?: React.SyntheticEvent | Event,
     reason?: string
   ) => {
@@ -35,19 +49,16 @@ function EmployeeItem({ employee }: EmployeeResData) {
       return;
     }
 
-    setOpen(false);
+    setAlertOpen(false);
   };
 
   function DeleteHandler(
     event?: React.SyntheticEvent | Event,
     reason?: string
   ) {
-    const proceed = window.confirm("Are you sure?");
-
-    if (proceed) {
-      submit(null, { method: "delete" });
-      setOpen(true);
-    }
+    submit(null, { method: "delete" });
+    setAlertOpen(true);
+    setConfirmOpen(false);
   }
 
   const role = useSelector((state: StateType) => state.auth.role);
@@ -99,14 +110,22 @@ function EmployeeItem({ employee }: EmployeeResData) {
               Edit
             </Button>
           </Link>
-          <Button onClick={DeleteHandler} variant="contained" color="primary">
+          <Button
+            onClick={handleClickConfirmOpen}
+            variant="contained"
+            color="primary"
+          >
             <DeleteTwoToneIcon sx={{ mr: 1 }} />
             Delete
           </Button>
           <Stack>
-            <Snackbar open={open} autoHideDuration={2000} onClose={handleClose}>
+            <Snackbar
+              open={alertOpen}
+              autoHideDuration={2000}
+              onClose={handleAlertClose}
+            >
               <Alert
-                onClose={handleClose}
+                onClose={handleAlertClose}
                 severity="success"
                 sx={{ width: "100%" }}
               >
@@ -114,6 +133,22 @@ function EmployeeItem({ employee }: EmployeeResData) {
               </Alert>
             </Snackbar>
           </Stack>
+          <Dialog
+            open={confirmOpen}
+            onClose={handleConfirmClose}
+            aria-labelledby="alert-dialog-title"
+            aria-describedby="alert-dialog-description"
+          >
+            <DialogTitle id="alert-dialog-title">
+              {"Do you want to remove the employee?"}
+            </DialogTitle>
+            <DialogActions>
+              <Button onClick={handleConfirmClose}>Disagree</Button>
+              <Button onClick={DeleteHandler} autoFocus>
+                Agree
+              </Button>
+            </DialogActions>
+          </Dialog>
         </menu>
       )}
     </>

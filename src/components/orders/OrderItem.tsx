@@ -12,7 +12,7 @@ import Paper from "@mui/material/Paper";
 import EditTwoToneIcon from "@mui/icons-material/EditTwoTone";
 import DeleteTwoToneIcon from "@mui/icons-material/DeleteTwoTone";
 
-import { Button, Snackbar, Stack } from "@mui/material";
+import { Button, Dialog, DialogActions, DialogTitle, Snackbar, Stack } from "@mui/material";
 
 import classes from "../../style/Item.module.css";
 
@@ -23,9 +23,18 @@ import { orderDetails } from "../../utils/TestsRoles";
 
 function OrderItem({ order }: OrderResData) {
   const submit = useSubmit();
-  const [open, setOpen] = useState(false);
+  const [confirmOpen, setConfirmOpen] = useState(false);
+  const [alertOpen, setAlertOpen] = useState(false);
 
-  const handleClose = (
+  const handleClickConfirmOpen = () => {
+    setConfirmOpen(true);
+  };
+
+  const handleConfirmClose = () => {
+    setConfirmOpen(false);
+  };
+
+  const handleAlertClose = (
     event?: React.SyntheticEvent | Event,
     reason?: string
   ) => {
@@ -33,16 +42,16 @@ function OrderItem({ order }: OrderResData) {
       return;
     }
 
-    setOpen(false);
+    setAlertOpen(false);
   };
 
-  function DeleteHandler() {
-    const proceed = window.confirm("Are you sure?");
-
-    if (proceed) {
-      submit(null, { method: "delete" });
-      setOpen(true);
-    }
+  function DeleteHandler(
+    event?: React.SyntheticEvent | Event,
+    reason?: string
+  ) {
+    submit(null, { method: "delete" });
+    setAlertOpen(true);
+    setConfirmOpen(false);
   }
 
   const role = useSelector((state: StateType) => state.auth.role);
@@ -106,21 +115,45 @@ function OrderItem({ order }: OrderResData) {
               Edit
             </Button>
           </Link>
-          <Button onClick={DeleteHandler} variant="contained" color="primary">
+          <Button
+            onClick={handleClickConfirmOpen}
+            variant="contained"
+            color="primary"
+          >
             <DeleteTwoToneIcon sx={{ mr: 1 }} />
             Delete
           </Button>
           <Stack>
-            <Snackbar open={open} autoHideDuration={2000} onClose={handleClose}>
+            <Snackbar
+              open={alertOpen}
+              autoHideDuration={2000}
+              onClose={handleAlertClose}
+            >
               <Alert
-                onClose={handleClose}
+                onClose={handleAlertClose}
                 severity="success"
                 sx={{ width: "100%" }}
               >
-                DELETED - The order has been removed
+                DELETED - The user has been removed
               </Alert>
             </Snackbar>
           </Stack>
+          <Dialog
+            open={confirmOpen}
+            onClose={handleConfirmClose}
+            aria-labelledby="alert-dialog-title"
+            aria-describedby="alert-dialog-description"
+          >
+            <DialogTitle id="alert-dialog-title">
+              {"Do you want to remove the order?"}
+            </DialogTitle>
+            <DialogActions>
+              <Button onClick={handleConfirmClose}>Disagree</Button>
+              <Button onClick={DeleteHandler} autoFocus>
+                Agree
+              </Button>
+            </DialogActions>
+          </Dialog>
         </menu>
       )}
     </>

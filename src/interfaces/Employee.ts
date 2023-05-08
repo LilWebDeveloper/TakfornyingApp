@@ -22,7 +22,13 @@ export interface EmployeeType {
 }
 
 export interface EmployeesResData {
-  employees: EmployeesType[];
+  pagination: any
+  employees:  EmployeesType[];
+}
+
+export interface PaginationType {
+  page: number;
+  pageCount: number
 }
 
 export interface EmployeeResData {

@@ -33,7 +33,7 @@ const employees = [
 ];
 const router = createBrowserRouter(
   createRoutesFromElements(
-    <Route path="/" element={<EmployeesList employees={employees} />}></Route>
+    <Route path="/" element={<EmployeesList employees={employees} pagination={undefined} />}></Route>
   )
 );
 

@@ -1,12 +1,12 @@
 import { useLoaderData } from "react-router-dom";
 
 import EmployeesList from "../../components/employees/EmployeesList";
-import EmployeeType from "../../interfaces/Employee";
+import { EmployeesResData } from "../../interfaces/Employee";
 
 function EmployeesPage() {
-  const employees = useLoaderData() as EmployeeType[];
+  const data = useLoaderData() as EmployeesResData;
 
-  return <EmployeesList employees={employees} />;
+  return <EmployeesList employees={data.employees} pagination={data.pagination} />;
 }
 
 export default EmployeesPage;

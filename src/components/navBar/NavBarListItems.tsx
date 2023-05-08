@@ -16,7 +16,7 @@ export const AdminNavBarListItems = (
     </ListSubheader>
 
     <CustomNavLink
-      goTo="employees"
+      goTo="employees?p=1"
       title="Employees"
       iconType={<PersonIcon />}
     />

@@ -30,3 +30,7 @@ a{
   transform: scale(1.02);
   background-color: var(--color-gray-700);
 }
+.pagination{
+  display: flex;
+  justify-content: center;
+}

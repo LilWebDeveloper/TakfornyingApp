@@ -34,7 +34,7 @@ const EmployeesList = ({ employees, pagination }: EmployeesResData) => {
             className={classes.paper}
             sx={{ m: 2, p: 2, display: "flex", flexDirection: "column" }}
           >
-            <Link to={`/dashboard/employees/${data._id}`}>
+            <Link to={`/dashboard/employees/${data._id}?p=${page}`}>
               <div className={classes.content}>
                 <h2>
                   {data.firstName} {data.secondName}

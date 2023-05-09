@@ -34,7 +34,7 @@ const OrdersList = ({ orders, pagination }: OrdersResData) => {
             className={classes.paper}
             sx={{ m: 2, p: 2, display: "flex", flexDirection: "column" }}
           >
-            <Link to={`/dashboard/orders/${data._id}`}>
+            <Link to={`/dashboard/orders/${data._id}?p=${page}`}>
               <div className={classes.content}>
                 <h2>{data.address}</h2>
               </div>

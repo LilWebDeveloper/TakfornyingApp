@@ -4,7 +4,7 @@ import { getAuthToken } from "../../utils/auth";
 
 export default async function SelectEmployeesLoader() {
   const token = getAuthToken();
-  const response = await fetch(`${process.env.REACT_APP_FETCH_ADDRESS!}/employees/`, {
+  const response = await fetch(`${process.env.REACT_APP_FETCH_ADDRESS!}/employees/all`, {
     headers: {
       Authorization: "Bearer " + token,
     },

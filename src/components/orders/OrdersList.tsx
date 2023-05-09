@@ -1,4 +1,5 @@
-import { Link } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 
 import Grid from "@mui/material/Grid";
 import Paper from "@mui/material/Paper";
@@ -6,8 +7,24 @@ import Paper from "@mui/material/Paper";
 import classes from "../../style/List.module.css";
 import { OrdersResData, OrderType } from "../../interfaces/Order";
 import { ordersList } from "../../utils/TestsRoles";
+import { Pagination, Stack } from "@mui/material";
 
-const OrdersList = ({ orders }: OrdersResData) => {
+const OrdersList = ({ orders, pagination }: OrdersResData) => {
+  const navigate = useNavigate();
+  const [page, setPage] = useState(1);
+  const [pageCount, setPageCount] = useState(0);
+
+  useEffect(() => {
+    if (pagination) {
+      setPageCount(pagination.pageCount);
+    }
+  }, [pagination]);
+
+  const handleChange = (event: React.ChangeEvent<unknown>, value: number) => {
+    setPage(value);
+    navigate(`?p=${value}`);
+  };
+
   return (
     <div className={classes.orders}>
       <h1>All orders</h1>
@@ -25,6 +42,16 @@ const OrdersList = ({ orders }: OrdersResData) => {
           </Paper>
         </Grid>
       ))}
+      <footer className={classes.pagination}>
+        <Stack spacing={2}>
+          <Pagination
+            count={pageCount}
+            page={page}
+            onChange={handleChange}
+            color="primary"
+          />
+        </Stack>
+      </footer>
     </div>
   );
 };

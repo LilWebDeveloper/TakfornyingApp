@@ -1,5 +1,5 @@
-import { FormMethod } from 'react-router-dom';
-import { EmployeeType } from '../interfaces/Employee'
+import { FormMethod } from "react-router-dom";
+import { EmployeeType } from "../interfaces/Employee";
 
 export default interface OrdersType {
   address: string;
@@ -33,35 +33,36 @@ export interface OrderType {
 }
 
 export interface OrdersResData {
-  orders: OrdersType[]
+  pagination: any;
+  orders: OrdersType[];
 }
 
 export interface EmployeeOrdersResData {
   employeeOrders: {
-    orders: OrdersType[]
-  }
+    orders: OrdersType[];
+  };
 }
 
-export interface EmployeeOrderType{
-  orders: OrdersType[]
+export interface EmployeeOrderType {
+  orders: OrdersType[];
 }
 
 export interface OrderResData {
-  order: OrdersType
+  order: OrdersType;
 }
 
 export interface OrderFormType {
-  method: FormMethod,
-  order?: OrdersType | undefined,
-  selectEmployees: EmployeeType[]
+  method: FormMethod;
+  order?: OrdersType | undefined;
+  selectEmployees: EmployeeType[];
 }
 
-export interface EmployeeOrdersMap{
+export interface EmployeeOrdersMap {
   employeeAddresses: {
-    orders: OrderType[]
-  }
+    orders: OrderType[];
+  };
 }
 
-export interface AllAddressesMap{
-  allAddresses: OrderType[]
+export interface AllAddressesMap {
+  allAddresses: OrderType[];
 }

@@ -4,17 +4,17 @@ import { useLoaderData, useRouteLoaderData } from "react-router-dom";
 import EmployeeOrdersList from "../../components/orders/EmployeeOrdersList";
 import OrdersList from "../../components/orders/OrdersList";
 
-import OrderType, { EmployeeOrderType } from "../../interfaces/Order";
+import { EmployeeOrderType, OrdersResData } from "../../interfaces/Order";
 import { StateType } from "../../interfaces/StateTypes";
 
 function OrdersPage() {
-  const orders = useLoaderData() as OrderType[];
-  const employeeOrders = useRouteLoaderData("employee-orders") as EmployeeOrderType;
+  const ordersData = useLoaderData() as OrdersResData;
+  const employeeOrdersData = useRouteLoaderData("employee-orders") as EmployeeOrderType;
   const role = useSelector((state: StateType) => state.auth.role);
 
   if (role === "Employee") {
-    return <EmployeeOrdersList employeeOrders={employeeOrders} />;
-  } else return <OrdersList orders={orders} />;
+    return <EmployeeOrdersList employeeOrders={employeeOrdersData} />;
+  } else return <OrdersList orders={ordersData.orders} pagination={ordersData.pagination}/>;
 }
 
 export default OrdersPage;

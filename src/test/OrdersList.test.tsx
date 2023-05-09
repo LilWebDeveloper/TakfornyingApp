@@ -60,7 +60,7 @@ const orders = [
 
 const router = createBrowserRouter(
   createRoutesFromElements(
-    <Route path="/" element={<OrdersList orders={orders} />}></Route>
+    <Route path="/" element={<OrdersList orders={orders} pagination={undefined} />}></Route>
   )
 );
 

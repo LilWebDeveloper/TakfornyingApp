@@ -22,13 +22,13 @@ export interface EmployeeType {
 }
 
 export interface EmployeesResData {
-  pagination: any
-  employees:  EmployeesType[];
+  pagination: any;
+  employees: EmployeesType[];
 }
 
 export interface PaginationType {
   page: number;
-  pageCount: number
+  pageCount: number;
 }
 
 export interface EmployeeResData {
@@ -36,6 +36,6 @@ export interface EmployeeResData {
 }
 
 export interface EmployeeFormType {
-  method: FormMethod,
-  employee?: EmployeesType
+  method: FormMethod;
+  employee?: EmployeesType;
 }

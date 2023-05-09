@@ -25,7 +25,7 @@ export const AdminNavBarListItems = (
       title="Add employee"
       iconType={<PersonAddIcon />}
     />
-    <CustomNavLink goTo="orders" title="Orders" iconType={<StoreIcon />} />
+    <CustomNavLink goTo="orders?p=1" title="Orders" iconType={<StoreIcon />} />
     <CustomNavLink
       goTo="orders/new"
       title="Add orders"
@@ -45,7 +45,7 @@ export const ManagerNavBarListItems = (
       Manager Panel
     </ListSubheader>
 
-    <CustomNavLink goTo="orders" title="Orders" iconType={<StoreIcon />} />
+    <CustomNavLink goTo="orders?p=1" title="Orders" iconType={<StoreIcon />} />
     <CustomNavLink
       goTo="orders/new"
       title="Add orders"
@@ -65,7 +65,7 @@ export const EmployeeNavBarListItems = (
       Employee Panel
     </ListSubheader>
 
-    <CustomNavLink goTo="orders" title="Orders" iconType={<StoreIcon />} />
+    <CustomNavLink goTo="orders?p=1" title="Orders" iconType={<StoreIcon />} />
     <CustomNavLink
       goTo="addresses"
       title="Addresses"

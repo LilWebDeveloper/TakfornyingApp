@@ -15,7 +15,6 @@ export default async function OrdersLoader({ request }: any) {
     }
   );
   const resData: OrdersResData = await response.json();
-  console.log(resData)
 
   if (!response.ok) {
     return json({ message: "Could not fetch orders.", status: 500 });

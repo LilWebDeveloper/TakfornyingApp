@@ -41,6 +41,7 @@ import EmployeeDetailPage from "./pages/employees/EmployeeDetail";
 import OrdersPage from "./pages/orders/Orders";
 import OrderDetailPage from "./pages/orders/OrderDetail";
 import { useLoadScript } from "@react-google-maps/api";
+import AllOrdersLoader from "./services/loaders/AllOrdersLoader";
 
 const router = createBrowserRouter([
   {
@@ -72,13 +73,13 @@ const router = createBrowserRouter([
                   {
                     index: true,
                     element: <AddressesMapPage />,
-                    loader: OrdersLoader,
+                    loader: AllOrdersLoader,
                   },
                   // API MAP ADDRESSES
                   {
                     path: "addresses",
                     element: <AddressesMapPage />,
-                    loader: OrdersLoader,
+                    loader: AllOrdersLoader,
                   },
                 ],
               },

@@ -41,5 +41,5 @@ export default async function ManipulateEmployeeAction({
     throw new Error('Could not send employee!');
   }
 
-  return redirect("/dashboard/employees");
+  return redirect("/dashboard/employees?p=1");
 }

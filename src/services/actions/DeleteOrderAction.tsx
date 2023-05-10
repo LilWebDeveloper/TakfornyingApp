@@ -16,5 +16,5 @@ export default async function DeleteOrderAction({ params }: OrderParamsType) {
     throw new Error('Could not delete order!');
   }
 
-  return redirect("/dashboard/orders");
+  return redirect("/dashboard/orders?p=1");
 }

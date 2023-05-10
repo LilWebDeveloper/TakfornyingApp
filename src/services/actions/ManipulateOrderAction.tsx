@@ -71,5 +71,5 @@ export default async function ManipulateOrderAction({
   if (!response.ok) {
     throw new Error("Could not send order!");
   }
-  return redirect("/dashboard/orders");
+  return redirect("/dashboard/orders?p=1");
 }

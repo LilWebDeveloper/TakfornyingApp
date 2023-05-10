@@ -18,5 +18,5 @@ export default async function DeleteEmployeeAction({ params }: EmployeeParamsTyp
     throw new Error('Could not delete employee!');
   }
 
-  return redirect("/dashboard/employees");
+  return redirect("/dashboard/employees?p=1");
 }

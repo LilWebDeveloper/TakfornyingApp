@@ -16,7 +16,6 @@ export default async function EmployeeOrdersLoader({ request }: any) {
     }
   );
   const resData: EmployeeOrdersResData = await response.json();
-  console.log(resData)
   if (!response.ok) {
     return json({ message: "Could not fetch employee orders.", status: 500 });
   } else {

@@ -38,9 +38,8 @@ export interface OrdersResData {
 }
 
 export interface EmployeeOrdersResData {
-  employeeOrders: {
+  pagination: any
     orders: OrdersType[];
-  };
 }
 
 export interface EmployeeOrderType {

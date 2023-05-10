@@ -64,7 +64,7 @@ const router = createBrowserRouter(
   createRoutesFromElements(
     <Route
       path="/"
-      element={<EmployeeOrdersList employeeOrders={employeeOrders} />}
+      element={<EmployeeOrdersList orders={employeeOrders.orders} pagination={undefined} />}
     ></Route>
   )
 );

@@ -42,6 +42,7 @@ import OrdersPage from "./pages/orders/Orders";
 import OrderDetailPage from "./pages/orders/OrderDetail";
 import { useLoadScript } from "@react-google-maps/api";
 import AllOrdersLoader from "./services/loaders/AllOrdersLoader";
+import AllEmployeeOrdersLoader from "./services/loaders/AllEmployeeOrdersLoader";
 
 const router = createBrowserRouter([
   {
@@ -68,7 +69,7 @@ const router = createBrowserRouter([
             children: [
               {
                 id: "employee-orders-address",
-                loader: EmployeeOrdersLoader,
+                loader: AllEmployeeOrdersLoader,
                 children: [
                   {
                     index: true,

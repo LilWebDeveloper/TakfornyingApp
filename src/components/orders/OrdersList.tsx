@@ -16,7 +16,7 @@ const OrdersList = ({ orders, pagination }: OrdersResData) => {
 
   useEffect(() => {
     if (pagination) {
-      setPageCount(pagination.pageCount);
+      setPageCount(+pagination.pageCount);
     }
   }, [pagination]);
 

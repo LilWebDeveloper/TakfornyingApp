@@ -20,7 +20,7 @@ const EmployeeOrdersList = ({
 
   useEffect(() => {
     if (pagination) {
-      setPageCount(pagination.pageCount);
+      setPageCount(+pagination.pageCount);
     }
   }, [pagination]);
 

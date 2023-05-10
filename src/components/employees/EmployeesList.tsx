@@ -16,7 +16,7 @@ const EmployeesList = ({ employees, pagination }: EmployeesResData) => {
   
   useEffect(() => {
     if(pagination){
-      setPageCount(pagination.pageCount)
+      setPageCount(+pagination.pageCount)
     }
   }, [pagination])
 

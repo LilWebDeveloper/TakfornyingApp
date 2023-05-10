@@ -31,9 +31,14 @@ const employees = [
     status: 200,
   },
 ];
+const pagination = {
+  count: 2,
+  pageCount: 1
+}
+
 const router = createBrowserRouter(
   createRoutesFromElements(
-    <Route path="/" element={<EmployeesList employees={employees} pagination={undefined} />}></Route>
+    <Route path="/" element={<EmployeesList employees={employees} pagination={pagination} />}></Route>
   )
 );
 

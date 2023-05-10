@@ -58,9 +58,14 @@ const orders = [
   },
 ];
 
+const pagination = {
+  count: 2,
+  pageCount: 1
+}
+
 const router = createBrowserRouter(
   createRoutesFromElements(
-    <Route path="/" element={<OrdersList orders={orders} pagination={undefined} />}></Route>
+    <Route path="/" element={<OrdersList orders={orders} pagination={pagination} />}></Route>
   )
 );
 

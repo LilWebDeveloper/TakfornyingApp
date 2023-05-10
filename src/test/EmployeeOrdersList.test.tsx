@@ -10,6 +10,10 @@ import { Provider } from "react-redux";
 import store from "../store/store";
 
 const employeeOrders = {
+  pagination: {
+    count: 2,
+    pageCount: 1
+  },
   orders: [
     {
       address: "Starowiejska 60, Gdańsk",
@@ -64,7 +68,7 @@ const router = createBrowserRouter(
   createRoutesFromElements(
     <Route
       path="/"
-      element={<EmployeeOrdersList orders={employeeOrders.orders} pagination={undefined} />}
+      element={<EmployeeOrdersList orders={employeeOrders.orders} pagination={employeeOrders.pagination} />}
     ></Route>
   )
 );

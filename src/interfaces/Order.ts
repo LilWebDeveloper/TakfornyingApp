@@ -33,13 +33,19 @@ export interface OrderType {
 }
 
 export interface OrdersResData {
-  pagination: any;
+  pagination: {
+    count: number;
+    pageCount: Number;
+  };
   orders: OrdersType[];
 }
 
 export interface EmployeeOrdersResData {
-  pagination: any
-    orders: OrdersType[];
+  pagination: {
+    count: number;
+    pageCount: Number;
+  };
+  orders: OrdersType[];
 }
 
 export interface EmployeeOrderType {

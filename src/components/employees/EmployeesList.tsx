@@ -8,26 +8,39 @@ import { EmployeesResData, EmployeeType } from "../../interfaces/Employee";
 import classes from "../../style/List.module.css";
 import { employeesList } from "../../utils/TestsRoles";
 import { Pagination, Stack } from "@mui/material";
+import { Search, SearchIconWrapper, StyledInputBase } from "../../style/Search";
+import SearchIcon from '@mui/icons-material/Search';
 
 const EmployeesList = ({ employees, pagination }: EmployeesResData) => {
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   const [page, setPage] = useState(1);
   const [pageCount, setPageCount] = useState(0);
-  
+
   useEffect(() => {
-    if(pagination){
-      setPageCount(+pagination.pageCount)
+    if (pagination) {
+      setPageCount(+pagination.pageCount);
     }
-  }, [pagination])
+  }, [pagination]);
 
   const handleChange = (event: React.ChangeEvent<unknown>, value: number) => {
-    setPage(value)
-    navigate(`?p=${value}`)
-  }
+    setPage(value);
+    navigate(`?p=${value}`);
+  };
 
   return (
     <div className={classes.orders}>
       <h1>All Employees</h1>
+      <header>
+        <Search>
+          <SearchIconWrapper>
+            <SearchIcon />
+          </SearchIconWrapper>
+          <StyledInputBase
+            placeholder="Search…"
+            inputProps={{ "aria-label": "search" }}
+          />
+        </Search>
+      </header>
       {employees.map((data: EmployeeType) => (
         <Grid key={data._id} item xs={12} role={employeesList}>
           <Paper
@@ -47,7 +60,12 @@ const EmployeesList = ({ employees, pagination }: EmployeesResData) => {
       ))}
       <footer className={classes.pagination}>
         <Stack spacing={2}>
-          <Pagination count={pageCount} page={page} onChange={handleChange} color="primary" />
+          <Pagination
+            count={pageCount}
+            page={page}
+            onChange={handleChange}
+            color="primary"
+          />
         </Stack>
       </footer>
     </div>

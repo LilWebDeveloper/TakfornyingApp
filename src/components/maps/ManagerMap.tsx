@@ -2,6 +2,7 @@ import { useMemo, useState } from "react";
 import { GoogleMap, InfoWindowF, MarkerF } from "@react-google-maps/api";
 import classes from "../../style/Map.module.css";
 import { AllAddressesMap, OrderType } from "../../interfaces/Order";
+import capitalizeFirst from "../../utils/CapitalizeFirst";
 
 const ManagerMap = (allAddresses: AllAddressesMap) => {
   const [selectedMarker, setSelectedMarker] = useState<OrderType>();
@@ -30,7 +31,7 @@ const ManagerMap = (allAddresses: AllAddressesMap) => {
             setSelectedMarker(undefined)
           }}
         >
-          <h1>{selectedMarker.address}</h1>
+          <h1>{capitalizeFirst(selectedMarker.address)}</h1>
         </InfoWindowF>
       )}
     </GoogleMap>

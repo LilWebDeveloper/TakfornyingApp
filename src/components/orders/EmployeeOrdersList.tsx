@@ -8,6 +8,7 @@ import { EmployeeOrdersResData, OrderType } from "../../interfaces/Order";
 import { employeeOrdersList } from "../../utils/TestsRoles";
 import { useEffect, useState } from "react";
 import { Pagination, Stack } from "@mui/material";
+import capitalizeFirst from "../../utils/CapitalizeFirst";
 
 const EmployeeOrdersList = ({
   orders,
@@ -40,7 +41,7 @@ const EmployeeOrdersList = ({
           >
             <Link to={`/dashboard/orders/${data._id}?p=${page}`}>
               <div className={classes.content}>
-                <h2>{data.address}</h2>
+                <h2>{capitalizeFirst(data.address)}</h2>
               </div>
             </Link>
           </Paper>

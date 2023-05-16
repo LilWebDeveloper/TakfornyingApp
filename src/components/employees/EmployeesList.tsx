@@ -10,6 +10,7 @@ import { employeesList } from "../../utils/TestsRoles";
 import { Pagination, Stack } from "@mui/material";
 import { Search, SearchIconWrapper, StyledInputBase } from "../../style/Search";
 import SearchIcon from '@mui/icons-material/Search';
+import capitalizeFirst from "../../utils/CapitalizeFirst";
 
 const EmployeesList = ({ employees, pagination }: EmployeesResData) => {
   const navigate = useNavigate();
@@ -50,9 +51,9 @@ const EmployeesList = ({ employees, pagination }: EmployeesResData) => {
             <Link to={`/dashboard/employees/${data._id}?p=${page}`}>
               <div className={classes.content}>
                 <h2>
-                  {data.firstName} {data.secondName}
+                  {capitalizeFirst(data.firstName)} {capitalizeFirst(data.secondName)}
                 </h2>
-                <h3>{data.jobPosition}</h3>
+                <h3>{capitalizeFirst(data.jobPosition)}</h3>
               </div>
             </Link>
           </Paper>

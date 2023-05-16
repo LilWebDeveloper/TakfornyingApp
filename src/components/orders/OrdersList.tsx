@@ -8,6 +8,7 @@ import classes from "../../style/List.module.css";
 import { OrdersResData, OrderType } from "../../interfaces/Order";
 import { ordersList } from "../../utils/TestsRoles";
 import { Pagination, Stack } from "@mui/material";
+import capitalizeFirst from "../../utils/CapitalizeFirst";
 
 const OrdersList = ({ orders, pagination }: OrdersResData) => {
   const navigate = useNavigate();
@@ -36,7 +37,7 @@ const OrdersList = ({ orders, pagination }: OrdersResData) => {
           >
             <Link to={`/dashboard/orders/${data._id}?p=${page}`}>
               <div className={classes.content}>
-                <h2>{data.address}</h2>
+                <h2>{capitalizeFirst(data.address)}</h2>
               </div>
             </Link>
           </Paper>

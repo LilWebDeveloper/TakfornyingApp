@@ -20,6 +20,7 @@ import { OrderResData } from "../../interfaces/Order";
 import { StateType } from "../../interfaces/StateTypes";
 import Alert from "../Alert/Alert";
 import { orderDetails } from "../../utils/TestsRoles";
+import capitalizeFirst from "../../utils/CapitalizeFirst";
 
 function OrderItem({ order }: OrderResData) {
   const submit = useSubmit();
@@ -92,11 +93,11 @@ function OrderItem({ order }: OrderResData) {
               sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
             >
               <TableCell align="center" component="th" scope="row">
-                {order.address}
+                {capitalizeFirst(order.address)}
               </TableCell>
               <TableCell align="center">
                 {order.worker
-                  ? order.worker.firstName + " " + order.worker.secondName
+                  ? capitalizeFirst(order.worker.firstName) + " " + capitalizeFirst(order.worker.secondName)
                   : ""}
               </TableCell>
               <TableCell align="center">{order.roofPaint}</TableCell>

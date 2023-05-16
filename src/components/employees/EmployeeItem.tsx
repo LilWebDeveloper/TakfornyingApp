@@ -27,6 +27,7 @@ import { EmployeeResData } from "../../interfaces/Employee";
 import { StateType } from "../../interfaces/StateTypes";
 import Alert from "../Alert/Alert";
 import { employeeDetails } from "../../utils/TestsRoles";
+import capitalizeFirst from "../../utils/CapitalizeFirst";
 
 function EmployeeItem({ employee }: EmployeeResData) {
   const submit = useSubmit();
@@ -93,9 +94,9 @@ function EmployeeItem({ employee }: EmployeeResData) {
               sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
             >
               <TableCell align="center" component="th" scope="row">
-                {employee.firstName}
+                {capitalizeFirst(employee.firstName)}
               </TableCell>
-              <TableCell align="center">{employee.secondName}</TableCell>
+              <TableCell align="center">{capitalizeFirst(employee.secondName)}</TableCell>
               <TableCell align="center">{employee.jobPosition}</TableCell>
               <TableCell align="center">{employee.dNumber}</TableCell>
             </TableRow>

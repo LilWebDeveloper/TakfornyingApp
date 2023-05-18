@@ -8,9 +8,8 @@ import { EmployeesResData, EmployeeType } from "../../interfaces/Employee";
 import classes from "../../style/List.module.css";
 import { employeesList } from "../../utils/TestsRoles";
 import { Pagination, Stack } from "@mui/material";
-import { Search, SearchIconWrapper, StyledInputBase } from "../../style/Search";
-import SearchIcon from '@mui/icons-material/Search';
 import capitalizeFirst from "../../utils/CapitalizeFirst";
+import SearchBar from "../searchBar/Search";
 
 const EmployeesList = ({ employees, pagination }: EmployeesResData) => {
   const navigate = useNavigate();
@@ -31,16 +30,8 @@ const EmployeesList = ({ employees, pagination }: EmployeesResData) => {
   return (
     <div className={classes.orders}>
       <h1>All Employees</h1>
-      <header>
-        <Search>
-          <SearchIconWrapper>
-            <SearchIcon />
-          </SearchIconWrapper>
-          <StyledInputBase
-            placeholder="Search…"
-            inputProps={{ "aria-label": "search" }}
-          />
-        </Search>
+      <header className={classes.header}>
+        <SearchBar />
       </header>
       {employees.map((data: EmployeeType) => (
         <Grid key={data._id} item xs={12} role={employeesList}>

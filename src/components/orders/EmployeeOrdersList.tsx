@@ -2,7 +2,6 @@ import { Link, useNavigate } from "react-router-dom";
 
 import Grid from "@mui/material/Grid";
 import Paper from "@mui/material/Paper";
-import SearchIcon from '@mui/icons-material/Search';
 
 import classes from "../../style/List.module.css";
 import { EmployeeOrdersResData, OrderType } from "../../interfaces/Order";
@@ -10,7 +9,7 @@ import { employeeOrdersList } from "../../utils/TestsRoles";
 import { useEffect, useState } from "react";
 import { Pagination, Stack } from "@mui/material";
 import capitalizeFirst from "../../utils/CapitalizeFirst";
-import { Search, SearchIconWrapper, StyledInputBase } from "../../style/Search";
+import SearchBar from "../searchBar/Search";
 
 const EmployeeOrdersList = ({ orders, pagination }: EmployeeOrdersResData) => {
   const navigate = useNavigate();
@@ -31,16 +30,8 @@ const EmployeeOrdersList = ({ orders, pagination }: EmployeeOrdersResData) => {
   return (
     <div className={classes.orders}>
       <h1>All orders</h1>
-      <header>
-        <Search>
-          <SearchIconWrapper>
-            <SearchIcon />
-          </SearchIconWrapper>
-          <StyledInputBase
-            placeholder="Search…"
-            inputProps={{ "aria-label": "search" }}
-          />
-        </Search>
+      <header className={classes.header}>
+        <SearchBar />
       </header>
       {orders.map((data: OrderType) => (
         <Grid key={data._id} item xs={12} role={employeeOrdersList}>

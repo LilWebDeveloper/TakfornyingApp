@@ -9,7 +9,7 @@ import { OrdersResData, OrderType } from "../../interfaces/Order";
 import { ordersList } from "../../utils/TestsRoles";
 import { Pagination, Stack } from "@mui/material";
 import capitalizeFirst from "../../utils/CapitalizeFirst";
-import SearchBar from "../searchBar/Search";
+import SearchBar from "../searchBar/SearchBar";
 
 const OrdersList = ({ orders, pagination }: OrdersResData) => {
   const navigate = useNavigate();

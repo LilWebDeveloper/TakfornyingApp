@@ -9,7 +9,7 @@ import classes from "../../style/List.module.css";
 import { employeesList } from "../../utils/TestsRoles";
 import { Pagination, Stack } from "@mui/material";
 import capitalizeFirst from "../../utils/CapitalizeFirst";
-import SearchBar from "../searchBar/Search";
+import SearchBar from "../searchBar/SearchBar";
 
 const EmployeesList = ({ employees, pagination }: EmployeesResData) => {
   const navigate = useNavigate();

@@ -9,7 +9,7 @@ import { employeeOrdersList } from "../../utils/TestsRoles";
 import { useEffect, useState } from "react";
 import { Pagination, Stack } from "@mui/material";
 import capitalizeFirst from "../../utils/CapitalizeFirst";
-import SearchBar from "../searchBar/SearchBar";
+import SearchBar from "../searchBar/EmployeeSearchBar";
 
 const EmployeeOrdersList = ({ orders, pagination }: EmployeeOrdersResData) => {
   const navigate = useNavigate();

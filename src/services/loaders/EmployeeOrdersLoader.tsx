@@ -2,7 +2,7 @@ import { getAuthToken } from "../../utils/auth";
 import { EmployeeOrdersResData } from "../../interfaces/Order";
 import { json } from "react-router-dom";
 
-export default async function EmployeeOrdersLoader({ request }: any) {
+export default async function EmployeeOrdersLoader({ request }: { request: Request }) {
   const searchParams = new URL(request.url).searchParams;
   const p = searchParams.get("p");
   const token = getAuthToken();

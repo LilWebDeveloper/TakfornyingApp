@@ -1,6 +1,10 @@
 import { useEffect, useState } from "react";
 
-export default function useDebounce(value: any, timeout: any, callback: any) {
+export default function useDebounce(
+  value: string,
+  timeout: number,
+  callback: () => void
+) {
   const [timer, setTimer] = useState<ReturnType<typeof setTimeout> | null>(
     null
   );
@@ -18,5 +22,6 @@ export default function useDebounce(value: any, timeout: any, callback: any) {
       const newTimer = setTimeout(callback, timeout);
       setTimer(newTimer);
     }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [value]);
 }

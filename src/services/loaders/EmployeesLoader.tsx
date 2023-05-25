@@ -2,7 +2,7 @@ import { json } from "react-router-dom";
 import { EmployeesResData } from "../../interfaces/Employee";
 import { getAuthToken } from "../../utils/auth";
 
-export default async function EmployeesLoader({ request }: any) {
+export default async function EmployeesLoader({ request }: { request: Request }) {
   const searchParams = new URL(request.url).searchParams;
   const p = searchParams.get('p')
   const token = getAuthToken();

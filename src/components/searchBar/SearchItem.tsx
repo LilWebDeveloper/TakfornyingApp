@@ -18,7 +18,7 @@ const Name = styled("div")(() => ({
   display: "flex",
 }));
 
-export default function SearchItem(props: any) {
+export default function SearchItem(props: { name: string}) {
   const { name } = props;
 
   return (

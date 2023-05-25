@@ -15,6 +15,9 @@ import CircularProgress from "@mui/material/CircularProgress";
 import useDebounce from "../../utils/debounceHook";
 import axios from "axios";
 import SearchItem from "./SearchItem";
+import { getAuthToken } from "../../utils/auth";
+import { Link } from "react-router-dom";
+import { EmployeeType } from "../../interfaces/Employee";
 
 const SearchBar = () => {
   const [isExpanded, setExpanded] = useState(false);
@@ -26,11 +29,7 @@ const SearchBar = () => {
 
   const isEmpty = !items || items.length === 0;
 
-  interface CustomResponse extends Response {
-    data: any;
-  }
-
-  const changeHandler = (e: any) => {
+  const changeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
     e.preventDefault();
     setSearchQuery(e.target.value);
   };
@@ -50,8 +49,9 @@ const SearchBar = () => {
     if (isClickedOutside) collapseContainer();
   }, [isClickedOutside]);
 
-  const prepareSearchQuery = (query: any) => {
-    const url = `https://api.tvmaze.com/search/shows?q=${query}`;
+  const prepareSearchQuery = (query: string) => {
+    const url = `${process.env
+      .REACT_APP_FETCH_ADDRESS!}/employees/find?w=${query}`;
 
     return encodeURI(url);
   };
@@ -65,12 +65,22 @@ const SearchBar = () => {
 
     const URL = prepareSearchQuery(searchQuery);
 
-    const response = await axios.get(URL).catch((err) => {
-      console.log("Error: ", err);
-    });
+    const token = getAuthToken();
+
+    const response = await axios
+      .get(URL, {
+        headers: {
+          Authorization: "Bearer " + token,
+        },
+      })
+      .catch((err) => {
+        console.log({
+          message: "Could not fetch employee orders.",
+          status: 500,
+        });
+      });
 
     if (response) {
-      console.log("Response: ", response.data);
       setItems(response.data);
     }
 
@@ -79,7 +89,7 @@ const SearchBar = () => {
 
   useDebounce(searchQuery, 500, searchData);
 
-  console.log("value ", searchQuery);
+  console.log(items);
 
   return (
     <>
@@ -113,8 +123,16 @@ const SearchBar = () => {
               )}
               {!isLoadding && !isEmpty && (
                 <>
-                  {items.map((item: any) => (
-                    <SearchItem key={item.show.id} name={item.show.name} />
+                  {items.map((item: EmployeeType) => (
+                    <Link
+                      key={item._id}
+                      to={`/dashboard/employees/${item._id}?p=1`}
+                      onClick={collapseContainer}
+                    >
+                      <SearchItem
+                        name={item.firstName + " " + item.secondName}
+                      />
+                    </Link>
                   ))}
                 </>
               )}

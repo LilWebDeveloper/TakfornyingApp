@@ -89,8 +89,6 @@ const SearchBar = () => {
 
   useDebounce(searchQuery, 500, searchData);
 
-  console.log(items);
-
   return (
     <>
       <Search

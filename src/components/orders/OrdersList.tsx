@@ -9,7 +9,8 @@ import { OrdersResData, OrderType } from "../../interfaces/Order";
 import { ordersList } from "../../utils/TestsRoles";
 import { Pagination, Stack } from "@mui/material";
 import capitalizeFirst from "../../utils/CapitalizeFirst";
-import SearchBar from "../searchBar/EmployeeSearchBar";
+import OrdersSearchBar from "../searchBar/OrdersSearchBar";
+
 
 const OrdersList = ({ orders, pagination }: OrdersResData) => {
   const navigate = useNavigate();
@@ -31,7 +32,7 @@ const OrdersList = ({ orders, pagination }: OrdersResData) => {
     <div className={classes.orders}>
       <h1>All orders</h1>
       <header className={classes.header}>
-        <SearchBar />
+        <OrdersSearchBar />
       </header>
       {orders.map((data: OrderType) => (
         <Grid key={data._id} item xs={12} role={ordersList}>

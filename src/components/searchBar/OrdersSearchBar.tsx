@@ -16,10 +16,9 @@ import useDebounce from "../../utils/debounceHook";
 import axios from "axios";
 import SearchItem from "./SearchItem";
 import { getAuthToken } from "../../utils/auth";
-import { Link } from "react-router-dom";
 import { EmployeeType } from "../../interfaces/Employee";
 
-const EmployeeSearchBar = () => {
+const OrdersSearchBar = () => {
   const [isExpanded, setExpanded] = useState(false);
   const [clickOutsideRef, isClickedOutside] = useClickOutside();
   const inputRef = useRef<HTMLInputElement>(null);
@@ -122,15 +121,10 @@ const EmployeeSearchBar = () => {
               {!isLoadding && !isEmpty && (
                 <>
                   {items.map((item: EmployeeType) => (
-                    <Link
-                      key={item._id}
-                      to={`/dashboard/employees/${item._id}?p=1`}
-                      onClick={collapseContainer}
-                    >
                       <SearchItem
+                        key={item._id}
                         name={item.firstName + " " + item.secondName}
                       />
-                    </Link>
                   ))}
                 </>
               )}
@@ -142,4 +136,4 @@ const EmployeeSearchBar = () => {
   );
 };
 
-export default EmployeeSearchBar;
+export default OrdersSearchBar;

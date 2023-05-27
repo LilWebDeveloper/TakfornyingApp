@@ -9,7 +9,7 @@ import classes from "../../style/List.module.css";
 import { employeesList } from "../../utils/TestsRoles";
 import { Pagination, Stack } from "@mui/material";
 import capitalizeFirst from "../../utils/CapitalizeFirst";
-import SearchBar from "../searchBar/EmployeeSearchBar";
+import EmployeeSearchBar from "../searchBar/EmployeeSearchBar";
 
 const EmployeesList = ({ employees, pagination }: EmployeesResData) => {
   const navigate = useNavigate();
@@ -31,7 +31,7 @@ const EmployeesList = ({ employees, pagination }: EmployeesResData) => {
     <div className={classes.orders}>
       <h1>All Employees</h1>
       <header className={classes.header}>
-        <SearchBar />
+        <EmployeeSearchBar />
       </header>
       {employees.map((data: EmployeeType) => (
         <Grid key={data._id} item xs={12} role={employeesList}>

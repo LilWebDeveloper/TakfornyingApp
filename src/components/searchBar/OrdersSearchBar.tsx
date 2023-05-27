@@ -18,7 +18,7 @@ import SearchItem from "./SearchItem";
 import { getAuthToken } from "../../utils/auth";
 import { EmployeeType } from "../../interfaces/Employee";
 
-const OrdersSearchBar = () => {
+const OrdersSearchBar = ({ search }: any) => {
   const [isExpanded, setExpanded] = useState(false);
   const [clickOutsideRef, isClickedOutside] = useClickOutside();
   const inputRef = useRef<HTMLInputElement>(null);
@@ -121,10 +121,11 @@ const OrdersSearchBar = () => {
               {!isLoadding && !isEmpty && (
                 <>
                   {items.map((item: EmployeeType) => (
+                    <div key={item._id} onClick={event => search(item._id)}>
                       <SearchItem
-                        key={item._id}
                         name={item.firstName + " " + item.secondName}
                       />
+                    </div>
                   ))}
                 </>
               )}

@@ -10,31 +10,72 @@ import { ordersList } from "../../utils/TestsRoles";
 import { Pagination, Stack } from "@mui/material";
 import capitalizeFirst from "../../utils/CapitalizeFirst";
 import OrdersSearchBar from "../searchBar/OrdersSearchBar";
-
+import axios from "axios";
+import { getAuthToken } from "../../utils/auth";
+import useDebounce from "../../utils/debounceHook";
 
 const OrdersList = ({ orders, pagination }: OrdersResData) => {
   const navigate = useNavigate();
   const [page, setPage] = useState(1);
   const [pageCount, setPageCount] = useState(0);
-
-  useEffect(() => {
-    if (pagination) {
-      setPageCount(+pagination.pageCount);
-    }
-  }, [pagination]);
+  const [ordersData, setOrdersData] = useState([]);
+  const [employeeId, setEmployeeId] = useState("");
+  const [employeeOrders, setEmployeeOrders] = useState([]);
 
   const handleChange = (event: React.ChangeEvent<unknown>, value: number) => {
     setPage(value);
     navigate(`?p=${value}`);
   };
 
+  const search = (employeeId: string) => {
+    setEmployeeId(employeeId);
+  };
+
+  const searchData = async () => {
+    const token = getAuthToken();
+
+    const response = await axios
+      .get(
+        `${process.env.REACT_APP_FETCH_ADDRESS!}/orders/all?empId=${employeeId}`,
+        {
+          headers: {
+            Authorization: "Bearer " + token,
+          },
+        }
+      )
+      .catch((err) => {
+        console.log({
+          message: "Could not fetch employee orders.",
+          status: 500,
+        });
+      });
+
+    if (response) {
+      setOrdersData(response.data);
+    }
+  };
+
+  useDebounce(employeeId, 500, searchData)
+
+  useEffect(() => {
+    if (orders) {
+      setOrdersData(orders as never[]);
+    }
+
+    if (pagination) {
+      setPageCount(+pagination.pageCount);
+    }
+  }, [pagination, orders]);
+
+  console.log(ordersData);
+
   return (
     <div className={classes.orders}>
       <h1>All orders</h1>
       <header className={classes.header}>
-        <OrdersSearchBar />
+        <OrdersSearchBar search={search} />
       </header>
-      {orders.map((data: OrderType) => (
+      {ordersData.map((data: OrderType) => (
         <Grid key={data._id} item xs={12} role={ordersList}>
           <Paper
             className={classes.paper}

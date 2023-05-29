@@ -9,7 +9,6 @@ import { employeeOrdersList } from "../../utils/TestsRoles";
 import { useEffect, useState } from "react";
 import { Pagination, Stack } from "@mui/material";
 import capitalizeFirst from "../../utils/CapitalizeFirst";
-import SearchBar from "../searchBar/EmployeeSearchBar";
 
 const EmployeeOrdersList = ({ orders, pagination }: EmployeeOrdersResData) => {
   const navigate = useNavigate();
@@ -30,9 +29,6 @@ const EmployeeOrdersList = ({ orders, pagination }: EmployeeOrdersResData) => {
   return (
     <div className={classes.orders}>
       <h1>All orders</h1>
-      <header className={classes.header}>
-        <SearchBar />
-      </header>
       {orders.map((data: OrderType) => (
         <Grid key={data._id} item xs={12} role={employeeOrdersList}>
           <Paper

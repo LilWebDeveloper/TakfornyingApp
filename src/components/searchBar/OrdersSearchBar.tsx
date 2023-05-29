@@ -17,6 +17,7 @@ import axios from "axios";
 import SearchItem from "./SearchItem";
 import { getAuthToken } from "../../utils/auth";
 import { EmployeeType } from "../../interfaces/Employee";
+import { Link } from "react-router-dom";
 
 const OrdersSearchBar = ({ search }: any) => {
   const [isExpanded, setExpanded] = useState(false);
@@ -121,11 +122,11 @@ const OrdersSearchBar = ({ search }: any) => {
               {!isLoadding && !isEmpty && (
                 <>
                   {items.map((item: EmployeeType) => (
-                    <div key={item._id} onClick={event => search(item._id)}>
+                    <Link to={`?p=1&empId=${item._id}`} key={item._id} onClick={event => search(item._id)}>
                       <SearchItem
                         name={item.firstName + " " + item.secondName}
                       />
-                    </div>
+                    </Link>
                   ))}
                 </>
               )}

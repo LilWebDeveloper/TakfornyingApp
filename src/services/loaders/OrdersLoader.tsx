@@ -6,8 +6,13 @@ export default async function OrdersLoader({ request }: { request: Request }) {
   const token = getAuthToken();
   const searchParams = new URL(request.url).searchParams;
   const p = searchParams.get('p')
+  const empId = searchParams.get('empId')
+  let url = `${process.env.REACT_APP_FETCH_ADDRESS!}/orders?p=${p}`
+  if(empId){
+    url = `${process.env.REACT_APP_FETCH_ADDRESS!}/orders?p=${p}&empId=${empId}`
+  }
   const response = await fetch(
-    `${process.env.REACT_APP_FETCH_ADDRESS!}/orders?p=${p}`,
+    url,
     {
       headers: {
         Authorization: "Bearer " + token,

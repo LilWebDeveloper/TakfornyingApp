@@ -13,6 +13,7 @@ Takfornying - Management Web Application is a simple management application that
 ## Technologies Used
 * Front-end: HTML, CSS, JavaScript, React, Redux
 * Back-end: JavasSript, Node.js, Express.js
+* Back-end Reposietorie: https://github.com/LilWebDeveloper/Backend-TakfornyingApp
 * Database: MongoDB
 * Authentication and Authorization: JSON Web Tokens
 

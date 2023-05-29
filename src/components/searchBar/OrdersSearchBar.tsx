@@ -19,7 +19,7 @@ import { getAuthToken } from "../../utils/auth";
 import { EmployeeType } from "../../interfaces/Employee";
 import { Link } from "react-router-dom";
 
-const OrdersSearchBar = ({ search }: any) => {
+const OrdersSearchBar = ({ search, page }: any) => {
   const [isExpanded, setExpanded] = useState(false);
   const [clickOutsideRef, isClickedOutside] = useClickOutside();
   const inputRef = useRef<HTMLInputElement>(null);

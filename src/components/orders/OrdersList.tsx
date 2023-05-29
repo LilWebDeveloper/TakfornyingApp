@@ -19,9 +19,7 @@ const OrdersList = ({ orders, pagination }: OrdersResData) => {
 
   const handleChange = (event: React.ChangeEvent<unknown>, value: number) => {
     setPage(value);
-    if (employeeId) {
-      navigate(`?p=${value}&empId=${employeeId}`);
-    } else navigate(`?p=${value}&empId=${employeeId}`);
+    navigate(`?p=${value}&empId=${employeeId}`);
   };
 
   const search = (employeeId: string) => {
@@ -35,12 +33,16 @@ const OrdersList = ({ orders, pagination }: OrdersResData) => {
     }
   }, [pagination]);
 
+  const pageZero = () =>{
+    setEmployeeId('')
+    setPage(1)
+  }
 
   return (
     <div className={classes.orders}>
       <h1>All orders</h1>
       <header className={classes.header}>
-        <OrdersSearchBar search={search} />
+        <OrdersSearchBar search={search} page={page}/>
       </header>
       {orders.map((data: OrderType) => (
         <Grid key={data._id} item xs={12} role={ordersList}>
@@ -50,6 +52,7 @@ const OrdersList = ({ orders, pagination }: OrdersResData) => {
           >
             <Link
               to={`/dashboard/orders/${data._id}?p=1`}
+              onClick={pageZero}
             >
               <div className={classes.content}>
                 <h2>{capitalizeFirst(data.address)}</h2>

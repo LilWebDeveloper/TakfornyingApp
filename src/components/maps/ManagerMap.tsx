@@ -31,7 +31,10 @@ const ManagerMap = (allAddresses: AllAddressesMap) => {
             setSelectedMarker(undefined)
           }}
         >
-          <h1>{capitalizeFirst(selectedMarker.address)}</h1>
+          <>
+          <h1>{capitalizeFirst("Worker: " + selectedMarker.worker.firstName)}</h1>
+          <h2>{capitalizeFirst("Address: " + selectedMarker.address)}</h2>
+          </>
         </InfoWindowF>
       )}
     </GoogleMap>

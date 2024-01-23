@@ -39,7 +39,7 @@ const EmployeesList = ({ employees, pagination }: EmployeesResData) => {
             className={classes.paper}
             sx={{ m: 2, p: 2, display: "flex", flexDirection: "column" }}
           >
-            <Link to={`/dashboard/employees/${data._id}?p=${page}`}>
+            <Link to={`/dashboard/employees/${data._id}?p=1`}>
               <div className={classes.content}>
                 <h2>
                   {capitalizeFirst(data.firstName)} {capitalizeFirst(data.secondName)}

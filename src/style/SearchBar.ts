@@ -13,7 +13,7 @@ export const Search = styled(motion.div)(({ theme }) => ({
   },
   marginRight: theme.spacing(2),
   marginLeft: "5%",
-  width: "26em",
+  width: "20em",
   [theme.breakpoints.up("sm")]: {
     marginLeft: theme.spacing(3),
     width: "26em",
